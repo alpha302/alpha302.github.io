@@ -156,6 +156,11 @@ body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
+  background: url("/images/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 @media (max-width: 991px) {
   body {
@@ -1703,7 +1708,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffeeb0;
+  background: #ff7013;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
