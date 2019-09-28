@@ -876,6 +876,12 @@ pre .javascript .function {
 .post-body .note.danger h6 {
   color: #d9534f;
 }
+.pdfobject-container {
+  height: 500px;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
 .btn {
   background: #fff;
   border: 2px solid #555;
@@ -1171,6 +1177,30 @@ pre .javascript .function {
 }
 .use-motion .menu-item {
   opacity: 0;
+}
+.book-mark-link {
+  border-bottom: none;
+  display: inline-block;
+  position: fixed;
+  right: 30px;
+  top: -10px;
+  transition: 0.3s;
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    display: none;
+  }
+}
+.book-mark-link::before {
+  color: #222;
+  content: '\f02e';
+  font-family: 'FontAwesome';
+  font-size: 32px;
+  line-height: 1;
+}
+.book-mark-link:hover,
+.book-mark-link-fixed {
+  top: -2px;
 }
 .post-body {
   overflow-wrap: break-word;
@@ -1722,7 +1752,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #066ccc;
+  background: #ff8aa2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
