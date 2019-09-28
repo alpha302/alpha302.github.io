@@ -151,16 +151,16 @@ template {
   color: #fff;
 }
 body {
-  background: #f5f7f9;
+  position: relative;
+  background: url("/images/background.png");
   color: #555;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
   line-height: 2;
-  background: url("/images/background.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: 50% 50%;
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 @media (max-width: 991px) {
   body {
@@ -1665,11 +1665,15 @@ article:last-child .post-eof {
   height: 30px;
 }
 .post-copyright {
-  background-color: #f9f9f9;
-  border-left: 3px solid #ff1700;
-  list-style: none;
-  margin: 2em 0 0;
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
   padding: 0.5em 1em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
 }
 .sidebar {
   background: #222;
@@ -1752,7 +1756,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff8aa2;
+  background: #86db25;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2405,7 +2409,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .header-inner {
-  background: #fff;
+  background: rgba(255,255,255,0.5);
   border-radius: initial;
   box-shadow: initial;
   overflow: hidden;
@@ -2444,7 +2448,7 @@ ul.breadcrumb li + li:last-child {
   box-sizing: border-box;
   padding: 40px;
   width: calc(100% - 252px);
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.7);
   min-height: 700px;
   box-shadow: initial;
   border-radius: 16px;
@@ -2465,11 +2469,12 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .sidebar {
-  background: #f5f7f9;
+  background: rgba(255,255,255,0.5);
   box-shadow: none;
   float: left;
   position: static;
   width: 240px;
+  border-radius: 16px;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2565,19 +2570,6 @@ ul.breadcrumb li + li:last-child {
   background: #f9f9f9;
   border-bottom-color: #fff;
 }
-.menu-item-active a::after,
-.menu .menu-item a:hover::after,
-.menu .menu-item span.exturl:hover::after {
-  background-color: #bbb;
-  border-radius: 50%;
-  content: ' ';
-  height: 6px;
-  margin-top: -3px;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  width: 6px;
-}
 .menu .menu-item {
   display: block;
   margin: 0;
@@ -2649,9 +2641,6 @@ ul.breadcrumb li + li:last-child {
   background: #fff;
   border-bottom-color: #fc6423;
 }
-.sub-menu .menu-item-active a::after {
-  content: initial;
-}
 .sidebar {
   bottom: auto;
   right: auto;
@@ -2669,7 +2658,7 @@ ul.breadcrumb li + li:last-child {
   box-sizing: border-box;
   width: 240px;
   color: #555;
-  background: #fff;
+  background: rgba(255,255,255,0.5);
   box-shadow: initial;
   border-radius: 16px;
   opacity: 0;
@@ -2690,7 +2679,7 @@ ul.breadcrumb li + li:last-child {
   clear: both;
 }
 .site-state-item {
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 .feed-link,
 .chat {
