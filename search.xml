@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[aaa]]></title>
-    <url>%2F2019%2F09%2F29%2Faaa%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[XML和XXE基础]]></title>
+    <url>%2F2019%2F09%2F29%2FXML%E5%92%8CXXE%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[1.XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。2.XML语法2.1 所有XML都必须要有关闭标签。1&lt;note&gt; this&apos;s note example &lt;note&gt; 2.2 所有XML的标签对大小写敏感XML 标签对大小写敏感。在 XML 中，标签 与标签 是不同的。必须使用相同的大小写来编写打开标签和关闭标签 123&lt;Message&gt;这是错误的。&lt;/message&gt;&lt;message&gt;这是正确的。&lt;/message&gt; 2.3 XML的属性值必须加引号1234567&lt;!-- wrong example --&gt;&lt;note data=8/2/16/&gt; &lt;/note&gt;&lt;!-- right example --&gt;&lt;note data=&quot;08/02/16&quot;&gt; &lt;/note&gt; 2.4 在 XML 中， 5个实体引用来代替符号： 实体引用 符号 中文解释 &it; ＜ 小于号 &gt; ＞ 大于号 &amp; &amp; 和号 &apos; ‘ 单引号 &quot; “ 双引号 3.XML结构- XML文档结构包括DTD文档类型定义和文档元素信息。1234567&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt; #第一行是 XML 声明 &lt;note&gt; #第二行根元素&lt;note&gt;&lt;to&gt;George&lt;/to&gt; #3-6描述根的4个子元素（to,from,heading以及body）&lt;from&gt;John&lt;/from&gt; &lt;heading&gt;Reminder&lt;/heading&gt;&lt;body&gt;Don&apos;t forget the meeting!&lt;/body&gt; &lt;/note&gt; #最后闭合根元素&lt;note&gt;结束 XML DTD DTD全称是The document type definition，即是文档类型定义，可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。 假如 DTD 被包含在您的 XML 源文件中，它应当通过下面的语法包装在一个 DOCTYPE 声明中： 1234567891011121314&lt;?xml version=&quot;1.0&quot;?&gt;&lt;!DOCTYPE note [&lt;!ELEMENT note (to,from,heading,body)&gt;&lt;!ELEMENT to (#PCDATA)&gt;&lt;!ELEMENT from (#PCDATA)&gt;&lt;!ELEMENT heading (#PCDATA)&gt;&lt;!ELEMENT body (#PCDATA)&gt;]&gt;&lt;note&gt;&lt;to&gt;Tove&lt;/to&gt;&lt;from&gt;Jani&lt;/from&gt;&lt;heading&gt;Reminder&lt;/heading&gt;&lt;body&gt;Don&apos;t forget me this weekend&lt;/body&gt;&lt;/note&gt; DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中 1234567891011121314151617&lt;?xml version=&quot;1.0&quot;?&gt;&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;&lt;note&gt; &lt;to&gt;Tove&lt;/to&gt; &lt;from&gt;Jani&lt;/from&gt; &lt;heading&gt;Reminder&lt;/heading&gt; &lt;body&gt;Don&apos;t forget me this weekend!&lt;/body&gt;&lt;/note&gt;这是包含 DTD 的 &quot;note.dtd&quot; 文件：&lt;!-- note.dtd &lt;!ELEMENT note (to,from,heading,body)&gt;&lt;!ELEMENT to (#PCDATA)&gt;&lt;!ELEMENT from (#PCDATA)&gt;&lt;!ELEMENT heading (#PCDATA)&gt;&lt;!ELEMENT body (#PCDATA)&gt;--&gt; 4. DTD中的实体实体是用于定义引用普通文本或特殊字符的快捷方式的变量。 实体引用是对实体的引用。 实体可在内部或外部进行声明。 4.1 内部实体声明12345678DTD 实例:&lt;!ENTITY writer &quot;Donald Duck.&quot;&gt;&lt;!ENTITY copyright &quot;Copyright runoob.com&quot;&gt;XML 实例：&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt; 4.2 外部实体声明12345678DTD 实例:&lt;!ENTITY writer SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;&lt;!ENTITY copyright SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;XML example:&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;]]></content>
+      <categories>
+        <category>CTFweb</category>
+      </categories>
+      <tags>
+        <tag>CTFweb,OWASP</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Cobaltstrike]]></title>
     <url>%2F2019%2F09%2F27%2FCobaltstrike%2F</url>
     <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F09%2F24%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
