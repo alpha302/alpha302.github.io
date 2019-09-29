@@ -316,7 +316,7 @@
                 
               
 
-              <time title="创建时间：2019-09-29 10:54:40 / 修改时间：14:30:24" itemprop="dateCreated datePublished" datetime="2019-09-29T10:54:40+08:00">2019-09-29</time>
+              <time title="创建时间：2019-09-29 10:54:40 / 修改时间：14:49:51" itemprop="dateCreated datePublished" datetime="2019-09-29T10:54:40+08:00">2019-09-29</time>
             </span>
           
             
@@ -374,67 +374,7 @@
 <li>HTML 被设计用来显示数据。<h1 id="2-XML语法"><a href="#2-XML语法" class="headerlink" title="2.XML语法"></a>2.XML语法</h1><h2 id="2-1-所有XML都必须要有关闭标签。"><a href="#2-1-所有XML都必须要有关闭标签。" class="headerlink" title="2.1 所有XML都必须要有关闭标签。"></a>2.1 所有XML都必须要有关闭标签。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;note&gt; this&apos;s note example &lt;note&gt;</span><br></pre></td></tr></table></figure>
 
 </li>
-</ul>
-<h2 id="2-2-所有XML的标签对大小写敏感"><a href="#2-2-所有XML的标签对大小写敏感" class="headerlink" title="2.2 所有XML的标签对大小写敏感"></a>2.2 所有XML的标签对大小写敏感</h2><p>XML 标签对大小写敏感。在 XML 中，标签 <letter> 与标签 <letter> 是不同的。<br>必须使用相同的大小写来编写打开标签和关闭标签</letter></letter></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Message&gt;这是错误的。&lt;/message&gt;</span><br><span class="line"></span><br><span class="line">&lt;message&gt;这是正确的。&lt;/message&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-XML的属性值必须加引号"><a href="#2-3-XML的属性值必须加引号" class="headerlink" title="2.3 XML的属性值必须加引号"></a>2.3 XML的属性值必须加引号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- wrong example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=8/2/16/&gt; &lt;/note&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- right example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=&quot;08/02/16&quot;&gt; &lt;/note&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-在-XML-中，-5个实体引用来代替符号："><a href="#2-4-在-XML-中，-5个实体引用来代替符号：" class="headerlink" title="2.4 在 XML 中， 5个实体引用来代替符号："></a>2.4 在 XML 中， 5个实体引用来代替符号：</h2><table>
-<thead>
-<tr>
-<th>实体引用</th>
-<th>符号</th>
-<th>中文解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&it;</td>
-<td>＜</td>
-<td>小于号</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>＞</td>
-<td>大于号</td>
-</tr>
-<tr>
-<td>&amp;</td>
-<td>&amp;</td>
-<td>和号</td>
-</tr>
-<tr>
-<td>&apos;</td>
-<td>‘</td>
-<td>单引号</td>
-</tr>
-<tr>
-<td>&quot;</td>
-<td>“</td>
-<td>双引号</td>
-</tr>
-</tbody></table>
-<h1 id="3-XML结构"><a href="#3-XML结构" class="headerlink" title="3.XML结构"></a>3.XML结构</h1><pre><code>- XML文档结构包括DTD文档类型定义和文档元素信息。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;     #第一行是 XML 声明   </span><br><span class="line">&lt;note&gt;                                          #第二行根元素&lt;note&gt;</span><br><span class="line">&lt;to&gt;George&lt;/to&gt;                                 #3-6描述根的4个子元素（to,from,heading以及body）</span><br><span class="line">&lt;from&gt;John&lt;/from&gt;                   </span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget the meeting!&lt;/body&gt;      </span><br><span class="line">&lt;/note&gt;                                         #最后闭合根元素&lt;note&gt;结束</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>XML DTD</p>
-<p>  DTD全称是The document type definition，即是文档类型定义，可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</p>
-</li>
-</ul>
-<p>假如 DTD 被包含在您的 XML 源文件中，它应当通过下面的语法包装在一个 DOCTYPE 声明中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE note [</span><br><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">&lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">&lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget me this weekend&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br></pre></td></tr></table></figure>
-
-<p>DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">  &lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">  &lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">  &lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">  &lt;body&gt;Don&apos;t forget me this weekend!&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br><span class="line"></span><br><span class="line">这是包含 DTD 的 &quot;note.dtd&quot; 文件：</span><br><span class="line">&lt;!-- note.dtd </span><br><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-DTD中的实体"><a href="#4-DTD中的实体" class="headerlink" title="4. DTD中的实体"></a>4. DTD中的实体</h1><p>实体是用于定义引用普通文本或特殊字符的快捷方式的变量。</p>
-<ul>
-<li>实体引用是对实体的引用。</li>
-<li>实体可在内部或外部进行声明。</li>
-</ul>
-<h2 id="4-1-内部实体声明"><a href="#4-1-内部实体声明" class="headerlink" title="4.1 内部实体声明"></a>4.1 内部实体声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer &quot;Donald Duck.&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright &quot;Copyright runoob.com&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-2-外部实体声明"><a href="#4-2-外部实体声明" class="headerlink" title="4.2 外部实体声明"></a>4.2 外部实体声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
+</ul><h2 id="2-2-所有XML的标签对大小写敏感"><a href="#2-2-所有XML的标签对大小写敏感" class="headerlink" title="2.2 所有XML的标签对大小写敏感"></a>2.2 所有XML的标签对大小写敏感</h2><p>XML 标签对大小写敏感。在 XML 中，标签 <letter> 与标签 <letter> 是不同的。<br>必须使用相同的大小写来编写打开标签和关闭标签</letter></letter></p>
           <!--noindex-->
           
             <div class="post-button text-center">
