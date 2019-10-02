@@ -47,7 +47,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -58,18 +58,18 @@
 </script>
 
 
-  <meta name="description" content="JavaScript 3D library for NexTInstallationIf you want to use the CDN instead of clone this repo, please jump to the Step 3.Step 1 &amp;rarr; Go to NexT dir">
+  <meta name="description" content="JavaScript 3D library for NexT  Installation  If you want to use the CDN instead of clone this repo, please jump to the Step 3.  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must">
 <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Alpha的小站">
 <meta property="og:url" content="https://alpha302.github.io/lib/three/README.html">
 <meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="JavaScript 3D library for NexTInstallationIf you want to use the CDN instead of clone this repo, please jump to the Step 3.Step 1 &amp;rarr; Go to NexT dir">
+<meta property="og:description" content="JavaScript 3D library for NexT  Installation  If you want to use the CDN instead of clone this repo, please jump to the Step 3.  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T16:27:58.712Z">
+<meta property="og:updated_time" content="2019-09-25T16:28:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alpha的小站">
-<meta name="twitter:description" content="JavaScript 3D library for NexTInstallationIf you want to use the CDN instead of clone this repo, please jump to the Step 3.Step 1 &amp;rarr; Go to NexT dir">
+<meta name="twitter:description" content="JavaScript 3D library for NexT  Installation  If you want to use the CDN instead of clone this repo, please jump to the Step 3.  Step 1 &amp;rarr; Go to NexT dir  Change dir to NexT directory. There must">
   <link rel="canonical" href="https://alpha302.github.io/lib/three/README">
 
 
@@ -121,7 +121,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -359,13 +359,13 @@
       
       <div class="post-body">
         
-          <h1 align="center"><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">JavaScript 3D library</a> for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a></h1><h1 align="center">Installation</h1><h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2><h2 align="center">Step 1 &rarr; Go to NexT dir</h2><a id="more"></a>
+          <h1 align="center"><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">JavaScript 3D library</a> for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a></h1>
 
+<h1 align="center">Installation</h1>
 
+<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
 
-
-
-
+<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
 
 <p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">bower.json  _config.yml  docs  gulpfile.coffee  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span>  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
@@ -503,18 +503,26 @@
       
       <div class="site-state-item site-state-categories">
         
+          
+            <a href="/categories/">
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span>
-        
+        </a>
       </div>
     
       
       
       <div class="site-state-item site-state-tags">
         
+          
+            <a href="/tags/">
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span>
-        
+        </a>
       </div>
     
   </nav>
@@ -681,11 +689,9 @@ show_date_time();
   
   <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/utils.js?v=7.4.0"></script>
 <script src="/js/schemes/pisces.js?v=7.4.0"></script>
 <script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
 

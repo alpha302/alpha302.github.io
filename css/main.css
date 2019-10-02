@@ -1745,7 +1745,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff58c8;
+  background: #1ff906;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2437,7 +2437,7 @@ ul.breadcrumb li + li:last-child {
   box-sizing: border-box;
   padding: 40px;
   width: calc(100% - 252px);
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.5);
   min-height: 700px;
   box-shadow: initial;
   border-radius: 16px;
@@ -2650,7 +2650,6 @@ ul.breadcrumb li + li:last-child {
   background: rgba(255,255,255,0.5);
   box-shadow: initial;
   border-radius: 16px;
-  opacity: 0;
 }
 .sidebar-inner.affix {
   position: fixed;

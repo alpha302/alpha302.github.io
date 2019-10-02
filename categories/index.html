@@ -47,7 +47,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -60,13 +60,13 @@
 
   <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
+<meta property="og:title" content="分类">
 <meta property="og:url" content="https://alpha302.github.io/categories/index.html">
 <meta property="og:site_name" content="Alpha的小站">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-25T15:56:55.766Z">
+<meta property="og:updated_time" content="2019-10-02T06:05:46.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="分类">
   <link rel="canonical" href="https://alpha302.github.io/categories/">
 
 
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>categories | Alpha的小站</title>
+  <title>分类 | Alpha的小站</title>
   
 
 
@@ -118,7 +118,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,7 +302,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">categories
+<h1 class="post-title" itemprop="name headline">分类
 
 </h1>
 
@@ -318,7 +318,14 @@
       
       <div class="post-body">
         
-          
+          <div class="category-all-page">
+            <div class="category-all-title">
+              目前共计 1 个分类
+            </div>
+            <div class="category-all">
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/owasp/">owasp</a><span class="category-list-count">1</span></li></ul>
+            </div>
+          </div>
         
       </div>
       
@@ -335,9 +342,6 @@
 
           </div>
           
-    
-    <div class="comments" id="gitalk-container"></div>
-  
 
         </div>
           
@@ -394,18 +398,26 @@
       
       <div class="site-state-item site-state-categories">
         
+          
+            <a href="/categories/">
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span>
-        
+        </a>
       </div>
     
       
       
       <div class="site-state-item site-state-tags">
         
+          
+            <a href="/tags/">
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span>
-        
+        </a>
       </div>
     
   </nav>
@@ -572,11 +584,9 @@ show_date_time();
   
   <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/utils.js?v=7.4.0"></script>
 <script src="/js/schemes/pisces.js?v=7.4.0"></script>
 <script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
 
@@ -643,24 +653,6 @@ if (document.querySelectorAll('div.pdf').length) {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '8e9b57374bfb1c8b65d9',
-      clientSecret: 'e9cd649a94d01903c4c3da6b2992f49145514ac8',
-      repo: 'gitment-comments',
-      owner: 'alpha302',
-      admin: ['alpha302'],
-      id: 'a676607444a8bc8b150c9a3aff884e61',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
 
 </body>
 </html>

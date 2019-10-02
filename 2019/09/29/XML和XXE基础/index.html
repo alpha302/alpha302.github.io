@@ -47,7 +47,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -58,18 +58,18 @@
 </script>
 
 
-  <meta name="description" content="1.XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。2.XML语法2.1 所有XML都必须要有关闭标签。1&amp;lt;note&amp;gt; this&amp;apos;s note example &amp;lt;note&amp;gt;   2.2 所有XML的标签对大小写敏感XML 标签对大小写敏感。在 XML 中，标签  与标签  是不同的。必须使用相同的大小写来编写打开标签和关闭标签">
-<meta name="keywords" content="CTFweb,OWASP">
+  <meta name="description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
+<meta name="keywords" content="owasp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XML和XXE基础">
 <meta property="og:url" content="https://alpha302.github.io/2019/09/29/XML和XXE基础/index.html">
 <meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="1.XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。2.XML语法2.1 所有XML都必须要有关闭标签。1&amp;lt;note&amp;gt; this&amp;apos;s note example &amp;lt;note&amp;gt;   2.2 所有XML的标签对大小写敏感XML 标签对大小写敏感。在 XML 中，标签  与标签  是不同的。必须使用相同的大小写来编写打开标签和关闭标签">
+<meta property="og:description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-29T06:49:51.741Z">
+<meta property="og:updated_time" content="2019-10-02T06:03:20.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XML和XXE基础">
-<meta name="twitter:description" content="1.XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。2.XML语法2.1 所有XML都必须要有关闭标签。1&amp;lt;note&amp;gt; this&amp;apos;s note example &amp;lt;note&amp;gt;   2.2 所有XML的标签对大小写敏感XML 标签对大小写敏感。在 XML 中，标签  与标签  是不同的。必须使用相同的大小写来编写打开标签和关闭标签">
+<meta name="twitter:description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
   <link rel="canonical" href="https://alpha302.github.io/2019/09/29/XML和XXE基础/">
 
 
@@ -121,7 +121,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -317,11 +317,19 @@
                 
               
 
-              <time title="创建时间：2019-09-29 10:54:40 / 修改时间：14:49:51" itemprop="dateCreated datePublished" datetime="2019-09-29T10:54:40+08:00">2019-09-29</time>
+              <time title="创建时间：2019-09-29 10:54:40" itemprop="dateCreated datePublished" datetime="2019-09-29T10:54:40+08:00">2019-09-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-02 14:03:20" itemprop="dateModified" datetime="2019-10-02T14:03:20+08:00">2019-10-02</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -330,7 +338,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTFweb/" itemprop="url" rel="index"><span itemprop="name">CTFweb</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/owasp/" itemprop="url" rel="index"><span itemprop="name">owasp</span></a></span>
 
                 
                 
@@ -378,18 +386,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-XML简介"><a href="#1-XML简介" class="headerlink" title="1.XML简介"></a>1.XML简介</h1><ul>
+        <h3 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h3><ul>
 <li>XML 被设计用来传输和存储数据。</li>
-<li>HTML 被设计用来显示数据。<h1 id="2-XML语法"><a href="#2-XML语法" class="headerlink" title="2.XML语法"></a>2.XML语法</h1><h2 id="2-1-所有XML都必须要有关闭标签。"><a href="#2-1-所有XML都必须要有关闭标签。" class="headerlink" title="2.1 所有XML都必须要有关闭标签。"></a>2.1 所有XML都必须要有关闭标签。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;note&gt; this&apos;s note example &lt;note&gt;</span><br></pre></td></tr></table></figure>
+<li>HTML 被设计用来显示数据。</li>
+</ul>
+<hr>
+<a id="more"></a>
 
-</li>
-</ul><h2 id="2-2-所有XML的标签对大小写敏感"><a href="#2-2-所有XML的标签对大小写敏感" class="headerlink" title="2.2 所有XML的标签对大小写敏感"></a>2.2 所有XML的标签对大小写敏感</h2><p>XML 标签对大小写敏感。在 XML 中，标签 <letter> 与标签 <letter> 是不同的。<br>必须使用相同的大小写来编写打开标签和关闭标签</letter></letter></p><a id="more"></a>
+<h3 id="XML语法"><a href="#XML语法" class="headerlink" title="XML语法"></a>XML语法</h3><h4 id="所有XML都必须要有关闭标签。"><a href="#所有XML都必须要有关闭标签。" class="headerlink" title="所有XML都必须要有关闭标签。"></a>所有XML都必须要有关闭标签。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;note&gt; this&apos;s note example &lt;/note&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="所有XML的标签对大小写敏感"><a href="#所有XML的标签对大小写敏感" class="headerlink" title="所有XML的标签对大小写敏感"></a>所有XML的标签对大小写敏感</h4><p>XML 标签对大小写敏感。在 XML 中，标签 <letter> 与标签 <letter> 是不同的。<br>必须使用相同的大小写来编写打开标签和关闭标签</letter></letter></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Message&gt;这是错误的。&lt;/message&gt;</span><br><span class="line"></span><br><span class="line">&lt;message&gt;这是正确的。&lt;/message&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-3-XML的属性值必须加引号"><a href="#2-3-XML的属性值必须加引号" class="headerlink" title="2.3 XML的属性值必须加引号"></a>2.3 XML的属性值必须加引号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- wrong example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=8/2/16/&gt; &lt;/note&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- right example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=&quot;08/02/16&quot;&gt; &lt;/note&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="XML的属性值必须加引号"><a href="#XML的属性值必须加引号" class="headerlink" title="XML的属性值必须加引号"></a>XML的属性值必须加引号</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- wrong example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=8/2/16/&gt; &lt;/note&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- right example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=&quot;08/02/16&quot;&gt; &lt;/note&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-4-在-XML-中，-5个实体引用来代替符号："><a href="#2-4-在-XML-中，-5个实体引用来代替符号：" class="headerlink" title="2.4 在 XML 中， 5个实体引用来代替符号："></a>2.4 在 XML 中， 5个实体引用来代替符号：</h2><table>
+<h4 id="在-XML-中，-5个实体引用来代替符号："><a href="#在-XML-中，-5个实体引用来代替符号：" class="headerlink" title="在 XML 中， 5个实体引用来代替符号："></a>在 XML 中， 5个实体引用来代替符号：</h4><table>
 <thead>
 <tr>
 <th>实体引用</th>
@@ -398,32 +409,33 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>&it;</td>
+<td>&amp;it</td>
 <td>＜</td>
 <td>小于号</td>
 </tr>
 <tr>
-<td>&gt;</td>
+<td>&amp;gt</td>
 <td>＞</td>
 <td>大于号</td>
 </tr>
 <tr>
-<td>&amp;</td>
+<td>&amp;amp</td>
 <td>&amp;</td>
 <td>和号</td>
 </tr>
 <tr>
-<td>&apos;</td>
+<td>&amp;apos</td>
 <td>‘</td>
 <td>单引号</td>
 </tr>
 <tr>
-<td>&quot;</td>
+<td>&amp;quot</td>
 <td>“</td>
 <td>双引号</td>
 </tr>
 </tbody></table>
-<h1 id="3-XML结构"><a href="#3-XML结构" class="headerlink" title="3.XML结构"></a>3.XML结构</h1><pre><code>- XML文档结构包括DTD文档类型定义和文档元素信息。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;     #第一行是 XML 声明   </span><br><span class="line">&lt;note&gt;                                          #第二行根元素&lt;note&gt;</span><br><span class="line">&lt;to&gt;George&lt;/to&gt;                                 #3-6描述根的4个子元素（to,from,heading以及body）</span><br><span class="line">&lt;from&gt;John&lt;/from&gt;                   </span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget the meeting!&lt;/body&gt;      </span><br><span class="line">&lt;/note&gt;                                         #最后闭合根元素&lt;note&gt;结束</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="XML结构"><a href="#XML结构" class="headerlink" title="XML结构"></a>XML结构</h3><pre><code>- XML文档结构包括DTD文档类型定义和文档元素信息。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;     #第一行是 XML 声明   </span><br><span class="line">&lt;note&gt;                                          #第二行根元素&lt;note&gt;</span><br><span class="line">&lt;to&gt;George&lt;/to&gt;                                 #3-6描述根的4个子元素（to,from,heading以及body）</span><br><span class="line">&lt;from&gt;John&lt;/from&gt;                   </span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget the meeting!&lt;/body&gt;      </span><br><span class="line">&lt;/note&gt;                                         #最后闭合根元素&lt;note&gt;结束</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>XML DTD</p>
@@ -436,14 +448,15 @@
 <p>DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">  &lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">  &lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">  &lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">  &lt;body&gt;Don&apos;t forget me this weekend!&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br><span class="line"></span><br><span class="line">这是包含 DTD 的 &quot;note.dtd&quot; 文件：</span><br><span class="line">&lt;!-- note.dtd </span><br><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
 
-<h1 id="4-DTD中的实体"><a href="#4-DTD中的实体" class="headerlink" title="4. DTD中的实体"></a>4. DTD中的实体</h1><p>实体是用于定义引用普通文本或特殊字符的快捷方式的变量。</p>
+<hr>
+<h3 id="DTD中的实体"><a href="#DTD中的实体" class="headerlink" title="DTD中的实体"></a>DTD中的实体</h3><p>实体是用于定义引用普通文本或特殊字符的快捷方式的变量。</p>
 <ul>
 <li>实体引用是对实体的引用。</li>
 <li>实体可在内部或外部进行声明。</li>
 </ul>
-<h2 id="4-1-内部实体声明"><a href="#4-1-内部实体声明" class="headerlink" title="4.1 内部实体声明"></a>4.1 内部实体声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer &quot;Donald Duck.&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright &quot;Copyright runoob.com&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="内部实体声明"><a href="#内部实体声明" class="headerlink" title="内部实体声明"></a>内部实体声明</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer &quot;Donald Duck.&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright &quot;Copyright runoob.com&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-2-外部实体声明"><a href="#4-2-外部实体声明" class="headerlink" title="4.2 外部实体声明"></a>4.2 外部实体声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="外部实体声明"><a href="#外部实体声明" class="headerlink" title="外部实体声明"></a>外部实体声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
 
 <hr>
 
@@ -469,7 +482,7 @@
   <p><span>本文标题:</span>XML和XXE基础</a></p>
   <p><span>文章作者:</span>wang</a></p>
   <p><span>发布时间:</span>2019年09月29日 - 10:54:40</p>
-  <p><span>最后更新:</span>2019年09月29日 - 14:49:51</p>
+  <p><span>最后更新:</span>2019年10月02日 - 14:03:20</p>
   <p><span>原始链接:</span><a href="/2019/09/29/XML和XXE基础/" title="XML和XXE基础">https://alpha302.github.io/2019/09/29/XML和XXE基础/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://alpha302.github.io/2019/09/29/XML和XXE基础/"  aria-label="复制成功！"></i></span>
   </p>
@@ -511,7 +524,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/CTFweb-OWASP/" rel="tag"># CTFweb,OWASP</a>
+              <a href="/tags/owasp/" rel="tag"># owasp</a>
             
           </div>
         
@@ -581,7 +594,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-XML简介"><span class="nav-number">1.</span> <span class="nav-text">1.XML简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-XML语法"><span class="nav-number">2.</span> <span class="nav-text">2.XML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-所有XML都必须要有关闭标签。"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 所有XML都必须要有关闭标签。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-所有XML的标签对大小写敏感"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 所有XML的标签对大小写敏感</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-XML的属性值必须加引号"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 XML的属性值必须加引号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-在-XML-中，-5个实体引用来代替符号："><span class="nav-number">2.4.</span> <span class="nav-text">2.4 在 XML 中， 5个实体引用来代替符号：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-XML结构"><span class="nav-number">3.</span> <span class="nav-text">3.XML结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-DTD中的实体"><span class="nav-number">4.</span> <span class="nav-text">4. DTD中的实体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-内部实体声明"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 内部实体声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-外部实体声明"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 外部实体声明</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML简介"><span class="nav-number">1.</span> <span class="nav-text">XML简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML语法"><span class="nav-number">2.</span> <span class="nav-text">XML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#所有XML都必须要有关闭标签。"><span class="nav-number">2.1.</span> <span class="nav-text">所有XML都必须要有关闭标签。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#所有XML的标签对大小写敏感"><span class="nav-number">2.2.</span> <span class="nav-text">所有XML的标签对大小写敏感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML的属性值必须加引号"><span class="nav-number">2.3.</span> <span class="nav-text">XML的属性值必须加引号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-XML-中，-5个实体引用来代替符号："><span class="nav-number">2.4.</span> <span class="nav-text">在 XML 中， 5个实体引用来代替符号：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML结构"><span class="nav-number">3.</span> <span class="nav-text">XML结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD中的实体"><span class="nav-number">4.</span> <span class="nav-text">DTD中的实体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部实体声明"><span class="nav-number">4.1.</span> <span class="nav-text">内部实体声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部实体声明"><span class="nav-number">5.</span> <span class="nav-text">外部实体声明</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -608,18 +621,26 @@
       
       <div class="site-state-item site-state-categories">
         
+          
+            <a href="/categories/">
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span>
-        
+        </a>
       </div>
     
       
       
       <div class="site-state-item site-state-tags">
         
+          
+            <a href="/tags/">
+          
+        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span>
-        
+        </a>
       </div>
     
   </nav>
@@ -786,11 +807,9 @@ show_date_time();
   
   <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/utils.js?v=7.4.0"></script>
 <script src="/js/schemes/pisces.js?v=7.4.0"></script>
 <script src="/js/next-boot.js?v=7.4.0"></script><script src="/js/bookmark.js?v=7.4.0"></script>
 
