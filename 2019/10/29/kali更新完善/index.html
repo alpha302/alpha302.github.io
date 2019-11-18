@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/233.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/ZN8Y9L9ZR.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/Screenshot%20from%202019-10-29%2010-42-00.png">
-<meta property="og:updated_time" content="2019-10-29T14:45:40.399Z">
+<meta property="og:updated_time" content="2019-11-02T13:27:07.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kali更新完善">
 <meta name="twitter:description" content="工欲善其事，必先利其器。kali是几年来，hacker使用最多的一款操作系统。现在已有5年的历史了，现在最新版本为2019.3.">
@@ -73,6 +73,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2019/11/04/初遇Empire/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/10/28/msfconsole/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -172,7 +174,7 @@
 <h4 id="系统中文"><a href="#系统中文" class="headerlink" title="系统中文"></a>系统中文</h4><p>不推荐使用中文的操作系统，能英文还是英文优先<br>也不推荐大家使用系统的Region&amp;Language去切换中文，因为这样设置的系统不是完全中文</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># dpkg-reconfigure locales</span></span><br><span class="line"><span class="comment">#选择字符编码：en_US.UTF-8、zh_CN.GBK、zh_CN.UTF-8</span></span><br><span class="line"><span class="comment">#选择字符：zh_CN.UTF-8（记得用空格）</span></span><br><span class="line"><span class="comment">#重启生效</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># apt-get install fcitx       #安装输入法框架</span></span><br><span class="line">root@kali:~<span class="comment"># apt-get install fcitx googlepinyin    #安装google拼音输入法</span></span><br><span class="line"><span class="comment">#重启生效</span></span><br><span class="line">在系统中搜索Fcitx，打开</span><br><span class="line">将google拼音设置为首选项</span><br><span class="line">验证，ctrl+空格切换输入法</span><br></pre></td></tr></table></figure>
+<h4 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># apt-get install fcitx       #安装输入法框架</span></span><br><span class="line">root@kali:~<span class="comment"># apt-get install fcitx-googlepinyin    #安装google拼音输入法</span></span><br><span class="line"><span class="comment">#重启生效</span></span><br><span class="line">root@kali:~<span class="comment"># im-config</span></span><br><span class="line">将google拼音设置为首选项</span><br><span class="line">验证，ctrl+空格切换输入法</span><br></pre></td></tr></table></figure>
 
 <h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h4><p>可能有些小伙伴一装上kali就上不了网。可能ping不同外网，可能只能ping物理机，可能没有eth0(默认)，可能之前能连网，但换了一个环境就不行等等的问题<br>这些问题，可能的原因可以是 ：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- <span class="number">1</span> 你物理机是网线连接，你的kali是用的直连，自己没配置/etc/network/interface</span><br><span class="line">- <span class="number">2</span> 物理机是wife连接，你的kali 是nat连接，你的/etc/NetworkManager/NetworkManger.conf 没有设置true</span><br><span class="line">- <span class="number">3</span> 你的物理机的服务VMware DHCP Service，VMware NAT Service停止了</span><br><span class="line">- <span class="number">4</span> 还有的时候是在虚拟网络编译器中Vmnet信息中桥接模式选择的自动，有些网卡不是很友好，可以换成ipcofig中使用的网卡</span><br><span class="line">- <span class="number">5</span> 最后一个解决的办法，实在没招了，点开vmware 左上角的编辑选择虚拟网络编译器，点击更改设置，还原默认设置即可</span><br></pre></td></tr></table></figure>
@@ -265,7 +267,7 @@
   </div>
 </footer>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":120,"height":240},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
