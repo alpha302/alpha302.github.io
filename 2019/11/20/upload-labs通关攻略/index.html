@@ -22,7 +22,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/K8AUCXKP%40I2KU%402D1O788VY.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7E%40QC%5B5GWHL7_8O50XNED%24UA.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/4G%24%7ED%5B%2587STM3.png">
-<meta property="og:updated_time" content="2019-11-27T08:54:20.177Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/UKQ_W5NXW.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/QXNJAQ1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7BW%7EV256%7DNIN1%7BR41.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/6Y259%608QCF.png">
+<meta property="og:updated_time" content="2019-12-02T08:36:20.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="upload-labs通关攻略">
 <meta name="twitter:description" content="upload上传是比较基本的web漏洞，看到很多的大佬发布的钓鱼，人肉都用到过upload获取shell。个人感觉这个总结起来也比较方便简单。">
@@ -108,7 +112,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upload-labs练习："><span class="toc-number">1.</span> <span class="toc-text">Upload-labs练习：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-1-js限制文件上传"><span class="toc-number">1.0.1.</span> <span class="toc-text">class-1 js限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-2-MIME限制文件上传"><span class="toc-number">1.0.2.</span> <span class="toc-text">class-2 MIME限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-3-黑名单限制"><span class="toc-number">1.0.3.</span> <span class="toc-text">class-3 黑名单限制</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upload-labs练习："><span class="toc-number">1.</span> <span class="toc-text">Upload-labs练习：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-1-js限制文件上传"><span class="toc-number">1.0.1.</span> <span class="toc-text">class-1 js限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-2-MIME限制文件上传"><span class="toc-number">1.0.2.</span> <span class="toc-text">class-2 MIME限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-3-黑名单限制"><span class="toc-number">1.0.3.</span> <span class="toc-text">class-3 黑名单限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-4-htaccess绕过"><span class="toc-number">1.0.4.</span> <span class="toc-text">class-4 .htaccess绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-5-点-空格-点绕过"><span class="toc-number">1.0.5.</span> <span class="toc-text">class-5 点+空格+点绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-6-大小写绕过"><span class="toc-number">1.0.6.</span> <span class="toc-text">class-6 大小写绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-7"><span class="toc-number">1.0.7.</span> <span class="toc-text">class-7</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -172,7 +176,18 @@
 <h4 id="class-3-黑名单限制"><a href="#class-3-黑名单限制" class="headerlink" title="class-3 黑名单限制"></a>class-3 黑名单限制</h4><p>通过上传不受欢迎的php扩展来绕过黑名单。例如：pht，phpt，phtml，php3，php4，php5，php6</p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7E%40QC%5B5GWHL7_8O50XNED%24UA.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/4G%24%7ED%5B%2587STM3.png" alt></p>
+<p>服务器已经解析为php<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/UKQ_W5NXW.png" alt></p>
+<h4 id="class-4-htaccess绕过"><a href="#class-4-htaccess绕过" class="headerlink" title="class-4 .htaccess绕过"></a>class-4 .htaccess绕过</h4><p>phpstudy打开配置文件 httpd-conf<br>AllowOverride None –&gt; AllowOverride All<br>前提条件（1.mod_rewrite模块开启。2.AllowOverride All）</p>
+<p>虽然还是黑名单，但几乎过滤了所有有问题的后缀名，除了.htaccess，于是首先上传一个.htaccess内容如下的文件:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SetHandler application/x-httpd-php</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/QXNJAQ1.png" alt></p>
+<p>这样所有文件都会解析为php，然后再上传图片马，可以解析绕过</p>
+<p><img src alt></p>
+<h4 id="class-5-点-空格-点绕过"><a href="#class-5-点-空格-点绕过" class="headerlink" title="class-5 点+空格+点绕过"></a>class-5 点+空格+点绕过</h4><p>代码先是去除文件名前后的空格，再去除文件名最后所有的.，再通过strrchar函数来寻找.来确认文件名的后缀，但是最后保存文件的时候没有重命名而使用的原始的文件名，导致可以利用1.php. .（点+空格+点）来绕过</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7BW%7EV256%7DNIN1%7BR41.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/6Y259%608QCF.png" alt></p>
+<h4 id="class-6-大小写绕过"><a href="#class-6-大小写绕过" class="headerlink" title="class-6 大小写绕过"></a>class-6 大小写绕过</h4><h4 id="class-7"><a href="#class-7" class="headerlink" title="class-7"></a>class-7</h4>
   </div>
 </article>
 
@@ -198,7 +213,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upload-labs练习："><span class="toc-number">1.</span> <span class="toc-text">Upload-labs练习：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-1-js限制文件上传"><span class="toc-number">1.0.1.</span> <span class="toc-text">class-1 js限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-2-MIME限制文件上传"><span class="toc-number">1.0.2.</span> <span class="toc-text">class-2 MIME限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-3-黑名单限制"><span class="toc-number">1.0.3.</span> <span class="toc-text">class-3 黑名单限制</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Upload-labs练习："><span class="toc-number">1.</span> <span class="toc-text">Upload-labs练习：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#class-1-js限制文件上传"><span class="toc-number">1.0.1.</span> <span class="toc-text">class-1 js限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-2-MIME限制文件上传"><span class="toc-number">1.0.2.</span> <span class="toc-text">class-2 MIME限制文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-3-黑名单限制"><span class="toc-number">1.0.3.</span> <span class="toc-text">class-3 黑名单限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-4-htaccess绕过"><span class="toc-number">1.0.4.</span> <span class="toc-text">class-4 .htaccess绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-5-点-空格-点绕过"><span class="toc-number">1.0.5.</span> <span class="toc-text">class-5 点+空格+点绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-6-大小写绕过"><span class="toc-number">1.0.6.</span> <span class="toc-text">class-6 大小写绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class-7"><span class="toc-number">1.0.7.</span> <span class="toc-text">class-7</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -230,7 +245,7 @@
     
     <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2019 wang
+    Copyright &copy; 2020 wang
   </div>
   <div class="footer-right">
     <nav>
