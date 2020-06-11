@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="APP测试做到后面一定绕不开hook。虽然目前很多的APP还有做证书校验，加固混淆，但仍需负重前行。">
+<meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="brida从0配置">
+<meta property="og:url" content="https://alpha302.github.io/2020/06/11/brida配置与抓包/index.html">
+<meta property="og:site_name" content="Alpha的小站">
+<meta property="og:description" content="APP测试做到后面一定绕不开hook。虽然目前很多的APP还有做证书校验，加固混淆，但仍需负重前行。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%40DGT%24OL(GRDK7D)71BNHO%7DB.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/233333333221.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611102150.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611102150.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/DWEEDWDEW.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/wyijsandd1212sa12.png">
+<meta property="og:image" content="https://alpha302.github.io/2020/06/11/brida配置与抓包/!https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611104024.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611105925.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%25K%60L0_V6ZH7FC1ZE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611111536.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611114447.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/dewjdkew.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611120252.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/burp1frida.png">
+<meta property="og:updated_time" content="2020-06-11T07:02:31.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="brida从0配置">
+<meta name="twitter:description" content="APP测试做到后面一定绕不开hook。虽然目前很多的APP还有做证书校验，加固混淆，但仍需负重前行。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%40DGT%24OL(GRDK7D)71BNHO%7DB.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>brida从0配置</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/06/07/AWK学习/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2020/06/11/brida配置与抓包/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&text=brida从0配置"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&is_video=false&description=brida从0配置"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=brida从0配置&body=Check out this article: https://alpha302.github.io/2020/06/11/brida配置与抓包/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&name=brida从0配置&description=&lt;p&gt;APP测试做到后面一定绕不开hook。虽然目前很多的APP还有做证书校验，加固混淆，但仍需负重前行。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境"><span class="toc-number">2.</span> <span class="toc-text">基础环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置与准备"><span class="toc-number">3.</span> <span class="toc-text">设置与准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-brida下载安装"><span class="toc-number">3.1.</span> <span class="toc-text">1.brida下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-adb设置"><span class="toc-number">3.2.</span> <span class="toc-text">2.adb设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#frida设置"><span class="toc-number">3.3.</span> <span class="toc-text">frida设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端安装frida"><span class="toc-number">3.3.1.</span> <span class="toc-text">客户端安装frida</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装第三方库"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">安装第三方库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端安装frida"><span class="toc-number">3.3.2.</span> <span class="toc-text">服务端安装frida</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#burp设置"><span class="toc-number">3.4.</span> <span class="toc-text">burp设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置代理"><span class="toc-number">3.4.1.</span> <span class="toc-text">设置代理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置brida"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">设置brida</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        brida从0配置
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Alpha的小站</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-06-11T01:24:58.000Z" itemprop="datePublished">2020-06-11</time>
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>APP测试做到后面一定绕不开hook。虽然目前很多的APP还有做证书校验，加固混淆，但仍需负重前行。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为最近测的一个app，做了ssl pinning。查了一下资料，可以使用frida从内存中hook<br>住加密函数，用来解密传输信息。而brida是连接frida与burp的桥梁。使用了brida就可以正常使用burp抓取加密数据包。而网上关于brida的安装环境都不是最新的。brida原本默认是py2的，现在0.4版本已经支持py3的环境。接下来，我就带大家从0开始安装环境吧。</p>
+<h1 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h1><ul>
+<li>系统 win10</li>
+<li>python 3.8.3</li>
+<li>java 13</li>
+<li>夜神模拟器 android版本7.0</li>
+<li>burp 2020.5 crack</li>
+<li>node 14.4.0 </li>
+</ul>
+<p>基本上是一个全新的环境。adb，frida也都没有配置。问题不大。</p>
+<h1 id="设置与准备"><a href="#设置与准备" class="headerlink" title="设置与准备"></a>设置与准备</h1><h2 id="1-brida下载安装"><a href="#1-brida下载安装" class="headerlink" title="1.brida下载安装"></a>1.brida下载安装</h2><p>github上的<a href="https://github.com/federicodotta/Brida/releases" target="_blank" rel="noopener">release</a></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%40DGT%24OL(GRDK7D)71BNHO%7DB.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/233333333221.png" alt="安装完成"></p>
+<p>此时两个status还未启动起来，那需要我们去配置frida的环境了。</p>
+<p>或者burpsuite中BAPP store安装<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611102150.png" alt></p>
+<h2 id="2-adb设置"><a href="#2-adb设置" class="headerlink" title="2.adb设置"></a>2.adb设置</h2><p>adb是连接模拟器和电脑的桥梁</p>
+<p>adb的版本需要和nox的版本一致。我们可以直接使用everything去查找nox的adb，然后配置环境变量即可。</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611102150.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/DWEEDWDEW.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/wyijsandd1212sa12.png" alt="出现下面即可证明完成设置"></p>
+<h2 id="frida设置"><a href="#frida设置" class="headerlink" title="frida设置"></a>frida设置</h2><p>frida分为server和client</p>
+<h3 id="客户端安装frida"><a href="#客户端安装frida" class="headerlink" title="客户端安装frida"></a>客户端安装frida</h3><p>这一步比较容易，pip安装即可</p>
+<p>我们可以设置pip国内源来加快安装</p>
+<p>1.进入c盘用户文件夹，新建pip的目录。pip目录下新建pip.ini的文件。</p>
+<p><img src="!https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611104024.png" alt></p>
+<p>2.在pip.ini中添加下面代码：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">timeout</span>=<span class="number">6000</span></span><br><span class="line"><span class="attr">index-url</span>=https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="attr">trusted-host</span>=pypi.tuna.tsinghua.edu.cn</span><br><span class="line"></span><br><span class="line"><span class="comment"># pip源同样适用python3和python2。(适用python2的firda下载包时可能会出现卡死，可以试试这个方法改善)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="安装第三方库"><a href="#安装第三方库" class="headerlink" title="安装第三方库"></a>安装第三方库</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install Pyro4</span><br><span class="line">pip install frida-tools</span><br><span class="line">npm install frida-compile <span class="comment">#这个生成frida-conpile.cmd.burpsuite中需要填写frida compile path</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611105925.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%25K%60L0_V6ZH7FC1ZE.png" alt></p>
+<h3 id="服务端安装frida"><a href="#服务端安装frida" class="headerlink" title="服务端安装frida"></a>服务端安装frida</h3><ol>
+<li>查看模拟器cpu版本<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getprop ro<span class="selector-class">.product</span><span class="selector-class">.cpu</span><span class="selector-class">.abi</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611111536.png" alt></p>
+<p>根据cpu版本选择<a href="https://github.com/frida/frida/releases" target="_blank" rel="noopener">frida-server</a><br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611114447.png" alt></p>
+<p>将下载好的文件解压并放入/data/local/tmp 模拟器中。在adb 进入模拟器，文件赋值777后启动server</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">adb</span> <span class="keyword">push </span>C:\Users\howti\Desktop\frida-server-<span class="number">12</span>.<span class="number">9</span>.<span class="number">7</span>-<span class="keyword">android-x86 </span>/<span class="meta">data</span>/local/tmp</span><br><span class="line"><span class="symbol">adb</span> shell</span><br><span class="line"><span class="symbol">cd</span> /<span class="meta">data</span>/local/tmp/</span><br><span class="line"><span class="symbol">chmod</span>  <span class="number">777</span> frida-server-<span class="number">12</span>.<span class="number">9</span>.<span class="number">7</span>-<span class="keyword">android-x86</span></span><br><span class="line"><span class="keyword">./frida-server-12.9.7-android-x86</span></span><br></pre></td></tr></table></figure>
+
+<p>android版本最好使用android7，不然会一些报错。</p>
+<p>什么都不显示即可<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/dewjdkew.png" alt></p>
+<p>将frida端口转发</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">adb</span> <span class="selector-tag">forward</span> <span class="selector-tag">tcp</span><span class="selector-pseudo">:27042</span> <span class="selector-tag">tcp</span><span class="selector-pseudo">:27042</span></span><br><span class="line"><span class="selector-tag">adb</span> <span class="selector-tag">forward</span> <span class="selector-tag">tcp</span><span class="selector-pseudo">:27043</span> <span class="selector-tag">tcp</span><span class="selector-pseudo">:27043</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="burp设置"><a href="#burp设置" class="headerlink" title="burp设置"></a>burp设置</h2><h3 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200611120252.png" alt></p>
+<h4 id="设置brida"><a href="#设置brida" class="headerlink" title="设置brida"></a>设置brida</h4><ul>
+<li>Python binary path: 就填入python3的路径（使用brida0.4就可以支持py3）</li>
+<li>Pyro host: 默认 </li>
+<li>Pyro port: 默认 </li>
+<li>frida-compile: (frida-compile的二进制文件的路径)之前npm安装的包,里面有frida-compile.cmd .使用everything搜索frida 然后填入.</li>
+<li>Frida JS files folder: 包含带有所有Frida和Brida钩子和导出文件的Frida工具JavaScript文件的文件夹的路径。我们可以使用默认文件夹</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/burp1frida.png" alt></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础环境"><span class="toc-number">2.</span> <span class="toc-text">基础环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置与准备"><span class="toc-number">3.</span> <span class="toc-text">设置与准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-brida下载安装"><span class="toc-number">3.1.</span> <span class="toc-text">1.brida下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-adb设置"><span class="toc-number">3.2.</span> <span class="toc-text">2.adb设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#frida设置"><span class="toc-number">3.3.</span> <span class="toc-text">frida设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端安装frida"><span class="toc-number">3.3.1.</span> <span class="toc-text">客户端安装frida</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装第三方库"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">安装第三方库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端安装frida"><span class="toc-number">3.3.2.</span> <span class="toc-text">服务端安装frida</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#burp设置"><span class="toc-number">3.4.</span> <span class="toc-text">burp设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置代理"><span class="toc-number">3.4.1.</span> <span class="toc-text">设置代理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置brida"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">设置brida</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2020/06/11/brida配置与抓包/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&text=brida从0配置"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&is_video=false&description=brida从0配置"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=brida从0配置&body=Check out this article: https://alpha302.github.io/2020/06/11/brida配置与抓包/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&title=brida从0配置"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2020/06/11/brida配置与抓包/&name=brida从0配置&description=&lt;p&gt;APP测试做到后面一定绕不开hook。虽然目前很多的APP还有做证书校验，加固混淆，但仍需负重前行。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+

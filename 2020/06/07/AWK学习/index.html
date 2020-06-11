@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="最近看上了国外挖洞赏金，正好也找到了src将数据放入到LangSrcCurise中（先不管国内能不能访问）这时就需要将src的地址传入到Lang子域名监控中。">
+<meta name="keywords" content="linux,脚本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Awk学习">
+<meta property="og:url" content="https://alpha302.github.io/2020/06/07/AWK学习/index.html">
+<meta property="og:site_name" content="Alpha的小站">
+<meta property="og:description" content="最近看上了国外挖洞赏金，正好也找到了src将数据放入到LangSrcCurise中（先不管国内能不能访问）这时就需要将src的地址传入到Lang子域名监控中。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-07T14:50:18.808Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Awk学习">
+<meta name="twitter:description" content="最近看上了国外挖洞赏金，正好也找到了src将数据放入到LangSrcCurise中（先不管国内能不能访问）这时就需要将src的地址传入到Lang子域名监控中。">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Awk学习</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/06/11/brida配置与抓包/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/05/14/APP测试/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2020/06/07/AWK学习/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2020/06/07/AWK学习/&text=Awk学习"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2020/06/07/AWK学习/&is_video=false&description=Awk学习"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Awk学习&body=Check out this article: https://alpha302.github.io/2020/06/07/AWK学习/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2020/06/07/AWK学习/&name=Awk学习&description=&lt;p&gt;最近看上了国外挖洞赏金，正好也找到了&lt;a href=&#34;https://i.hacking8.com/src/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;src&lt;/a&gt;将数据放入到LangSrcCurise中（先不管国内能不能访问）&lt;br&gt;这时就需要将src的地址传入到Lang子域名监控中。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Awk介绍"><span class="toc-number">2.</span> <span class="toc-text">Awk介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法"><span class="toc-number">3.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用法一（F）"><span class="toc-number">3.1.</span> <span class="toc-text">用法一（F）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法二-BEGIN"><span class="toc-number">3.2.</span> <span class="toc-text">用法二(BEGIN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行处理前-行处理-行处理后"><span class="toc-number">3.3.</span> <span class="toc-text">行处理前  行处理    行处理后</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Awk学习
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Alpha的小站</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-06-07T11:14:27.000Z" itemprop="datePublished">2020-06-07</time>
+    </div>
+
+
+      
+    <span class="article-categories">
+        分类：<a class="category-link" href="/categories/linux/">linux</a>
+    </span>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/linux/">linux</a>, <a class="tag-link" href="/tags/脚本/">脚本</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>最近看上了国外挖洞赏金，正好也找到了<a href="https://i.hacking8.com/src/" target="_blank" rel="noopener">src</a>将数据放入到LangSrcCurise中（先不管国内能不能访问）<br>这时就需要将src的地址传入到Lang子域名监控中。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本来准备用excel或者python去实现这样的功能，但之前看过awk。具体是哪天给忘了，觉得可以练练</p>
+<h1 id="Awk介绍"><a href="#Awk介绍" class="headerlink" title="Awk介绍"></a>Awk介绍</h1><p>Awk 是一种处理文本文件的语言，是一个强大的文本分析工具。<br>Awk与sed的区别是: </p>
+<ul>
+<li>前者编辑的列，后者编辑的行</li>
+<li>前者轻量简单，后者功能强大，语法复杂</li>
+</ul>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>awk：一般我们只用“逐行处理”比如对于满足条件的某些行，我们打印某某列。通过指定分隔符，我们很容易的对列进行操作。</p>
+<h2 id="用法一（F）"><a href="#用法一（F）" class="headerlink" title="用法一（F）"></a>用法一（F）</h2><p>-F  #指定输入文件折分隔符 默认为空格和tab</p>
+<p>1.txt文本如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*.buddypress.org</span><br><span class="line">*.wordcamp.org</span><br><span class="line">*.wordpress.net</span><br><span class="line">*.wordpress.org</span><br><span class="line">*.bbpress.org</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@hw3:~/git/LangSrcCurise/initialize# awk -F "." '&#123;print $2,$3&#125;' 1.txt </span><br><span class="line"><span class="meta">#</span>  每行按"."分割，输出文本中的2、3项</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------- </span><br><span class="line"><span class="meta">#</span>  格式化输出</span><br><span class="line">buddypress org</span><br><span class="line">wordcamp org</span><br><span class="line">wordpress net</span><br><span class="line">wordpress org</span><br><span class="line">bbpress org</span><br><span class="line">cbhq net</span><br></pre></td></tr></table></figure>
+
+<p>也可以定义多个分隔符</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>文本</span><br><span class="line">root@hw3:~/git/LangSrcCurise/initialize# cat test.txt</span><br><span class="line">111 222 333        444:555:666</span><br><span class="line">root@hw3:~/git/LangSrcCurise/initialize#</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 输出444</span><br></pre></td></tr></table></figure>
+
+<h2 id="用法二-BEGIN"><a href="#用法二-BEGIN" class="headerlink" title="用法二(BEGIN)"></a>用法二(BEGIN)</h2><p>BEGIN{}   {}        END{}</p>
+<h2 id="行处理前-行处理-行处理后"><a href="#行处理前-行处理-行处理后" class="headerlink" title="行处理前  行处理    行处理后"></a>行处理前  行处理    行处理后</h2><p>BEGIN 定义一些变量（通常在发生处理之前。例如BEGIN{FS=”:”;OFS=”—“}）</p>
+<p>单一的-F 参数是不够用的，我们刚才的操作并没有直接获取到我们想要的数据</p>
+<p>用法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@hw3:~/git/LangSrcCurise/initialize# awk 'BEGIN&#123;FS=".";OFS="."&#125; &#123;print $2,$3&#125;' 1.txt</span><br><span class="line"><span class="meta">#</span> BGEGIN是在处理之前操作，FS指定列分割符  OFS输出记录分隔符（输出换行符），输出时用指定的符号代替换行符</span><br><span class="line">------------------------------------------------------------------</span><br><span class="line"><span class="meta">#</span>  格式化输出</span><br><span class="line">buddypress.org</span><br><span class="line">wordcamp.org</span><br><span class="line">wordpress.net</span><br><span class="line">wordpress.org</span><br><span class="line">bbpress.org</span><br><span class="line">cbhq.net</span><br><span class="line">coinbase.com</span><br><span class="line">irccloud-cdn.com</span><br><span class="line">irccloud.com</span><br></pre></td></tr></table></figure>
+
+<p>上面还可以直接输入到为文本中</p>
+<p>使用管道符即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@hw3:~/git/LangSrcCurise/initialize# echo | awk BEGIN'&#123;FS=".";OFS="."&#125; &#123;print $2,$3&#125;' 1.txt &gt; 2.txt</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Awk介绍"><span class="toc-number">2.</span> <span class="toc-text">Awk介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法"><span class="toc-number">3.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用法一（F）"><span class="toc-number">3.1.</span> <span class="toc-text">用法一（F）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法二-BEGIN"><span class="toc-number">3.2.</span> <span class="toc-text">用法二(BEGIN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行处理前-行处理-行处理后"><span class="toc-number">3.3.</span> <span class="toc-text">行处理前  行处理    行处理后</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2020/06/07/AWK学习/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2020/06/07/AWK学习/&text=Awk学习"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2020/06/07/AWK学习/&is_video=false&description=Awk学习"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Awk学习&body=Check out this article: https://alpha302.github.io/2020/06/07/AWK学习/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2020/06/07/AWK学习/&title=Awk学习"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2020/06/07/AWK学习/&name=Awk学习&description=&lt;p&gt;最近看上了国外挖洞赏金，正好也找到了&lt;a href=&#34;https://i.hacking8.com/src/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;src&lt;/a&gt;将数据放入到LangSrcCurise中（先不管国内能不能访问）&lt;br&gt;这时就需要将src的地址传入到Lang子域名监控中。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/archives">Writing</a></li>
+         
+          <li><a href="/music">Music</a></li>
+         
+          <li><a href="/about">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
