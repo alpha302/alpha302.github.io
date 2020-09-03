@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="渗透测试：出于保护系统的目的，更全面地找出测试对象的安全隐患。 入侵：不择手段地（甚至是具有破坏性的）拿到系统权限。">
-<meta name="keywords" content="渗透测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web渗透测试———流程">
-<meta property="og:url" content="https://alpha302.github.io/2019/11/29/Web渗透测试———流程/index.html">
+<meta property="og:url" content="https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Alpha的小站">
 <meta property="og:description" content="渗透测试：出于保护系统的目的，更全面地找出测试对象的安全隐患。 入侵：不择手段地（甚至是具有破坏性的）拿到系统权限。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/X%25D%24A%5DOQ4%409RD0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/v2-1efe3d139106d8755d376136120fbbb4_r.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/X5M93TG2IOGPZB%2581H6%7B8Q3.png">
@@ -25,10 +24,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/_V%7DQ60BSLR6MOWUAROE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2022-25-06%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/1.png">
-<meta property="og:updated_time" content="2019-12-07T14:34:48.939Z">
+<meta property="article:published_time" content="2019-11-29T06:46:28.000Z">
+<meta property="article:modified_time" content="2019-12-07T14:34:48.939Z">
+<meta property="article:author" content="wang">
+<meta property="article:tag" content="渗透测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web渗透测试———流程">
-<meta name="twitter:description" content="渗透测试：出于保护系统的目的，更全面地找出测试对象的安全隐患。 入侵：不择手段地（甚至是具有破坏性的）拿到系统权限。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/X%25D%24A%5DOQ4%409RD0.png">
     
     
@@ -51,11 +51,13 @@
     <!-- title -->
     <title>Web渗透测试———流程</title>
     <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css">
+
     <!-- rss -->
     
     
-</head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body class="max-width mx-auto px3">
     
@@ -81,10 +83,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/12/01/搜索引擎/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/12/01/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2019/11/20/upload-labs通关攻略/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/11/20/upload-labs%E9%80%9A%E5%85%B3%E6%94%BB%E7%95%A5/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -97,16 +99,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&text=Web渗透测试———流程"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&is_video=false&description=Web渗透测试———流程"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Web渗透测试———流程&body=Check out this article: https://alpha302.github.io/2019/11/29/Web渗透测试———流程/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&name=Web渗透测试———流程&description=&lt;ul&gt;
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&text=Web渗透测试———流程"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&is_video=false&description=Web渗透测试———流程"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Web渗透测试———流程&body=Check out this article: https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&name=Web渗透测试———流程&description=&lt;ul&gt;
 &lt;li&gt;渗透测试：出于保护系统的目的，更全面地找出测试对象的安全隐患。&lt;/li&gt;
 &lt;li&gt;入侵：不择手段地（甚至是具有破坏性的）拿到系统权限。&lt;/li&gt;
 &lt;/ul&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
@@ -114,7 +116,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程图"><span class="toc-number">1.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息收集"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-域名、IP、端口"><span class="toc-number">2.1.</span> <span class="toc-text">1. 域名、IP、端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#域名信息查询："><span class="toc-number">2.1.1.</span> <span class="toc-text">域名信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP信息查询："><span class="toc-number">2.1.2.</span> <span class="toc-text">IP信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口信息查询："><span class="toc-number">2.1.3.</span> <span class="toc-text">端口信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指纹识别"><span class="toc-number">2.1.4.</span> <span class="toc-text">指纹识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞探测"><span class="toc-number">3.</span> <span class="toc-text">漏洞探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证漏洞"><span class="toc-number">4.</span> <span class="toc-text">验证漏洞</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%9F%E5%90%8D%E3%80%81IP%E3%80%81%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.1.</span> <span class="toc-text">1. 域名、IP、端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">域名信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">IP信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">端口信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="toc-number">2.1.4.</span> <span class="toc-text">指纹识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-number">3.</span> <span class="toc-text">漏洞探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%BC%8F%E6%B4%9E"><span class="toc-number">4.</span> <span class="toc-text">验证漏洞</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -143,14 +145,14 @@
 
       
     <span class="article-categories">
-        分类：<a class="category-link" href="/categories/渗透测试/">渗透测试</a>
+        分类：<a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
     </span>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/渗透测试/">渗透测试</a>
+        <a class="tag-link-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a>
     </div>
 
 
@@ -167,48 +169,45 @@
 
 
 <hr>
-<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X%25D%24A%5DOQ4%409RD0.png" alt></p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X%25D%24A%5DOQ4%409RD0.png"></p>
 <p>一般渗透测试过程 <img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/v2-1efe3d139106d8755d376136120fbbb4_r.jpg" alt="一般渗透测试过程"></p>
 <h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><h3 id="1-域名、IP、端口"><a href="#1-域名、IP、端口" class="headerlink" title="1. 域名、IP、端口"></a>1. 域名、IP、端口</h3><h4 id="域名信息查询："><a href="#域名信息查询：" class="headerlink" title="域名信息查询："></a>域名信息查询：</h4><ul>
 <li>收集注册人信息，域名DNS服务器信息，子域名查询</li>
 </ul>
 <p>1.1.1 Whois查询</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X5M93TG2IOGPZB%2581H6%7B8Q3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X5M93TG2IOGPZB%2581H6%7B8Q3.png"></p>
 <p>在线查询网站</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://dnsdb.io/zh-cn/</span><br><span class="line">https://whois.aizhan.com</span><br><span class="line">http://whois.chinaz.com</span><br><span class="line">https://www.virustotal.com</span><br></pre></td></tr></table></figure>
-
 <p>1.1.2 空间搜索引擎SSL证书</p>
-<p><a href="https://fofa.so" target="_blank" rel="noopener">fofa</a>查询子域名</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#搜索企业证书 北京京东上科信息科技有限公司</span></span><br><span class="line">cert=<span class="string">"Organization：Beijing Jingdong Shangke Information Technology"</span></span><br></pre></td></tr></table></figure>
-
+<p><a target="_blank" rel="noopener" href="https://fofa.so/">fofa</a>查询子域名</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#搜索企业证书 北京京东上科信息科技有限公司</span></span><br><span class="line">cert=<span class="string">&quot;Organization：Beijing Jingdong Shangke Information Technology&quot;</span></span><br></pre></td></tr></table></figure>
 <p>1.1.3 其他泄露信息</p>
 <p>js，图片，css，title，copyright，网站跳转，crossdomain.xml 文件</p>
 <p>1.1.4 子域名爆破 </p>
 <p>子域名检测工具</p>
 <p>Layer子域名挖掘机，Sublist3r subDomainsBrute</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2021-33-21%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2021-56-50%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2021-33-21%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2021-56-50%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
 <h4 id="IP信息查询："><a href="#IP信息查询：" class="headerlink" title="IP信息查询："></a>IP信息查询：</h4><ul>
 <li>确认真实IP，绕过CDN</li>
 </ul>
 <p>1.2.1 判断是否使用CDN</p>
 <p>进行全国异地ping，对比每个地区的IP结果</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/IRATI6A1%24K.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/IRATI6A1%24K.png"></p>
 <p>在线异地ping网站</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://www.17ce.com</span><br><span class="line">http://ping.chinaz.com/</span><br></pre></td></tr></table></figure>
-
 <p>绕过CDN寻找真实IP</p>
 <p>命令：nslookup -qt=A baidu.com </p>
 <p>常规方法</p>
 <ul>
 <li><p>分站域名。CDN一般都存在在主站上，分站可能没有挂CDN，可以ping二级域名获取分站IP，可能会出现分站和主站不是同一个IP，但在一个C端下。如果是架在云服务器上，那就不可行。</p>
 </li>
-<li><p>国外访问。国内的CDN往往只针对国内用户的访问加速，国外的用户就不一定了。<br>国外在线代理网站：<a href="https://asm.ca.com/en/ping.php" target="_blank" rel="noopener">https://asm.ca.com/en/ping.php</a></p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%24ML%7DIZBQ9U%5BE.png" alt></p>
+<li><p>国外访问。国内的CDN往往只针对国内用户的访问加速，国外的用户就不一定了。<br>国外在线代理网站：<a target="_blank" rel="noopener" href="https://asm.ca.com/en/ping.php">https://asm.ca.com/en/ping.php</a></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%24ML%7DIZBQ9U%5BE.png"></p>
 </li>
 <li><p>查询域名解析记录 查询网站没用CDN之前的IP历史记录</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/83%404KDP%5D%245FCV.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/_V%7DQ60BSLR6MOWUAROE.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/83%404KDP%5D%245FCV.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/_V%7DQ60BSLR6MOWUAROE.png"></p>
 <p>域名解析记录网站：</p>
   <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://x.threatbook.cn</span><br><span class="line">http://viewdns.info/</span><br><span class="line">http://toolbar.netcraft.com/site_report?url=</span><br></pre></td></tr></table></figure>
 
@@ -218,37 +217,37 @@
 <li>确认开放端口</li>
 </ul>
 <p>1.3.1 Nmap扫描</p>
-<p><a href="https://blog.csdn.net/qqchaozai/article/details/102521557" target="_blank" rel="noopener">Nmap基础教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qqchaozai/article/details/102521557">Nmap基础教程</a></p>
 <h4 id="指纹识别"><a href="#指纹识别" class="headerlink" title="指纹识别"></a>指纹识别</h4><p>首页index.php,html,js,css中多少会包含特征码。例如WordPress在robots.txt中包含wp-admin。</p>
 <p>在线CMS指纹查询：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BugScaner: http://whatweb.bugscaner.com/look</span><br><span class="line">云悉指纹：http://www.yunsee.cn/finger.html</span><br><span class="line">Whatweb：http://whatweb.net</span><br></pre></td></tr></table></figure>
-
 <p>whatweb 使用</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2022-25-06%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-11-30%2022-25-06%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
 <p>后台特征</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/1.png"></p>
 <h2 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h2><ul>
 <li><p>主机扫描</p>
 <ol>
-<li>主机扫描 <a href="https://www.52pojie.cn/thread-898541-1-1.html" target="_blank" rel="noopener">Nessus</a></li>
+<li>主机扫描 <a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-898541-1-1.html">Nessus</a></li>
 </ol>
 </li>
 </ul>
-<pre><code>查看有无CVE漏洞</code></pre><ul>
+<pre><code> 查看有无CVE漏洞</code></pre>
+<ul>
 <li><p>Web扫描</p>
 <ol>
 <li><p>web扫描 AWVS</p>
-<p><a href="https://www.cnblogs.com/LyShark/p/11401811.html" target="_blank" rel="noopener">安装教程</a>   </p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LyShark/p/11401811.html">安装教程</a>   </p>
 </li>
 </ol>
 </li>
 <li><p>渗透测试</p>
 <ol>
-<li>BurpSuite： <a href="http://ximcx.cn/post-110.html" target="_blank" rel="noopener">下载地址</a> Kali已经有2.0版本了</li>
+<li>BurpSuite： <a target="_blank" rel="noopener" href="http://ximcx.cn/post-110.html">下载地址</a> Kali已经有2.0版本了</li>
 </ol>
 </li>
 </ul>
-<h2 id="验证漏洞"><a href="#验证漏洞" class="headerlink" title="验证漏洞"></a>验证漏洞</h2><p><a href="https://blog.csdn.net/qqchaozai/article/details/102802018" target="_blank" rel="noopener">逻辑漏洞</a></p>
+<h2 id="验证漏洞"><a href="#验证漏洞" class="headerlink" title="验证漏洞"></a>验证漏洞</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qqchaozai/article/details/102802018">逻辑漏洞</a></p>
 
   </div>
 </article>
@@ -275,21 +274,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程图"><span class="toc-number">1.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息收集"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-域名、IP、端口"><span class="toc-number">2.1.</span> <span class="toc-text">1. 域名、IP、端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#域名信息查询："><span class="toc-number">2.1.1.</span> <span class="toc-text">域名信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP信息查询："><span class="toc-number">2.1.2.</span> <span class="toc-text">IP信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口信息查询："><span class="toc-number">2.1.3.</span> <span class="toc-text">端口信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指纹识别"><span class="toc-number">2.1.4.</span> <span class="toc-text">指纹识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#漏洞探测"><span class="toc-number">3.</span> <span class="toc-text">漏洞探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证漏洞"><span class="toc-number">4.</span> <span class="toc-text">验证漏洞</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%9F%E5%90%8D%E3%80%81IP%E3%80%81%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.1.</span> <span class="toc-text">1. 域名、IP、端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">域名信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IP%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">IP信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">端口信息查询：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="toc-number">2.1.4.</span> <span class="toc-text">指纹识别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-number">3.</span> <span class="toc-text">漏洞探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%BC%8F%E6%B4%9E"><span class="toc-number">4.</span> <span class="toc-text">验证漏洞</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&text=Web渗透测试———流程"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&is_video=false&description=Web渗透测试———流程"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Web渗透测试———流程&body=Check out this article: https://alpha302.github.io/2019/11/29/Web渗透测试———流程/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&title=Web渗透测试———流程"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/11/29/Web渗透测试———流程/&name=Web渗透测试———流程&description=&lt;ul&gt;
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&text=Web渗透测试———流程"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&is_video=false&description=Web渗透测试———流程"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Web渗透测试———流程&body=Check out this article: https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&title=Web渗透测试———流程"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/11/29/Web%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B/&name=Web渗透测试———流程&description=&lt;ul&gt;
 &lt;li&gt;渗透测试：出于保护系统的目的，更全面地找出测试对象的安全隐患。&lt;/li&gt;
 &lt;li&gt;入侵：不择手段地（甚至是具有破坏性的）拿到系统权限。&lt;/li&gt;
 &lt;/ul&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
@@ -332,13 +331,23 @@
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- styles -->
+
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+
+
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
+
 <!-- jquery -->
+
 <script src="/lib/jquery/jquery.min.js"></script>
+
+
 <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 <!-- search -->
 
 <!-- Google Analytics -->

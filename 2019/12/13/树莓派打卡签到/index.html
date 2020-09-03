@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!">
-<meta name="keywords" content="树莓派,自动化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派打卡签到">
-<meta property="og:url" content="https://alpha302.github.io/2019/12/13/树莓派打卡签到/index.html">
+<meta property="og:url" content="https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/index.html">
 <meta property="og:site_name" content="Alpha的小站">
 <meta property="og:description" content="实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/O28QLRC9U194I.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/PJ3%252IPJ.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/YMFTL%7BWDL%5BRD.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/OM%5B3SUTVJH413%24MM.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/52LEB88L0Y%7E_%60M%5BD.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/YVF38P%7ECZFXA90ID7.png">
-<meta property="og:updated_time" content="2020-01-13T03:35:11.202Z">
+<meta property="article:published_time" content="2019-12-13T01:37:53.000Z">
+<meta property="article:modified_time" content="2020-01-13T03:35:11.202Z">
+<meta property="article:author" content="wang">
+<meta property="article:tag" content="树莓派">
+<meta property="article:tag" content="自动化">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派打卡签到">
-<meta name="twitter:description" content="实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/O28QLRC9U194I.png">
     
     
@@ -46,11 +47,13 @@
     <!-- title -->
     <title>树莓派打卡签到</title>
     <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css">
+
     <!-- rss -->
     
     
-</head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body class="max-width mx-auto px3">
     
@@ -76,10 +79,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/12/17/bash脚本入门/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/12/17/bash%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2019/12/01/搜索引擎/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/12/01/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -92,21 +95,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/12/13/树莓派打卡签到/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&text=树莓派打卡签到"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&is_video=false&description=树莓派打卡签到"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=树莓派打卡签到&body=Check out this article: https://alpha302.github.io/2019/12/13/树莓派打卡签到/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&name=树莓派打卡签到&description=&lt;p&gt;实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&text=树莓派打卡签到"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&is_video=false&description=树莓派打卡签到"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=树莓派打卡签到&body=Check out this article: https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&name=树莓派打卡签到&description=&lt;p&gt;实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#树莓派介绍"><span class="toc-number">1.</span> <span class="toc-text">树莓派介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树莓派的购买及组装"><span class="toc-number">2.</span> <span class="toc-text">树莓派的购买及组装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#装系统"><span class="toc-number">2.0.1.</span> <span class="toc-text">装系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主菜到了，树莓派签到功能"><span class="toc-number">3.</span> <span class="toc-text">主菜到了，树莓派签到功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置邮件功能"><span class="toc-number">3.1.</span> <span class="toc-text">设置邮件功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本定时-开机自启动"><span class="toc-number">3.2.</span> <span class="toc-text">脚本定时/开机自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抓取定位包"><span class="toc-number">3.3.</span> <span class="toc-text">抓取定位包</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">树莓派介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E8%B4%AD%E4%B9%B0%E5%8F%8A%E7%BB%84%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">树莓派的购买及组装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.0.1.</span> <span class="toc-text">装系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%8F%9C%E5%88%B0%E4%BA%86%EF%BC%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AD%BE%E5%88%B0%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">主菜到了，树莓派签到功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%82%AE%E4%BB%B6%E5%8A%9F%E8%83%BD"><span class="toc-number">3.1.</span> <span class="toc-text">设置邮件功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E5%AE%9A%E6%97%B6-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">3.2.</span> <span class="toc-text">脚本定时&#x2F;开机自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E5%AE%9A%E4%BD%8D%E5%8C%85"><span class="toc-number">3.3.</span> <span class="toc-text">抓取定位包</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -135,14 +138,14 @@
 
       
     <span class="article-categories">
-        分类：<a class="category-link" href="/categories/树莓派/">树莓派</a>
+        分类：<a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
     </span>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/树莓派/">树莓派</a>, <a class="tag-link" href="/tags/自动化/">自动化</a>
+        <a class="tag-link-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a>, <a class="tag-link-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a>
     </div>
 
 
@@ -156,20 +159,20 @@
 
 <hr>
 <h2 id="树莓派介绍"><a href="#树莓派介绍" class="headerlink" title="树莓派介绍"></a>树莓派介绍</h2><p>树莓派是一款信用卡大小的超小型电脑</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/O28QLRC9U194I.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/O28QLRC9U194I.png"></p>
 <p>那么我们有个大胆的想法，能不能用树莓派实现打卡的心愿呢。好歹也是个计算机，对吧。</p>
-<h2 id="树莓派的购买及组装"><a href="#树莓派的购买及组装" class="headerlink" title="树莓派的购买及组装"></a>树莓派的购买及组装</h2><p><a href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2" target="_blank" rel="noopener">购买清单</a></p>
+<h2 id="树莓派的购买及组装"><a href="#树莓派的购买及组装" class="headerlink" title="树莓派的购买及组装"></a>树莓派的购买及组装</h2><p><a target="_blank" rel="noopener" href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2">购买清单</a></p>
 <p>就我实际的使用而言，必需品：一块主板，网线，3个散热片，外壳，电源，16g sd卡，读卡器。</p>
-<p>组装部分 <a href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4" target="_blank" rel="noopener">https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4</a></p>
+<p>组装部分 <a target="_blank" rel="noopener" href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4">https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/4</a></p>
 <p>大家拿着自己的板子(树莓派4)对照着图找就好了</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/PJ3%252IPJ.png" alt></p>
-<h4 id="装系统"><a href="#装系统" class="headerlink" title="装系统"></a>装系统</h4><p>我这里推荐大家装 <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">Raspbian Buster with desktop</a> 对于官网NOOBS系统我尝试过了，对于我们没有买显示器的而言，不友好，需要额外的操作。</p>
-<p><strong>系统下载完成，就需要烧录</strong> 这里需要先SD卡格式化，使用 <a href="https://www.sdcard.org/downloads/formatter/index.html" target="_blank" rel="noopener">SD Card Formatter</a>(支持windows和mac)</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/YMFTL%7BWDL%5BRD.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/PJ3%252IPJ.png"></p>
+<h4 id="装系统"><a href="#装系统" class="headerlink" title="装系统"></a>装系统</h4><p>我这里推荐大家装 <a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Buster with desktop</a> 对于官网NOOBS系统我尝试过了，对于我们没有买显示器的而言，不友好，需要额外的操作。</p>
+<p><strong>系统下载完成，就需要烧录</strong> 这里需要先SD卡格式化，使用 <a target="_blank" rel="noopener" href="https://www.sdcard.org/downloads/formatter/index.html">SD Card Formatter</a>(支持windows和mac)</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/YMFTL%7BWDL%5BRD.png"></p>
 <p>烧录系统到sd卡<br>这里使用win32Diskimager </p>
-<p>链接：<a href="https://pan.baidu.com/s/1loQPydCsw9Cam8Us2CbpxQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1loQPydCsw9Cam8Us2CbpxQ</a><br>提取码：wiis<br>复制这段内容后打开百度网盘手机App，操作更方便哦</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1loQPydCsw9Cam8Us2CbpxQ">https://pan.baidu.com/s/1loQPydCsw9Cam8Us2CbpxQ</a><br>提取码：wiis<br>复制这段内容后打开百度网盘手机App，操作更方便哦</p>
 <p>烧录完成，组装完成。设置ssh连接，最新的系统默认是未开启ssh，这里我们需要设置开启ssh。将SD卡连接到电脑上并打开，直接新建“SSH”文件（无后缀）即可</p>
-<p>算了，接下来还有网线什么的连接。写起来太长，都还没到主菜。详细的设置大家可以参考<br><a href="https://blog.csdn.net/weixin_43895902/article/details/100919851#_142" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43895902/article/details/100919851#_142</a></p>
+<p>算了，接下来还有网线什么的连接。写起来太长，都还没到主菜。详细的设置大家可以参考<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43895902/article/details/100919851#_142">https://blog.csdn.net/weixin_43895902/article/details/100919851#_142</a></p>
 <p>就我出现的几个问题给大家说一下。</p>
 <ul>
 <li><ol>
@@ -181,7 +184,7 @@
 </ol>
 </li>
 <li><ol start="3">
-<li>自己的树莓派下载很慢，这时需要<a href="https://zhuanlan.zhihu.com/p/35017671" target="_blank" rel="noopener">设置软件源</a></li>
+<li>自己的树莓派下载很慢，这时需要<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35017671">设置软件源</a></li>
 </ol>
 </li>
 <li><ol start="4">
@@ -196,26 +199,25 @@
 </blockquote>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line">sudo apt install msmtp mutt</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置msmtprc</span></span><br><span class="line">cd ~               <span class="comment">#进入用户根目录</span></span><br><span class="line">touch msmtp.log        <span class="comment">#创建日志文件</span></span><br><span class="line">chmod <span class="number">600</span> msmtp.log    <span class="comment">#查看日志</span></span><br><span class="line">touch .msmtprc         <span class="comment">#创建.msmtprc文件</span></span><br><span class="line">chmod <span class="number">600</span> .msmtprc     <span class="comment">#msmtprc权限</span></span><br><span class="line">sudo nano .msmtprc     <span class="comment">#添加如下内容</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">account default</span><br><span class="line">host smtp.163.com    <span class="comment">#需要开启163邮箱的SMTP服务</span></span><br><span class="line">from xxx@<span class="number">163.</span>com     <span class="comment">#你的邮箱地址</span></span><br><span class="line">auth plain</span><br><span class="line">user xxx@<span class="number">163.</span>com     <span class="comment">#你的邮箱地址</span></span><br><span class="line">password your_password   <span class="comment">#是SMTP授权码</span></span><br><span class="line">logfile /root/msmtp.log <span class="comment"># 在发送邮件之后程序会把发送日志写到这个路径的文件里</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置mutt</span></span><br><span class="line">cd ~</span><br><span class="line">touch .muttrc</span><br><span class="line">sudo nano .muttrc  <span class="comment">#添加以下内容，默认填就好了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set sendmail=<span class="string">"/usr/bin/msmtp"</span></span><br><span class="line">set use_from=yes</span><br><span class="line">set realname=<span class="string">"Alpha"</span>  <span class="comment">#收件人名字</span></span><br><span class="line">set from=<span class="string">"xxx@163.com"</span></span><br><span class="line">set editor=<span class="string">"vim"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置msmtprc</span></span><br><span class="line">cd ~               <span class="comment">#进入用户根目录</span></span><br><span class="line">touch msmtp.log        <span class="comment">#创建日志文件</span></span><br><span class="line">chmod <span class="number">600</span> msmtp.log    <span class="comment">#查看日志</span></span><br><span class="line">touch .msmtprc         <span class="comment">#创建.msmtprc文件</span></span><br><span class="line">chmod <span class="number">600</span> .msmtprc     <span class="comment">#msmtprc权限</span></span><br><span class="line">sudo nano .msmtprc     <span class="comment">#添加如下内容</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">account default</span><br><span class="line">host smtp.163.com    <span class="comment">#需要开启163邮箱的SMTP服务</span></span><br><span class="line">from xxx@<span class="number">163.</span>com     <span class="comment">#你的邮箱地址</span></span><br><span class="line">auth plain</span><br><span class="line">user xxx@<span class="number">163.</span>com     <span class="comment">#你的邮箱地址</span></span><br><span class="line">password your_password   <span class="comment">#是SMTP授权码</span></span><br><span class="line">logfile /root/msmtp.log <span class="comment"># 在发送邮件之后程序会把发送日志写到这个路径的文件里</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置mutt</span></span><br><span class="line">cd ~</span><br><span class="line">touch .muttrc</span><br><span class="line">sudo nano .muttrc  <span class="comment">#添加以下内容，默认填就好了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set sendmail=<span class="string">&quot;/usr/bin/msmtp&quot;</span></span><br><span class="line">set use_from=yes</span><br><span class="line">set realname=<span class="string">&quot;Alpha&quot;</span>  <span class="comment">#收件人名字</span></span><br><span class="line">set from=<span class="string">&quot;xxx@163.com&quot;</span></span><br><span class="line">set editor=<span class="string">&quot;vim&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#测试</span><br><span class="line">测试配置文件：msmtp -P</span><br><span class="line">测试smtp服务器：msmtp -S</span><br><span class="line">echo &quot;你好，我是测试用的，谢谢&quot; | mutt -s &quot;你好啊&quot; xxx@163.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#测试</span><br><span class="line">测试配置文件：msmtp -P</span><br><span class="line">测试smtp服务器：msmtp -S</span><br><span class="line">echo &quot;你好，我是测试用的，谢谢&quot; | mutt -s &quot;你好啊&quot; xxx@163.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/OM%5B3SUTVJH413%24MM.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/52LEB88L0Y%7E_%60M%5BD.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/YVF38P%7ECZFXA90ID7.png" alt></p>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/OM%5B3SUTVJH413%24MM.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/52LEB88L0Y%7E_%60M%5BD.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/YVF38P%7ECZFXA90ID7.png"></p>
 <h3 id="脚本定时-开机自启动"><a href="#脚本定时-开机自启动" class="headerlink" title="脚本定时/开机自启动"></a>脚本定时/开机自启动</h3><p>这个要单独列出来一下。因为一个脚本的核心还是自动化，方便实用。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开机自启动</span></span><br><span class="line">sudo nano /etc/rc.local</span><br><span class="line">sudo bash /home/pi/sendmail.sh                 <span class="comment">#我的sendmail.sh是开机发送自己的ip，文末会贴上</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定时任务</span></span><br><span class="line"><span class="comment">#cron进行定时器</span></span><br><span class="line">crontab -e         <span class="comment">#编译定时任务</span></span><br><span class="line">// 从左往右：  分 时 日 月 星期 </span><br><span class="line"><span class="comment"># m h  dom mon dow   command</span></span><br><span class="line"><span class="number">30</span> <span class="number">5</span>   <span class="number">10</span>   <span class="number">3</span>   *   touch /tmp/test.log  // 表示每年<span class="number">3</span>月<span class="number">10</span>号<span class="number">5</span>点<span class="number">30</span>分，执行touch /tmp/test.log</span><br><span class="line"><span class="number">10</span> <span class="number">18</span>   *   *   *   echo <span class="string">"Hello World"</span> &gt; /home/pi/log  // 每天的<span class="number">18</span>点<span class="number">10</span>分执行echo <span class="string">"Hello World"</span> &gt; /home/pi/log</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定时任务</span></span><br><span class="line"><span class="comment">#cron进行定时器</span></span><br><span class="line">crontab -e         <span class="comment">#编译定时任务</span></span><br><span class="line">// 从左往右：  分 时 日 月 星期 </span><br><span class="line"><span class="comment"># m h  dom mon dow   command</span></span><br><span class="line"><span class="number">30</span> <span class="number">5</span>   <span class="number">10</span>   <span class="number">3</span>   *   touch /tmp/test.log  // 表示每年<span class="number">3</span>月<span class="number">10</span>号<span class="number">5</span>点<span class="number">30</span>分，执行touch /tmp/test.log</span><br><span class="line"><span class="number">10</span> <span class="number">18</span>   *   *   *   echo <span class="string">&quot;Hello World&quot;</span> &gt; /home/pi/log  // 每天的<span class="number">18</span>点<span class="number">10</span>分执行echo <span class="string">&quot;Hello World&quot;</span> &gt; /home/pi/log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="抓取定位包"><a href="#抓取定位包" class="headerlink" title="抓取定位包"></a>抓取定位包</h3><p>我使用的是eteams打卡，它不支持pc端的签到，所以我只能使用模拟器代理去抓包。</p>
 <p>一些自己使用的脚本：</p>
 <ul>
-<li><p>1.定时ip任务: #!/bin/bash</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># check network availability</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># get the IP address of eth0, e.g. "192.168.16.5"</span></span><br><span class="line">ETH0_IP_ADDR=`/sbin/ifconfig eth0 | sed -n "2,2p" | awk '&#123;print substr($2,1)&#125;'`</span><br><span class="line">  </span><br><span class="line"><span class="comment"># send the Email</span></span><br><span class="line">echo <span class="string">"Current time: `date '+%F %T'`. Enjoy it"</span> | mutt -s <span class="string">"IP Address of Raspberry Pi: $ETH0_IP_ADDR"</span> xxx@<span class="number">163.</span>com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.报告车况，车辆到站时间</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></li>
+<li>1.定时ip任务: #!/bin/bash<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># check network availability</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># get the IP address of eth0, e.g. &quot;192.168.16.5&quot;</span></span><br><span class="line">ETH0_IP_ADDR=`/sbin/ifconfig eth0 | sed -n &quot;2,2p&quot; | awk &#x27;&#123;print substr($2,1)&#125;&#x27;`</span><br><span class="line">  </span><br><span class="line"><span class="comment"># send the Email</span></span><br><span class="line">echo <span class="string">&quot;Current time: `date &#x27;+%F %T&#x27;`. Enjoy it&quot;</span> | mutt -s <span class="string">&quot;IP Address of Raspberry Pi: $ETH0_IP_ADDR&quot;</span> xxx@<span class="number">163.</span>com</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>2.报告车况，车辆到站时间<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
 </ul>
 
   </div>
@@ -243,21 +245,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#树莓派介绍"><span class="toc-number">1.</span> <span class="toc-text">树莓派介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树莓派的购买及组装"><span class="toc-number">2.</span> <span class="toc-text">树莓派的购买及组装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#装系统"><span class="toc-number">2.0.1.</span> <span class="toc-text">装系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主菜到了，树莓派签到功能"><span class="toc-number">3.</span> <span class="toc-text">主菜到了，树莓派签到功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置邮件功能"><span class="toc-number">3.1.</span> <span class="toc-text">设置邮件功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本定时-开机自启动"><span class="toc-number">3.2.</span> <span class="toc-text">脚本定时/开机自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抓取定位包"><span class="toc-number">3.3.</span> <span class="toc-text">抓取定位包</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">树莓派介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E8%B4%AD%E4%B9%B0%E5%8F%8A%E7%BB%84%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">树莓派的购买及组装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.0.1.</span> <span class="toc-text">装系统</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%8F%9C%E5%88%B0%E4%BA%86%EF%BC%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AD%BE%E5%88%B0%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">主菜到了，树莓派签到功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%82%AE%E4%BB%B6%E5%8A%9F%E8%83%BD"><span class="toc-number">3.1.</span> <span class="toc-text">设置邮件功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E5%AE%9A%E6%97%B6-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">3.2.</span> <span class="toc-text">脚本定时&#x2F;开机自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E5%AE%9A%E4%BD%8D%E5%8C%85"><span class="toc-number">3.3.</span> <span class="toc-text">抓取定位包</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/12/13/树莓派打卡签到/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&text=树莓派打卡签到"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&is_video=false&description=树莓派打卡签到"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=树莓派打卡签到&body=Check out this article: https://alpha302.github.io/2019/12/13/树莓派打卡签到/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&title=树莓派打卡签到"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/12/13/树莓派打卡签到/&name=树莓派打卡签到&description=&lt;p&gt;实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&text=树莓派打卡签到"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&is_video=false&description=树莓派打卡签到"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=树莓派打卡签到&body=Check out this article: https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&title=树莓派打卡签到"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/&name=树莓派打卡签到&description=&lt;p&gt;实习要求：上班和下班必须要签到。我这么懒，实习是肯定要实习的，但是签到嘛，还是要想办法摸摸鱼的啦!&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -297,13 +299,23 @@
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- styles -->
+
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+
+
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
+
 <!-- jquery -->
+
 <script src="/lib/jquery/jquery.min.js"></script>
+
+
 <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 <!-- search -->
 
 <!-- Google Analytics -->

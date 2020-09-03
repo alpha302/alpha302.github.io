@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="简介:Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
-<meta name="keywords" content="免杀，payload">
 <meta property="og:type" content="article">
 <meta property="og:title" content="veil制作免杀payload">
-<meta property="og:url" content="https://alpha302.github.io/2019/10/05/免杀veil使用/index.html">
+<meta property="og:url" content="https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Alpha的小站">
 <meta property="og:description" content="简介:Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
@@ -21,10 +20,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png">
-<meta property="og:updated_time" content="2019-10-25T02:48:42.600Z">
+<meta property="article:published_time" content="2019-10-05T03:24:03.000Z">
+<meta property="article:modified_time" content="2019-10-25T02:48:42.600Z">
+<meta property="article:author" content="wang">
+<meta property="article:tag" content="免杀，payload">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="veil制作免杀payload">
-<meta name="twitter:description" content="简介:Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png">
     
     
@@ -47,11 +47,13 @@
     <!-- title -->
     <title>veil制作免杀payload</title>
     <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css">
+
     <!-- rss -->
     
     
-</head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 <body class="max-width mx-auto px3">
     
@@ -77,10 +79,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/10/07/CobaltStrike安装/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/10/07/CobaltStrike%E5%AE%89%E8%A3%85/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2019/09/29/XML和XXE基础/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -93,21 +95,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/05/免杀veil使用/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&text=veil制作免杀payload"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&is_video=false&description=veil制作免杀payload"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=veil制作免杀payload&body=Check out this article: https://alpha302.github.io/2019/10/05/免杀veil使用/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&name=veil制作免杀payload&description=&lt;p&gt;简介:&lt;br&gt;Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&text=veil制作免杀payload"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&is_video=false&description=veil制作免杀payload"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=veil制作免杀payload&body=Check out this article: https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&name=veil制作免杀payload&description=&lt;p&gt;简介:&lt;br&gt;Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali安装"><span class="toc-number">1.</span> <span class="toc-text">kali安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用说明"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工具使用"><span class="toc-number">3.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动veil"><span class="toc-number">3.1.</span> <span class="toc-text">启动veil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择go语言stager"><span class="toc-number">3.2.</span> <span class="toc-text">选择go语言stager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成payload"><span class="toc-number">3.3.</span> <span class="toc-text">生成payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">3.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">kali安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8veil"><span class="toc-number">3.1.</span> <span class="toc-text">启动veil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9go%E8%AF%AD%E8%A8%80stager"><span class="toc-number">3.2.</span> <span class="toc-text">选择go语言stager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90payload"><span class="toc-number">3.3.</span> <span class="toc-text">生成payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -136,14 +138,14 @@
 
       
     <span class="article-categories">
-        分类：<a class="category-link" href="/categories/内网渗透/">内网渗透</a>
+        分类：<a class="category-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a>
     </span>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/免杀，payload/">免杀，payload</a>
+        <a class="tag-link-link" href="/tags/%E5%85%8D%E6%9D%80%EF%BC%8Cpayload/" rel="tag">免杀，payload</a>
     </div>
 
 
@@ -157,7 +159,6 @@
 
 <hr>
 <h2 id="kali安装"><a href="#kali安装" class="headerlink" title="kali安装"></a>kali安装</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali<span class="symbol">:~</span><span class="comment"># apt -y install veil</span></span><br><span class="line">root@kali<span class="symbol">:~</span><span class="comment"># /usr/share/veil/config/setup.sh --force --silent</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ul>
 <li>在Kali上运行Veil，生成payload</li>
 <li>如果使用的是Pyinstaller，payload会转成能够直接使用的可执行程序</li>
@@ -168,20 +169,13 @@
 <ul>
 <li>Ordnance可生成在Veil-Evasion中使用的shellcode</li>
 <li>Evasion是用做文件免杀<br>我们选择Evasion<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Veil&gt;: use <span class="number">1</span>                   <span class="comment">#选择Evasion功能</span></span><br><span class="line">Veil/Evasion&gt;: list            <span class="comment">#查看payload列表</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png" alt="avatar"><br>查看payload<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[*] Available Payloads:</span><br><span class="line"></span><br><span class="line">	1)	autoit&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	2)	auxiliary&#x2F;coldwar_wrapper.py</span><br><span class="line">	3)	auxiliary&#x2F;macro_converter.py</span><br><span class="line">	4)	auxiliary&#x2F;pyinstaller_wrapper.py</span><br><span class="line"></span><br><span class="line">	5)	c&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	6)	c&#x2F;meterpreter&#x2F;rev_http_service.py</span><br><span class="line">	7)	c&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	8)	c&#x2F;meterpreter&#x2F;rev_tcp_service.py</span><br><span class="line"></span><br><span class="line">	9)	cs&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	10)	cs&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	11)	cs&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	12)	cs&#x2F;shellcode_inject&#x2F;base64.py</span><br><span class="line">	13)	cs&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	14)	go&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	15)	go&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	16)	go&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	17)	go&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	18)	lua&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	19)	perl&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	20)	powershell&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	21)	powershell&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	22)	powershell&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	23)	powershell&#x2F;shellcode_inject&#x2F;psexec_virtual.py</span><br><span class="line">	24)	powershell&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	25)	python&#x2F;meterpreter&#x2F;bind_tcp.py</span><br><span class="line">	26)	python&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	27)	python&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	28)	python&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	29)	python&#x2F;shellcode_inject&#x2F;aes_encrypt.py</span><br><span class="line">	30)	python&#x2F;shellcode_inject&#x2F;arc_encrypt.py</span><br><span class="line">	31)	python&#x2F;shellcode_inject&#x2F;base64_substitution.py</span><br><span class="line">	32)	python&#x2F;shellcode_inject&#x2F;des_encrypt.py</span><br><span class="line">	33)	python&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line">	34)	python&#x2F;shellcode_inject&#x2F;letter_substitution.py</span><br><span class="line">	35)	python&#x2F;shellcode_inject&#x2F;pidinject.py</span><br><span class="line">	36)	python&#x2F;shellcode_inject&#x2F;stallion.py</span><br><span class="line"></span><br><span class="line">	37)	ruby&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	38)	ruby&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	39)	ruby&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	40)	ruby&#x2F;shellcode_inject&#x2F;base64.py</span><br><span class="line">	41)	ruby&#x2F;shellcode_inject&#x2F;flat.py</span><br></pre></td></tr></table></figure>
+推荐使用以go和ruby语言encode的编码方式。像python这类的与用户有较高的交互就容易被查杀。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png" alt="avatar"><br>查看payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[*] Available Payloads:</span><br><span class="line"></span><br><span class="line">	1)	autoit/shellcode_inject/flat.py</span><br><span class="line"></span><br><span class="line">	2)	auxiliary/coldwar_wrapper.py</span><br><span class="line">	3)	auxiliary/macro_converter.py</span><br><span class="line">	4)	auxiliary/pyinstaller_wrapper.py</span><br><span class="line"></span><br><span class="line">	5)	c/meterpreter/rev_http.py</span><br><span class="line">	6)	c/meterpreter/rev_http_service.py</span><br><span class="line">	7)	c/meterpreter/rev_tcp.py</span><br><span class="line">	8)	c/meterpreter/rev_tcp_service.py</span><br><span class="line"></span><br><span class="line">	9)	cs/meterpreter/rev_http.py</span><br><span class="line">	10)	cs/meterpreter/rev_https.py</span><br><span class="line">	11)	cs/meterpreter/rev_tcp.py</span><br><span class="line">	12)	cs/shellcode_inject/base64.py</span><br><span class="line">	13)	cs/shellcode_inject/virtual.py</span><br><span class="line"></span><br><span class="line">	14)	go/meterpreter/rev_http.py</span><br><span class="line">	15)	go/meterpreter/rev_https.py</span><br><span class="line">	16)	go/meterpreter/rev_tcp.py</span><br><span class="line">	17)	go/shellcode_inject/virtual.py</span><br><span class="line"></span><br><span class="line">	18)	lua/shellcode_inject/flat.py</span><br><span class="line"></span><br><span class="line">	19)	perl/shellcode_inject/flat.py</span><br><span class="line"></span><br><span class="line">	20)	powershell/meterpreter/rev_http.py</span><br><span class="line">	21)	powershell/meterpreter/rev_https.py</span><br><span class="line">	22)	powershell/meterpreter/rev_tcp.py</span><br><span class="line">	23)	powershell/shellcode_inject/psexec_virtual.py</span><br><span class="line">	24)	powershell/shellcode_inject/virtual.py</span><br><span class="line"></span><br><span class="line">	25)	python/meterpreter/bind_tcp.py</span><br><span class="line">	26)	python/meterpreter/rev_http.py</span><br><span class="line">	27)	python/meterpreter/rev_https.py</span><br><span class="line">	28)	python/meterpreter/rev_tcp.py</span><br><span class="line">	29)	python/shellcode_inject/aes_encrypt.py</span><br><span class="line">	30)	python/shellcode_inject/arc_encrypt.py</span><br><span class="line">	31)	python/shellcode_inject/base64_substitution.py</span><br><span class="line">	32)	python/shellcode_inject/des_encrypt.py</span><br><span class="line">	33)	python/shellcode_inject/flat.py</span><br><span class="line">	34)	python/shellcode_inject/letter_substitution.py</span><br><span class="line">	35)	python/shellcode_inject/pidinject.py</span><br><span class="line">	36)	python/shellcode_inject/stallion.py</span><br><span class="line"></span><br><span class="line">	37)	ruby/meterpreter/rev_http.py</span><br><span class="line">	38)	ruby/meterpreter/rev_https.py</span><br><span class="line">	39)	ruby/meterpreter/rev_tcp.py</span><br><span class="line">	40)	ruby/shellcode_inject/base64.py</span><br><span class="line">	41)	ruby/shellcode_inject/flat.py</span><br></pre></td></tr></table></figure>
-
-<p>推荐使用以go和ruby语言encode的编码方式。像python这类的与用户有较高的交互就容易被查杀。</p>
 <h3 id="选择go语言stager"><a href="#选择go语言stager" class="headerlink" title="选择go语言stager"></a>选择go语言stager</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Veil/Evasion&gt;: use <span class="number">17</span></span><br></pre></td></tr></table></figure>
-
 <p>生成一个包含并执行CSpayload的go语言代码，和该代码编译成的可执行文件</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Required Options:</span><br><span class="line">Name            	Value   	Description</span><br><span class="line">----            	-----   	-----------</span><br><span class="line">BADMACS         	FALSE   	<span class="comment">#查看运行环境的MAC地址(反调试)</span></span><br><span class="line">CLICKTRACK      	X       	<span class="comment">#点击次数才会执行</span></span><br><span class="line">COMPILE_TO_EXE  	Y       	<span class="comment">#编译成exe文件</span></span><br><span class="line">CURSORCHECK     	FALSE   	<span class="comment">#设置硬盘容量(反沙盒)</span></span><br><span class="line">DISKSIZE        	X       	<span class="comment"># 设置只有磁盘大小满足时执行                           </span></span><br><span class="line">HOSTNAME        	X       	<span class="comment">#只有计算机名为hostname的值时才执行</span></span><br><span class="line">INJECT_METHOD   	Virtual 	<span class="comment">#Virtual or Heap</span></span><br><span class="line">MINPROCS        	X       	<span class="comment">#设置只有环境进程数满足时执行</span></span><br><span class="line">PROCCHECK       	FALSE   	<span class="comment">#只有运行环境的进程中没有虚拟机进程时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">PROCESSORS      	X       	<span class="comment">#指定核心数的机器中才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">RAMCHECK        	FALSE   	<span class="comment">#只在运行环境的内存为3G以上时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">SLEEP           	X       	<span class="comment">#休眠10秒 以检测是否运行过程中被加速（反沙箱)</span></span><br><span class="line">USERNAME        	X       	<span class="comment">#只有在当前用户名正确的机器中才执行payload</span></span><br><span class="line">USERPROMPT      	FALSE   	<span class="comment">#受害者计算机只有加入Comp域中时，才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">UTCCHECK        	Y   	 <span class="comment">#只在运行环境的系统使用UTC时间时，才会执行payload</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[go/shellcode_inject/virtual<span class="meta">&gt;&gt;</span>]: generate</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Required Options:</span><br><span class="line">Name            	Value   	Description</span><br><span class="line">----            	-----   	-----------</span><br><span class="line">BADMACS         	FALSE   	<span class="comment">#查看运行环境的MAC地址(反调试)</span></span><br><span class="line">CLICKTRACK      	X       	<span class="comment">#点击次数才会执行</span></span><br><span class="line">COMPILE_TO_EXE  	Y       	<span class="comment">#编译成exe文件</span></span><br><span class="line">CURSORCHECK     	FALSE   	<span class="comment">#设置硬盘容量(反沙盒)</span></span><br><span class="line">DISKSIZE        	X       	<span class="comment"># 设置只有磁盘大小满足时执行                           </span></span><br><span class="line">HOSTNAME        	X       	<span class="comment">#只有计算机名为hostname的值时才执行</span></span><br><span class="line">INJECT_METHOD   	Virtual 	<span class="comment">#Virtual or Heap</span></span><br><span class="line">MINPROCS        	X       	<span class="comment">#设置只有环境进程数满足时执行</span></span><br><span class="line">PROCCHECK       	FALSE   	<span class="comment">#只有运行环境的进程中没有虚拟机进程时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">PROCESSORS      	X       	<span class="comment">#指定核心数的机器中才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">RAMCHECK        	FALSE   	<span class="comment">#只在运行环境的内存为3G以上时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">SLEEP           	X       	<span class="comment">#休眠10秒 以检测是否运行过程中被加速（反沙箱)</span></span><br><span class="line">USERNAME        	X       	<span class="comment">#只有在当前用户名正确的机器中才执行payload</span></span><br><span class="line">USERPROMPT      	FALSE   	<span class="comment">#受害者计算机只有加入Comp域中时，才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">UTCCHECK        	Y   	 <span class="comment">#只在运行环境的系统使用UTC时间时，才会执行payload</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[go/shellcode_inject/virtual&gt;&gt;]: generate </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
 <p>此时需要我们选择shellcode，我用cs生成</p>
 <ul>
@@ -190,8 +184,7 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-52-01%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
 <p>复制cs的payload到veil中<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">&gt;</span>] <span class="function">Please enter the <span class="keyword">base</span> name <span class="keyword">for</span> output <span class="title">files</span> (<span class="params"><span class="keyword">default</span> <span class="keyword">is</span> payload</span>): test</span></span><br><span class="line"><span class="function">生成木马</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">&gt;</span>] <span class="function">Please enter the <span class="keyword">base</span> name <span class="keyword">for</span> output <span class="title">files</span> (<span class="params"><span class="keyword">default</span> <span class="keyword">is</span> payload</span>): test</span></span><br><span class="line"><span class="function">生成木马</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"><br>test.exe即为注入内存的免杀木马。</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png" alt="avatar"><br>卑微，只能过360，腾讯哈勃没过得去。正常用没问题<br>大家尽量不要用virustotal去做测试，这个会总合杀毒软件并将样本提交给杀毒软件。也就是说只能用一次。</p>
 
@@ -220,21 +213,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali安装"><span class="toc-number">1.</span> <span class="toc-text">kali安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用说明"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工具使用"><span class="toc-number">3.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动veil"><span class="toc-number">3.1.</span> <span class="toc-text">启动veil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择go语言stager"><span class="toc-number">3.2.</span> <span class="toc-text">选择go语言stager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成payload"><span class="toc-number">3.3.</span> <span class="toc-text">生成payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">3.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">kali安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8veil"><span class="toc-number">3.1.</span> <span class="toc-text">启动veil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9go%E8%AF%AD%E8%A8%80stager"><span class="toc-number">3.2.</span> <span class="toc-text">选择go语言stager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90payload"><span class="toc-number">3.3.</span> <span class="toc-text">生成payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/05/免杀veil使用/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&text=veil制作免杀payload"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&is_video=false&description=veil制作免杀payload"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=veil制作免杀payload&body=Check out this article: https://alpha302.github.io/2019/10/05/免杀veil使用/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&title=veil制作免杀payload"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/05/免杀veil使用/&name=veil制作免杀payload&description=&lt;p&gt;简介:&lt;br&gt;Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&text=veil制作免杀payload"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&is_video=false&description=veil制作免杀payload"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=veil制作免杀payload&body=Check out this article: https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&name=veil制作免杀payload&description=&lt;p&gt;简介:&lt;br&gt;Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -274,13 +267,23 @@
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- styles -->
+
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+
+
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
+
 <!-- jquery -->
+
 <script src="/lib/jquery/jquery.min.js"></script>
+
+
 <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 <!-- search -->
 
 <!-- Google Analytics -->
