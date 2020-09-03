@@ -298,20 +298,6 @@
 
   
   <url>
-    <loc>https://alpha302.github.io/tags/linux/</loc>
-    <lastmod>2020-09-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://alpha302.github.io/tags/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2020-09-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://alpha302.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-09-03</lastmod>
     <changefreq>daily</changefreq>
@@ -320,6 +306,20 @@
   
   <url>
     <loc>https://alpha302.github.io/tags/Android/</loc>
+    <lastmod>2020-09-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://alpha302.github.io/tags/linux/</loc>
+    <lastmod>2020-09-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://alpha302.github.io/tags/%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2020-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -433,14 +433,14 @@
 
   
   <url>
-    <loc>https://alpha302.github.io/categories/linux/</loc>
+    <loc>https://alpha302.github.io/categories/Android/</loc>
     <lastmod>2020-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/categories/Android/</loc>
+    <loc>https://alpha302.github.io/categories/linux/</loc>
     <lastmod>2020-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -454,14 +454,14 @@
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://alpha302.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://alpha302.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
