@@ -969,6 +969,15 @@
 <li>Frida JS files folder: 包含带有所有Frida和Brida钩子和导出文件的Frida工具JavaScript文件的文件夹的路径。我们可以使用默认文件夹</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/burp1frida.png"></p>
+<h4 id="运行brida"><a href="#运行brida" class="headerlink" title="运行brida"></a>运行brida</h4><p><strong><em>我之前的环境找不到了，我用自己本机的环境结个图吧</em></strong></p>
+<ul>
+<li><p>获取 android包名<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200905015111.png"></p>
+</li>
+<li><p>启动server 和Spawn application<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200905015240.png"></p>
+</li>
+</ul>
+<p>正常启动，全绿。<br>配置完成<br>这里给出一件启动server的脚本（图中用的startfridaservice.py）<br>python3 startfridaserver.py 即可</p>
+<p>链接：<a href="https://pan.baidu.com/s/11IdhpG8I5vMb1q33-7C4qg">https://pan.baidu.com/s/11IdhpG8I5vMb1q33-7C4qg</a><br>提取码：46c0</p>
 ]]></content>
   </entry>
   <entry>
