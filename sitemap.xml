@@ -361,14 +361,14 @@
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/tags/xss/</loc>
+    <loc>https://alpha302.github.io/tags/owasp/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/tags/owasp/</loc>
+    <loc>https://alpha302.github.io/tags/xss/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -503,14 +503,14 @@
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/categories/OWASP/</loc>
+    <loc>https://alpha302.github.io/categories/owasp/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://alpha302.github.io/categories/owasp/</loc>
+    <loc>https://alpha302.github.io/categories/OWASP/</loc>
     <lastmod>2020-12-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

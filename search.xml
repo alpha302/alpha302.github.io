@@ -408,7 +408,7 @@
 <h2 id="2-2切换到第一台kali"><a href="#2-2切换到第一台kali" class="headerlink" title="2.2切换到第一台kali"></a>2.2切换到第一台kali</h2><p>在上一台已经拿到beacon的客户端上，创建新的连接，连接到.150这台kali启动的teamserver上<br>点击左上角，cobalt strike-&gt;new connection<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/SZB%25%7EPU74%5D3M40VHZHK9_MB.png"></p>
 <p>Host填.150那台kali，点击connect</p>
 <p>此时在左下角我们可以看到，在客户端这儿是可以切换两台teamserver的<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/W5SUY%6051Z%7DVKRX%25NIZQS.png"></p>
-<p>我们切换到<a href="mailto:&#x6e;&#x65;&#111;&#64;&#x31;&#x32;&#55;&#46;&#x30;&#46;&#48;&#x2e;&#x31;">&#x6e;&#x65;&#111;&#64;&#x31;&#x32;&#55;&#46;&#x30;&#46;&#48;&#x2e;&#x31;</a><br>选中一个beacon，右键spawn<br>然后选中在.150的cs客户端上创建的listener<br>点击choose即可</p>
+<p>我们切换到<a href="mailto:&#110;&#101;&#111;&#64;&#49;&#50;&#55;&#46;&#x30;&#x2e;&#48;&#46;&#x31;">&#110;&#101;&#111;&#64;&#49;&#50;&#55;&#46;&#x30;&#x2e;&#48;&#46;&#x31;</a><br>选中一个beacon，右键spawn<br>然后选中在.150的cs客户端上创建的listener<br>点击choose即可</p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/KI%60VA%7DI%24LCC1FTL3IW.png"></p>
 <h2 id="2-3切换-150的cs客户端"><a href="#2-3切换-150的cs客户端" class="headerlink" title="2.3切换.150的cs客户端"></a>2.3切换.150的cs客户端</h2><p>可以看到此时已经收到.100的cs客户端spawn来的beacon了</p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/AC8XWBKOSYDDB.png"></p>
@@ -640,33 +640,6 @@
       </tags>
   </entry>
   <entry>
-    <title>XSS小游戏2</title>
-    <url>/2020/02/22/XSS%E5%B0%8F%E6%B8%B8%E6%88%8F2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>你必须非常努力，才能看起来毫不费劲。</p>
-<a id="more"></a>
-
-<hr>
-<h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><p><strong>练习地址</strong> </p>
-<blockquote>
-<p><a href="https://xss.haozi.me/">https://xss.haozi.me/</a></p>
-</blockquote>
-<p><strong>网站源码</strong></p>
-<blockquote>
-<p><a href="https://github.com/haozi/xss-demo">https://github.com/haozi/xss-demo</a></p>
-</blockquote>
-<h1 id="0x00-1"><a href="#0x00-1" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span> <span class="hljs-params">(input)</span></span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;div&gt;&#x27;</span> + <span class="hljs-built_in">input</span> + <span class="hljs-string">&#x27;&lt;/div&gt;&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>无过滤</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>alert(1)<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h1><pre><code></code></pre>
-]]></content>
-      <categories>
-        <category>OWASP</category>
-      </categories>
-      <tags>
-        <tag>xss</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>XML和XXE基础</title>
     <url>/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h3><ul>
@@ -743,6 +716,33 @@
       </categories>
       <tags>
         <tag>owasp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XSS小游戏2</title>
+    <url>/2020/02/22/XSS%E5%B0%8F%E6%B8%B8%E6%88%8F2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>你必须非常努力，才能看起来毫不费劲。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><p><strong>练习地址</strong> </p>
+<blockquote>
+<p><a href="https://xss.haozi.me/">https://xss.haozi.me/</a></p>
+</blockquote>
+<p><strong>网站源码</strong></p>
+<blockquote>
+<p><a href="https://github.com/haozi/xss-demo">https://github.com/haozi/xss-demo</a></p>
+</blockquote>
+<h1 id="0x00-1"><a href="#0x00-1" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span> <span class="hljs-params">(input)</span></span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;div&gt;&#x27;</span> + <span class="hljs-built_in">input</span> + <span class="hljs-string">&#x27;&lt;/div&gt;&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>无过滤</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>alert(1)<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h1><pre><code></code></pre>
+]]></content>
+      <categories>
+        <category>OWASP</category>
+      </categories>
+      <tags>
+        <tag>xss</tag>
       </tags>
   </entry>
   <entry>
