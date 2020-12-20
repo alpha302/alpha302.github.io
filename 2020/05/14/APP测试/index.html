@@ -239,7 +239,7 @@
 <p>Andoid系统会在安装apk的时候，检查签名，签名不同，没有签名或者签名不通过的，不能进行安装或者覆盖。方法是：获取打包在apk里面的数字证书（里面有公钥），该证书是自签名证书，用证书公钥验证该证书的合法性（该证书有自己的私钥对该证书进行签名，而不是第三方权威机构的私钥），判断证书的有效期，然后利用该证书的公钥对包文件的签名进行验证。</p>
 </blockquote>
 <h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>jarsigner</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kali中自带jarsiner检查安装包的签名</span><br><span class="line"></span><br><span class="line">jarsigner.exe -verify APK 文件路径 -verbose -certs</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs py">kali中自带jarsiner检查安装包的签名<br><br>jarsigner.exe -verify APK 文件路径 -verbose -certs<br></code></pre></td></tr></table></figure>
 <h3 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h3><p>检查签名</p>
 <p>以某州APP示例<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2020-05-14%2009-54-16%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif"></p>
 <p>签名CN=kingdon 结果为安全。</p>
@@ -250,7 +250,7 @@
 <p>测试客户端安装程序，判断是否能反编译为源代码，java 代码和 so 文件是否存在代<br>码混淆等保护措施。未作保护的 java 代码，可以轻易分析其运行逻辑，并针对代码中的<br>缺陷对客户端或服务器端进行攻击。<br>成功的反编译将使得攻击者能够完整地分析 APP 的运行逻辑，尤其是相关业务接口协<br>议、和通信加密的实现。 </p>
 </blockquote>
 <h3 id="工具-1"><a href="#工具-1" class="headerlink" title="工具"></a>工具</h3><p>d2j-dex2jar;jd-gui</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d2j-dex2jar <span class="class"><span class="keyword">class</span>文件路径 </span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">jd</span>-<span class="title">gui</span>查看文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs py">d2j-dex2jar <span class="hljs-class"><span class="hljs-keyword">class</span>文件路径 </span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-title">jd</span>-<span class="hljs-title">gui</span>查看文件</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="渗透步骤"><a href="#渗透步骤" class="headerlink" title="渗透步骤"></a>渗透步骤</h3><p><strong>将sdk文件打开，导出classes.dex</strong></p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2020-05-14%2014-41-29%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif"></p>
