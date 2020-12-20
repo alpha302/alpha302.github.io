@@ -1,160 +1,233 @@
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="今天刚好看b站，看到视频闲置的vps赚美刀。正好自己手里有闲置的阿里云Ecs，就趁机回收一下主机成本，也好久不碰vps了，上手试试。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="懒人处理闲置vps__ubuntu16.04">
-<meta property="og:url" content="https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/index.html">
-<meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="今天刚好看b站，看到视频闲置的vps赚美刀。正好自己手里有闲置的阿里云Ecs，就趁机回收一下主机成本，也好久不碰vps了，上手试试。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/D7AU56.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/X26ZAP_ALVVD_EJA.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/XUK.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/5ZB%5D2L5B15L.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/DUIHZCZ3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/671OU0W.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/VB4I4SMZ%7B%7DH0%5DLN.png">
-<meta property="article:published_time" content="2019-10-26T13:24:26.000Z">
-<meta property="article:modified_time" content="2020-04-20T04:39:33.904Z">
-<meta property="article:author" content="wang">
-<meta property="article:tag" content="vps">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/D7AU56.png">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>懒人处理闲置vps__ubuntu16.04</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="够努力才会越幸运">
+  <meta name="author" content="wang">
+  <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
+  <title>懒人处理闲置vps__ubuntu16.04 - Alpha的小站</title>
 
-    <!-- rss -->
-    
-    
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-<body class="max-width mx-auto px3">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/10/28/msfconsole/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/10/18/CobaltStrike%E5%AD%A6%E4%B9%A0%E5%85%AD/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&text=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&is_video=false&description=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=懒人处理闲置vps__ubuntu16.04&body=Check out this article: https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&name=懒人处理闲置vps__ubuntu16.04&description=&lt;p&gt;今天刚好看b站，看到视频闲置的vps赚美刀。正好自己手里有闲置的阿里云Ecs，就趁机回收一下主机成本，也好久不碰vps了，上手试试。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-%E5%85%B3%E4%BA%8E%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.</span> <span class="toc-text">0x01 关于平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-Alexamaster%E6%B3%A8%E5%86%8C"><span class="toc-number">2.</span> <span class="toc-text">0x02 Alexamaster注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x3-vps-ubuntu"><span class="toc-number">3.</span> <span class="toc-text">0x3 vps_ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B9%B6%E5%90%AF%E7%94%A8"><span class="toc-number">3.0.1.</span> <span class="toc-text">安装VNC服务器并启用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%BA%E4%B8%AD%E4%B8%8B%E8%BD%BDvnc-viewer"><span class="toc-number">3.0.2.</span> <span class="toc-text">客户机中下载vnc viewer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%8C%E6%95%B4%E7%9A%84%E6%A1%8C%E9%9D%A2VNC"><span class="toc-number">3.0.3.</span> <span class="toc-text">配置完整的桌面VNC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">3.0.4.</span> <span class="toc-text">VNC服务器自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.0.5.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">3.0.6.</span> <span class="toc-text">优化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#firefox"><span class="toc-number">3.0.6.1.</span> <span class="toc-text">firefox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E5%90%AFSwap%E7%A9%BA%E9%97%B4"><span class="toc-number">3.0.6.2.</span> <span class="toc-text">开启Swap空间</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">4.</span> <span class="toc-text">后记</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        懒人处理闲置vps__ubuntu16.04
-    </h1>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Alpha的小站</span>
-      </span>
+  
+    
+    
       
-    <div class="postdate">
-        <time datetime="2019-10-26T13:24:26.000Z" itemprop="datePublished">2019-10-26</time>
-    </div>
-
-
-      
-    <span class="article-categories">
-        分类：<a class="category-link" href="/categories/vps/">vps</a>
-    </span>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/vps/" rel="tag">vps</a>
-    </div>
-
-
-    </div>
-  </header>
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
-  <div class="content" itemprop="articleBody">
-    <p>今天刚好看b站，看到视频闲置的vps赚美刀。正好自己手里有闲置的阿里云Ecs，就趁机回收一下主机成本，也好久不碰vps了，上手试试。</p>
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alpha302.github.io","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="懒人处理闲置vps__ubuntu16.04">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-10-26 21:24" pubdate>
+        2019年10月26日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">懒人处理闲置vps__ubuntu16.04</h1>
+            
+            <div class="markdown-body">
+              <p>今天刚好看b站，看到视频闲置的vps赚美刀。正好自己手里有闲置的阿里云Ecs，就趁机回收一下主机成本，也好久不碰vps了，上手试试。</p>
 <a id="more"></a>
 
 <hr>
@@ -167,19 +240,19 @@
 <p>填写资料，建议google邮箱。confire email可以在垃圾箱中找到。</p>
 <p>注册之后找到挂机地址autosurf url</p>
 <p>Earn Points - AutoSurf - how - copy autosurf url</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/D7AU56.png" alt="1"><br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X26ZAP_ALVVD_EJA.png" alt="2"></p>
-<p>此时，在浏览器中打开网址就可挂机赚钱了。<br>如图<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/XUK.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/D7AU56.png" srcset="/img/loading.gif" alt="1"><br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X26ZAP_ALVVD_EJA.png" srcset="/img/loading.gif" alt="2"></p>
+<p>此时，在浏览器中打开网址就可挂机赚钱了。<br>如图<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/XUK.png" srcset="/img/loading.gif"></p>
 <h2 id="0x3-vps-ubuntu"><a href="#0x3-vps-ubuntu" class="headerlink" title="0x3 vps_ubuntu"></a>0x3 vps_ubuntu</h2><h4 id="安装VNC服务器并启用"><a href="#安装VNC服务器并启用" class="headerlink" title="安装VNC服务器并启用"></a>安装VNC服务器并启用</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#阿里云服务器<span class="selector-tag">ubuntu</span> <span class="selector-tag">16</span><span class="selector-class">.04</span>版本</span><br><span class="line"><span class="selector-tag">root</span>@<span class="selector-tag">iZuf6cicjbwbqh7486tzi8Z</span>:~# <span class="selector-tag">apt-get</span> <span class="selector-tag">install</span> <span class="selector-tag">vnc4server</span>      # 安装<span class="selector-tag">VNC</span>服务器</span><br><span class="line"><span class="selector-tag">root</span>@<span class="selector-tag">iZuf6cicjbwbqh7486tzi8Z</span>:~# <span class="selector-tag">vncserver</span>    # 第一次运行<span class="selector-tag">vncserver</span>设置<span class="selector-tag">VNC</span>密码，看到类似 “<span class="selector-tag">New</span> ‘<span class="selector-pseudo">:1</span> ()’ <span class="selector-tag">desktop</span> <span class="selector-tag">is</span> <span class="selector-pseudo">:1</span> (代表主机名）” 的信息，即表示启动 vnc 成功</span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span>:~# <span class="attribute">vncserver </span>:<span class="number">1</span>    #开启端口<span class="number">5901</span></span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span>:~# ufw allow <span class="number">5901</span>    #阿里云防火墙开启端口并进行安全组进行设置</span><br></pre></td></tr></table></figure>
 <h4 id="客户机中下载vnc-viewer"><a href="#客户机中下载vnc-viewer" class="headerlink" title="客户机中下载vnc viewer"></a>客户机中下载vnc viewer</h4><p>windows下载<a target="_blank" rel="noopener" href="https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.18.625-Windows.exe">vnc viewer</a></p>
 <p>通过vps的ip+vnc的序号连接</p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/5ZB%5D2L5B15L.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/5ZB%5D2L5B15L.png" srcset="/img/loading.gif"></p>
 <h4 id="配置完整的桌面VNC"><a href="#配置完整的桌面VNC" class="headerlink" title="配置完整的桌面VNC"></a>配置完整的桌面VNC</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#连接上是一个空白的灰色屏幕，因为服务器的桌面进程尚未启动</span></span><br><span class="line"></span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span><span class="symbol">:~</span><span class="comment"># vncserver -kill :1        #成功连接之后，再退出该连接。关闭VNC服务：</span></span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span><span class="symbol">:~</span><span class="comment"># apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y       #安装并使用 unity 桌面，这里仅安装核心组件(精简够用) /完整版桌面：apt install ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y</span></span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span><span class="symbol">:~</span><span class="comment"># cp ~/.vnc/xstartup ~/.vnc/xstartup.bak                  #备份原有 xstartup 文件</span></span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span><span class="symbol">:~</span><span class="comment"># vi ~/.vnc/xstartup</span></span><br><span class="line">配置修改如下图所示，红色部分</span><br><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span><span class="symbol">:~</span><span class="comment"># vncserver :1    #保存并退出文件。重新启动VNC会话</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/DUIHZCZ3.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/DUIHZCZ3.png" srcset="/img/loading.gif"></p>
 <h4 id="VNC服务器自启动"><a href="#VNC服务器自启动" class="headerlink" title="VNC服务器自启动"></a>VNC服务器自启动</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root<span class="variable">@iZuf6cicjbwbqh7486tzi8Z</span><span class="symbol">:~</span><span class="comment"># crontab -e           #打开crontab，选择编译器4</span></span><br><span class="line"><span class="variable">@reboot</span> /usr/bin/vncserver <span class="symbol">:</span><span class="number">1</span>        <span class="comment">#添加到文件的底部</span></span><br><span class="line">保存并退出文件</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/671OU0W.png"></p>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>windows下连上VNC Viewer，挂上自动冲浪网址<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/VB4I4SMZ%7B%7DH0%5DLN.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/671OU0W.png" srcset="/img/loading.gif"></p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>windows下连上VNC Viewer，挂上自动冲浪网址<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/VB4I4SMZ%7B%7DH0%5DLN.png" srcset="/img/loading.gif"></p>
 <p>此时已经完成</p>
 <h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><h5 id="firefox"><a href="#firefox" class="headerlink" title="firefox"></a>firefox</h5><ul>
 <li>将浏览器更新到最新的Firefox，推荐Firefox</li>
@@ -201,107 +274,220 @@
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这里贴一下VNC Server命令</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#登陆</span></span><br><span class="line">root@iZuf6cicjbwbqh7486tzi8Z<span class="symbol">:~</span><span class="comment"># vncserver :2 设置客户端连接端口，一般端口号码在5901 ~ 5910 之间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#停止</span></span><br><span class="line">root@iZuf6cicjbwbqh7486tzi8Z<span class="symbol">:~</span><span class="comment"># vncserver -kill :2 只能使用kill暴力杀除命令</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#同一个显示器可以连接多个客户机</span></span><br><span class="line">root@iZuf6cicjbwbqh7486tzi8Z<span class="symbol">:~</span><span class="comment"># vncserver -alwaysshared</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重启服务</span></span><br><span class="line">root@iZuf6cicjbwbqh7486tzi8Z<span class="symbol">:~</span><span class="comment"># service vncserver restart</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重置密码</span></span><br><span class="line">root@iZuf6cicjbwbqh7486tzi8Z<span class="symbol">:~</span><span class="comment"># rm /root/.vnc/passwd    # 重新进行初次登陆的设置</span></span><br><span class="line"></span><br><span class="line">[破解vnc密码](<span class="symbol">https:</span>/<span class="regexp">/github.com/x</span>0rz4/vncpwd)</span><br><span class="line">点击[强化vnc server默认密码连接，免VNC端口(<span class="number">5901</span>)](<span class="symbol">https:</span>/<span class="regexp">/hakula.xyz/tutorial</span><span class="regexp">/vagex.html)</span></span><br><span class="line"><span class="regexp">#ssh隧道传输VNC，加密发送所有数据</span></span><br><span class="line"><span class="regexp">#SSH创建仅通过默认SSH端口（22）将本地端口5901上的localhost转发到远程计算机的端口5901的本地隧道</span></span><br></pre></td></tr></table></figure>
 
-  </div>
-</article>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/vps/">vps</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vps/">vps</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/28/msfconsole/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">msf多层内网穿透(基础篇)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/18/CobaltStrike%E5%AD%A6%E4%B9%A0%E5%85%AD/">
+                        <span class="hidden-mobile">CobaltStrike学习六</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-
+            
+          </article>
+        </div>
+      </div>
     </div>
     
-      <div id="footer-post-container">
-  <div id="footer-post">
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-%E5%85%B3%E4%BA%8E%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.</span> <span class="toc-text">0x01 关于平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-Alexamaster%E6%B3%A8%E5%86%8C"><span class="toc-number">2.</span> <span class="toc-text">0x02 Alexamaster注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x3-vps-ubuntu"><span class="toc-number">3.</span> <span class="toc-text">0x3 vps_ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B9%B6%E5%90%AF%E7%94%A8"><span class="toc-number">3.0.1.</span> <span class="toc-text">安装VNC服务器并启用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E6%9C%BA%E4%B8%AD%E4%B8%8B%E8%BD%BDvnc-viewer"><span class="toc-number">3.0.2.</span> <span class="toc-text">客户机中下载vnc viewer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%8C%E6%95%B4%E7%9A%84%E6%A1%8C%E9%9D%A2VNC"><span class="toc-number">3.0.3.</span> <span class="toc-text">配置完整的桌面VNC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">3.0.4.</span> <span class="toc-text">VNC服务器自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.0.5.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">3.0.6.</span> <span class="toc-text">优化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#firefox"><span class="toc-number">3.0.6.1.</span> <span class="toc-text">firefox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E5%90%AFSwap%E7%A9%BA%E9%97%B4"><span class="toc-number">3.0.6.2.</span> <span class="toc-text">开启Swap空间</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">4.</span> <span class="toc-text">后记</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&text=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&is_video=false&description=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=懒人处理闲置vps__ubuntu16.04&body=Check out this article: https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&title=懒人处理闲置vps__ubuntu16.04"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/26/%E6%87%92%E4%BA%BA%E5%A4%84%E7%90%86%E9%97%B2%E7%BD%AEvps/&name=懒人处理闲置vps__ubuntu16.04&description=&lt;p&gt;今天刚好看b站，看到视频闲置的vps赚美刀。正好自己手里有闲置的阿里云Ecs，就趁机回收一下主机成本，也好久不碰vps了，上手试试。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
+      </div>
+    
   </div>
 </div>
 
+<!-- Custom -->
+
+
     
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2020 wang
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </nav>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-

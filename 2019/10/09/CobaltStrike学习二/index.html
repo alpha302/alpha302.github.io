@@ -1,168 +1,233 @@
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="了解CobaltStrike的功能，深入理解各个功能模块的含义及使用，能够根据具体情况调用不同模块来使用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CobaltStrike学习二">
-<meta property="og:url" content="https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/index.html">
-<meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="了解CobaltStrike的功能，深入理解各个功能模块的含义及使用，能够根据具体情况调用不同模块来使用">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/deedede.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%25XVR(HW%24CVM10S)GTJ2O4IK.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7B%7DS%7DC0CY%5D4RVAQS7KCFW%40%7BU.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/wwwwwwwwwwwwwwwwww.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/GRY%608%25_%25VO382RDDX%60C_2DT.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/dededede.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/eeeeeeeeeeeeeeee.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/X_SVGWCWGNL%2435%7BC%403%4099RC.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%5BW%24%40%7DMLE1%7B18D%60%7BQN%25MC5%24F.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/X28QG%40PG%40SH1%7B9%7B%24KH64PSQ.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/Y9KR0E%5BB3%7D7%5D%25%404%7DAJY8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/SN%7DK5%7ENHG91%40M%6099JEUDAL.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/%5D%60AN3%406%5DTM9%7BXA4IYJ26S89.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/_%60LNV0M_FY33TYMHR67.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/FH1%25K0AL2YAFP9EXF%25JV.png">
-<meta property="article:published_time" content="2019-10-09T13:00:19.000Z">
-<meta property="article:modified_time" content="2019-10-09T14:13:59.938Z">
-<meta property="article:author" content="wang">
-<meta property="article:tag" content="CobaltStrike">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/deedede.png">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>CobaltStrike学习二</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="够努力才会越幸运">
+  <meta name="author" content="wang">
+  <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
+  <title>CobaltStrike学习二 - Alpha的小站</title>
 
-    <!-- rss -->
-    
-    
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-<body class="max-width mx-auto px3">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/10/16/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%B8%89/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/10/08/CobaltStrike%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&text=CobaltStrike学习二"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&is_video=false&description=CobaltStrike学习二"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CobaltStrike学习二&body=Check out this article: https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&name=CobaltStrike学习二&description=&lt;p&gt;了解CobaltStrike的功能，深入理解各个功能模块的含义及使用，能够根据具体情况调用不同模块来使用&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">Cobalt Strike模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#New-Connection"><span class="toc-number">1.1.</span> <span class="toc-text">New Connection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Visualization%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">Visualization可视化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vpn-lnterfaces"><span class="toc-number">1.3.</span> <span class="toc-text">Vpn lnterfaces</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#listeners"><span class="toc-number">1.4.</span> <span class="toc-text">listeners</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Script-manager"><span class="toc-number">1.5.</span> <span class="toc-text">Script manager</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attacks"><span class="toc-number">2.</span> <span class="toc-text">Attacks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Packages"><span class="toc-number">2.1.</span> <span class="toc-text">Packages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-Drive-by"><span class="toc-number">2.2.</span> <span class="toc-text">Web Drive-by</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SpearPhish"><span class="toc-number">2.3.</span> <span class="toc-text">SpearPhish</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#beacon%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">beacon命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Access"><span class="toc-number">4.</span> <span class="toc-text">Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View"><span class="toc-number">5.</span> <span class="toc-text">View</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E6%AD%A5%E6%98%AF%E7%94%9F%E6%88%90%E6%8A%A5%E5%91%8A"><span class="toc-number">6.</span> <span class="toc-text">最后一步是生成报告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%96%B0%E9%B2%9C%E7%9A%84%E5%A8%81%E8%83%81%E6%8A%A5%E5%91%8A"><span class="toc-number">6.1.</span> <span class="toc-text">生成新鲜的威胁报告</span></a></li></ol></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        CobaltStrike学习二
-    </h1>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Alpha的小站</span>
-      </span>
+  
+    
+    
       
-    <div class="postdate">
-        <time datetime="2019-10-09T13:00:19.000Z" itemprop="datePublished">2019-10-09</time>
-    </div>
-
-
-      
-    <span class="article-categories">
-        分类：<a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
-    </span>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/CobaltStrike/" rel="tag">CobaltStrike</a>
-    </div>
-
-
-    </div>
-  </header>
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
-  <div class="content" itemprop="articleBody">
-    <p>了解CobaltStrike的功能，深入理解各个功能模块的含义及使用，能够根据具体情况调用不同模块来使用</p>
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alpha302.github.io","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CobaltStrike学习二">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-10-09 21:00" pubdate>
+        2019年10月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CobaltStrike学习二</h1>
+            
+            <div class="markdown-body">
+              <p>了解CobaltStrike的功能，深入理解各个功能模块的含义及使用，能够根据具体情况调用不同模块来使用</p>
 <a id="more"></a>
 
 <hr>
@@ -170,8 +235,8 @@
 <li>connection 新建立一个用户连接，即连接到一个新的teamserver上</li>
 <li>Preferences 配置自己的设置，还记得我们第二次连接服务端的时候不用校验hash吗，就是因为hash已经被缓存在这儿了</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/deedede.png" alt="avatar"></p>
-<h4 id="Visualization可视化"><a href="#Visualization可视化" class="headerlink" title="Visualization可视化"></a>Visualization可视化</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%25XVR(HW%24CVM10S)GTJ2O4IK.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/deedede.png" srcset="/img/loading.gif" alt="avatar"></p>
+<h4 id="Visualization可视化"><a href="#Visualization可视化" class="headerlink" title="Visualization可视化"></a>Visualization可视化</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%25XVR(HW%24CVM10S)GTJ2O4IK.png" srcset="/img/loading.gif" alt="avatar"></p>
 <ul>
 <li>pivot graph   控制主机视图</li>
 <li>session table 一个会话</li>
@@ -183,7 +248,7 @@
 <h3 id="Attacks"><a href="#Attacks" class="headerlink" title="Attacks"></a>Attacks</h3><h4 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h4><blockquote>
 <p>生成恶意文件</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7B%7DS%7DC0CY%5D4RVAQS7KCFW%40%7BU.png" alt="avatar">  </p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%7B%7DS%7DC0CY%5D4RVAQS7KCFW%40%7BU.png" srcset="/img/loading.gif" alt="avatar">  </p>
 <pre><code>  HTML Application   生成hta文件
 
   MS Office Macro     宏office文件
@@ -200,7 +265,7 @@
 <h4 id="Web-Drive-by"><a href="#Web-Drive-by" class="headerlink" title="Web Drive-by"></a>Web Drive-by</h4><blockquote>
 <p>创建一个渠道，能够让靶机下载执行生成的恶意文件</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/wwwwwwwwwwwwwwwwww.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/wwwwwwwwwwwwwwwwww.png" srcset="/img/loading.gif" alt="avatar"></p>
 <pre><code>  CS支持的方式包括：
 
   Manage    开启的所有web服务
@@ -224,11 +289,11 @@
 <h3 id="beacon命令"><a href="#beacon命令" class="headerlink" title="beacon命令"></a>beacon命令</h3><pre><code>  右键interact可以开启beacon，我们用它来执行各种命令
 
   查看怎么使用哪些命令，可以使用help</code></pre>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/GRY%608%25_%25VO382RDDX%60C_2DT.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/GRY%608%25_%25VO382RDDX%60C_2DT.png" srcset="/img/loading.gif" alt="avatar"></p>
 <pre><code>  注意，在Cobalt Strike中它的心跳默认是60s，默认60s一次回传，这会让我们执行的命令响应很慢，在下载文件面前更为明显，所以实验时会把时间降低一点。但是在实战时应根据实战环境来调节，建议不要太快，不然流量特征会过于明显，容易暴露自己。
    我这里设置为如下，让靶机每5s下载一次任务</code></pre>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/dededede.png" alt="avatar"></p>
-<h3 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h3><p>事实上，右键打开的不止interact<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/eeeeeeeeeeeeeeee.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/dededede.png" srcset="/img/loading.gif" alt="avatar"></p>
+<h3 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h3><p>事实上，右键打开的不止interact<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/eeeeeeeeeeeeeeee.png" srcset="/img/loading.gif" alt="avatar"></p>
 <pre><code>  Interact   打开beacon</code></pre>
 <p>Access</p>
 <pre><code>  dumphashes 获取hash
@@ -264,7 +329,7 @@
    DeployVPN 部署VPN</code></pre>
 <p>Spawn 新的通讯模式并生成会话</p>
 <p>Session 会话管理，删除，心跳时间，退出，备注</p>
-<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X_SVGWCWGNL%2435%7BC%403%4099RC.png" alt="avatar"></p>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X_SVGWCWGNL%2435%7BC%403%4099RC.png" srcset="/img/loading.gif" alt="avatar"></p>
 <pre><code>  Applications 用于显示 System Profiler 获取的目标浏览器，操作系统，flash版本
 
   Credentials 显示所有已经获取的用户主机hash
@@ -286,12 +351,12 @@
   Web log web服务日志
 
   这些选项直接打开是没有用的，得在beacon中执行相应命令后才能使用，之前演示了screenshot，这里示范个经典的动作--获取hash，不过需要administrator权限，所以顺便演示一下使用CS提权，右键-》access-&gt;elevate</code></pre>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%5BW%24%40%7DMLE1%7B18D%60%7BQN%25MC5%24F.png" alt="avatar"></p>
-<p>会自动选择合适的exp，点击launch即可，此时在日志中可以看到已经拿到system权限了<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X28QG%40PG%40SH1%7B9%7B%24KH64PSQ.png" alt="avatar"></p>
-<p>现在我们有2个会话，一个yale，一个system<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/Y9KR0E%5BB3%7D7%5D%25%404%7DAJY8.png" alt="avatar"></p>
-<p>我们这时候需要和system交互，所以还是同样在system上右键-》interact<br>输入hashdump<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/SN%7DK5%7ENHG91%40M%6099JEUDAL.png" alt="avatar"></p>
-<p>这些结果都被缓存在了view-&gt;credentials<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%5D%60AN3%406%5DTM9%7BXA4IYJ26S89.png" alt="avatar"></p>
-<h3 id="最后一步是生成报告"><a href="#最后一步是生成报告" class="headerlink" title="最后一步是生成报告"></a>最后一步是生成报告</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/_%60LNV0M_FY33TYMHR67.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%5BW%24%40%7DMLE1%7B18D%60%7BQN%25MC5%24F.png" srcset="/img/loading.gif" alt="avatar"></p>
+<p>会自动选择合适的exp，点击launch即可，此时在日志中可以看到已经拿到system权限了<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/X28QG%40PG%40SH1%7B9%7B%24KH64PSQ.png" srcset="/img/loading.gif" alt="avatar"></p>
+<p>现在我们有2个会话，一个yale，一个system<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/Y9KR0E%5BB3%7D7%5D%25%404%7DAJY8.png" srcset="/img/loading.gif" alt="avatar"></p>
+<p>我们这时候需要和system交互，所以还是同样在system上右键-》interact<br>输入hashdump<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/SN%7DK5%7ENHG91%40M%6099JEUDAL.png" srcset="/img/loading.gif" alt="avatar"></p>
+<p>这些结果都被缓存在了view-&gt;credentials<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/%5D%60AN3%406%5DTM9%7BXA4IYJ26S89.png" srcset="/img/loading.gif" alt="avatar"></p>
+<h3 id="最后一步是生成报告"><a href="#最后一步是生成报告" class="headerlink" title="最后一步是生成报告"></a>最后一步是生成报告</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/_%60LNV0M_FY33TYMHR67.png" srcset="/img/loading.gif" alt="avatar"></p>
 <pre><code>  Activity report  活动报告
 
   Hosts report  主机报告
@@ -301,109 +366,222 @@
   Sessions report  会话报告
 
   Social engineering report  社会工程学报告</code></pre>
-<h4 id="生成新鲜的威胁报告"><a href="#生成新鲜的威胁报告" class="headerlink" title="生成新鲜的威胁报告"></a>生成新鲜的威胁报告</h4><p>还是同样的方法使用默认名，默认路径生成<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/FH1%25K0AL2YAFP9EXF%25JV.png" alt="avatar"></p>
+<h4 id="生成新鲜的威胁报告"><a href="#生成新鲜的威胁报告" class="headerlink" title="生成新鲜的威胁报告"></a>生成新鲜的威胁报告</h4><p>还是同样的方法使用默认名，默认路径生成<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/FH1%25K0AL2YAFP9EXF%25JV.png" srcset="/img/loading.gif" alt="avatar"></p>
 
-  </div>
-</article>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CobaltStrike/">CobaltStrike</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/16/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%B8%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CobaltStrike学习三</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/08/CobaltStrike%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+                        <span class="hidden-mobile">CobaltStrike学习一</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-
+            
+          </article>
+        </div>
+      </div>
     </div>
     
-      <div id="footer-post-container">
-  <div id="footer-post">
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cobalt-Strike%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">Cobalt Strike模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#New-Connection"><span class="toc-number">1.1.</span> <span class="toc-text">New Connection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Visualization%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">Visualization可视化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vpn-lnterfaces"><span class="toc-number">1.3.</span> <span class="toc-text">Vpn lnterfaces</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#listeners"><span class="toc-number">1.4.</span> <span class="toc-text">listeners</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Script-manager"><span class="toc-number">1.5.</span> <span class="toc-text">Script manager</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attacks"><span class="toc-number">2.</span> <span class="toc-text">Attacks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Packages"><span class="toc-number">2.1.</span> <span class="toc-text">Packages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-Drive-by"><span class="toc-number">2.2.</span> <span class="toc-text">Web Drive-by</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SpearPhish"><span class="toc-number">2.3.</span> <span class="toc-text">SpearPhish</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#beacon%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">beacon命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Access"><span class="toc-number">4.</span> <span class="toc-text">Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#View"><span class="toc-number">5.</span> <span class="toc-text">View</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E6%AD%A5%E6%98%AF%E7%94%9F%E6%88%90%E6%8A%A5%E5%91%8A"><span class="toc-number">6.</span> <span class="toc-text">最后一步是生成报告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%96%B0%E9%B2%9C%E7%9A%84%E5%A8%81%E8%83%81%E6%8A%A5%E5%91%8A"><span class="toc-number">6.1.</span> <span class="toc-text">生成新鲜的威胁报告</span></a></li></ol></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&text=CobaltStrike学习二"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&is_video=false&description=CobaltStrike学习二"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CobaltStrike学习二&body=Check out this article: https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&title=CobaltStrike学习二"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/09/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%BA%8C/&name=CobaltStrike学习二&description=&lt;p&gt;了解CobaltStrike的功能，深入理解各个功能模块的含义及使用，能够根据具体情况调用不同模块来使用&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
+      </div>
+    
   </div>
 </div>
 
+<!-- Custom -->
+
+
     
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2020 wang
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </nav>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-

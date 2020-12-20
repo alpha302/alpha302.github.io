@@ -1,154 +1,233 @@
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="XML和XXE基础">
-<meta property="og:url" content="https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/index.html">
-<meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="XML简介 XML 被设计用来传输和存储数据。 HTML 被设计用来显示数据。">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-29T02:54:40.000Z">
-<meta property="article:modified_time" content="2019-10-02T06:24:20.221Z">
-<meta property="article:author" content="wang">
-<meta property="article:tag" content="owasp">
-<meta name="twitter:card" content="summary">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>XML和XXE基础</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="够努力才会越幸运">
+  <meta name="author" content="wang">
+  <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
+  <title>XML和XXE基础 - Alpha的小站</title>
 
-    <!-- rss -->
-    
-    
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-<body class="max-width mx-auto px3">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/09/27/hexo%E4%BC%98%E5%8C%96/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&text=XML和XXE基础"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&is_video=false&description=XML和XXE基础"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=XML和XXE基础&body=Check out this article: https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&name=XML和XXE基础&description=&lt;h3 id=&#34;XML简介&#34;&gt;&lt;a href=&#34;#XML简介&#34; class=&#34;headerlink&#34; title=&#34;XML简介&#34;&gt;&lt;/a&gt;XML简介&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;XML 被设计用来传输和存储数据。&lt;/li&gt;
-&lt;li&gt;HTML 被设计用来显示数据。"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">XML简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">XML语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89XML%E9%83%BD%E5%BF%85%E9%A1%BB%E8%A6%81%E6%9C%89%E5%85%B3%E9%97%AD%E6%A0%87%E7%AD%BE%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">所有XML都必须要有关闭标签。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89XML%E7%9A%84%E6%A0%87%E7%AD%BE%E5%AF%B9%E5%A4%A7%E5%B0%8F%E5%86%99%E6%95%8F%E6%84%9F"><span class="toc-number">2.2.</span> <span class="toc-text">所有XML的标签对大小写敏感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XML%E7%9A%84%E5%B1%9E%E6%80%A7%E5%80%BC%E5%BF%85%E9%A1%BB%E5%8A%A0%E5%BC%95%E5%8F%B7"><span class="toc-number">2.3.</span> <span class="toc-text">XML的属性值必须加引号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-XML-%E4%B8%AD%EF%BC%8C-5%E4%B8%AA%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8%E6%9D%A5%E4%BB%A3%E6%9B%BF%E7%AC%A6%E5%8F%B7%EF%BC%9A"><span class="toc-number">2.4.</span> <span class="toc-text">在 XML 中， 5个实体引用来代替符号：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">XML结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DTD%E4%B8%AD%E7%9A%84%E5%AE%9E%E4%BD%93"><span class="toc-number">4.</span> <span class="toc-text">DTD中的实体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%AE%9E%E4%BD%93%E5%A3%B0%E6%98%8E"><span class="toc-number">4.1.</span> <span class="toc-text">内部实体声明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BD%93%E5%A3%B0%E6%98%8E"><span class="toc-number">5.</span> <span class="toc-text">外部实体声明</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        XML和XXE基础
-    </h1>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Alpha的小站</span>
-      </span>
+  
+    
+    
       
-    <div class="postdate">
-        <time datetime="2019-09-29T02:54:40.000Z" itemprop="datePublished">2019-09-29</time>
-    </div>
-
-
-      
-    <span class="article-categories">
-        分类：<a class="category-link" href="/categories/owasp/">owasp</a>
-    </span>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/owasp/" rel="tag">owasp</a>
-    </div>
-
-
-    </div>
-  </header>
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
-  <div class="content" itemprop="articleBody">
-    <h3 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h3><ul>
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alpha302.github.io","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="XML和XXE基础">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-29 10:54" pubdate>
+        2019年9月29日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      798 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">XML和XXE基础</h1>
+            
+            <div class="markdown-body">
+              <h3 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h3><ul>
 <li>XML 被设计用来传输和存储数据。</li>
 <li>HTML 被设计用来显示数据。<a id="more"></a>
 </li>
@@ -217,109 +296,220 @@
 
 <hr>
 
-  </div>
-</article>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/owasp/">owasp</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/owasp/">owasp</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">veil制作免杀payload</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/27/hexo%E4%BC%98%E5%8C%96/">
+                        <span class="hidden-mobile">主题美化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-
+            
+          </article>
+        </div>
+      </div>
     </div>
     
-      <div id="footer-post-container">
-  <div id="footer-post">
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">XML简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">XML语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89XML%E9%83%BD%E5%BF%85%E9%A1%BB%E8%A6%81%E6%9C%89%E5%85%B3%E9%97%AD%E6%A0%87%E7%AD%BE%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">所有XML都必须要有关闭标签。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E6%9C%89XML%E7%9A%84%E6%A0%87%E7%AD%BE%E5%AF%B9%E5%A4%A7%E5%B0%8F%E5%86%99%E6%95%8F%E6%84%9F"><span class="toc-number">2.2.</span> <span class="toc-text">所有XML的标签对大小写敏感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XML%E7%9A%84%E5%B1%9E%E6%80%A7%E5%80%BC%E5%BF%85%E9%A1%BB%E5%8A%A0%E5%BC%95%E5%8F%B7"><span class="toc-number">2.3.</span> <span class="toc-text">XML的属性值必须加引号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-XML-%E4%B8%AD%EF%BC%8C-5%E4%B8%AA%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8%E6%9D%A5%E4%BB%A3%E6%9B%BF%E7%AC%A6%E5%8F%B7%EF%BC%9A"><span class="toc-number">2.4.</span> <span class="toc-text">在 XML 中， 5个实体引用来代替符号：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">XML结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DTD%E4%B8%AD%E7%9A%84%E5%AE%9E%E4%BD%93"><span class="toc-number">4.</span> <span class="toc-text">DTD中的实体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%AE%9E%E4%BD%93%E5%A3%B0%E6%98%8E"><span class="toc-number">4.1.</span> <span class="toc-text">内部实体声明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BD%93%E5%A3%B0%E6%98%8E"><span class="toc-number">5.</span> <span class="toc-text">外部实体声明</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&text=XML和XXE基础"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&is_video=false&description=XML和XXE基础"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=XML和XXE基础&body=Check out this article: https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&title=XML和XXE基础"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/&name=XML和XXE基础&description=&lt;h3 id=&#34;XML简介&#34;&gt;&lt;a href=&#34;#XML简介&#34; class=&#34;headerlink&#34; title=&#34;XML简介&#34;&gt;&lt;/a&gt;XML简介&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;XML 被设计用来传输和存储数据。&lt;/li&gt;
-&lt;li&gt;HTML 被设计用来显示数据。"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
+      </div>
+    
   </div>
 </div>
 
+<!-- Custom -->
+
+
     
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2020 wang
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </nav>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-

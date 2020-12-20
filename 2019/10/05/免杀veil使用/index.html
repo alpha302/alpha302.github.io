@@ -1,160 +1,233 @@
+
+
 <!DOCTYPE html>
-<html lang=zh>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简介:Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="veil制作免杀payload">
-<meta property="og:url" content="https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/index.html">
-<meta property="og:site_name" content="Alpha的小站">
-<meta property="og:description" content="简介:Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-52-01%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png">
-<meta property="article:published_time" content="2019-10-05T03:24:03.000Z">
-<meta property="article:modified_time" content="2019-10-25T02:48:42.600Z">
-<meta property="article:author" content="wang">
-<meta property="article:tag" content="免杀，payload">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>veil制作免杀payload</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="够努力才会越幸运">
+  <meta name="author" content="wang">
+  <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
+  <title>veil制作免杀payload - Alpha的小站</title>
 
-    <!-- rss -->
-    
-    
-<meta name="generator" content="Hexo 5.1.1"></head>
-
-<body class="max-width mx-auto px3">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/10/07/CobaltStrike%E5%AE%89%E8%A3%85/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&text=veil制作免杀payload"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&is_video=false&description=veil制作免杀payload"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=veil制作免杀payload&body=Check out this article: https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&name=veil制作免杀payload&description=&lt;p&gt;简介:&lt;br&gt;Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">kali安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8veil"><span class="toc-number">3.1.</span> <span class="toc-text">启动veil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9go%E8%AF%AD%E8%A8%80stager"><span class="toc-number">3.2.</span> <span class="toc-text">选择go语言stager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90payload"><span class="toc-number">3.3.</span> <span class="toc-text">生成payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        veil制作免杀payload
-    </h1>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Alpha的小站</span>
-      </span>
+  
+    
+    
       
-    <div class="postdate">
-        <time datetime="2019-10-05T03:24:03.000Z" itemprop="datePublished">2019-10-05</time>
-    </div>
-
-
-      
-    <span class="article-categories">
-        分类：<a class="category-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a>
-    </span>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E5%85%8D%E6%9D%80%EF%BC%8Cpayload/" rel="tag">免杀，payload</a>
-    </div>
-
-
-    </div>
-  </header>
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
   
 
-  <div class="content" itemprop="articleBody">
-    <p>简介:<br>Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。</p>
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"alpha302.github.io","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="veil制作免杀payload">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-10-05 11:24" pubdate>
+        2019年10月5日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      974 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">veil制作免杀payload</h1>
+            
+            <div class="markdown-body">
+              <p>简介:<br>Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。</p>
 <a id="more"></a>
 
 <hr>
@@ -164,131 +237,244 @@
 <li>如果使用的是Pyinstaller，payload会转成能够直接使用的可执行程序</li>
 <li>如果使用的是Py2Exe，把payload.py和两个相关的文件放到windows系统上。执行批处理脚本将payload转换成可执行程序。</li>
 </ul>
-<h2 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h2><h3 id="启动veil"><a href="#启动veil" class="headerlink" title="启动veil"></a>启动veil</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png" alt="avatar"></p>
+<h2 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h2><h3 id="启动veil"><a href="#启动veil" class="headerlink" title="启动veil"></a>启动veil</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/test2.png" srcset="/img/loading.gif" alt="avatar"></p>
 <p>有两个免杀的工具，Evasion和Ordnance。</p>
 <ul>
 <li>Ordnance可生成在Veil-Evasion中使用的shellcode</li>
 <li>Evasion是用做文件免杀<br>我们选择Evasion<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Veil&gt;: use <span class="number">1</span>                   <span class="comment">#选择Evasion功能</span></span><br><span class="line">Veil/Evasion&gt;: list            <span class="comment">#查看payload列表</span></span><br></pre></td></tr></table></figure>
-<img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png" alt="avatar"><br>查看payload<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[*] Available Payloads:</span><br><span class="line"></span><br><span class="line">	1)	autoit&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	2)	auxiliary&#x2F;coldwar_wrapper.py</span><br><span class="line">	3)	auxiliary&#x2F;macro_converter.py</span><br><span class="line">	4)	auxiliary&#x2F;pyinstaller_wrapper.py</span><br><span class="line"></span><br><span class="line">	5)	c&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	6)	c&#x2F;meterpreter&#x2F;rev_http_service.py</span><br><span class="line">	7)	c&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	8)	c&#x2F;meterpreter&#x2F;rev_tcp_service.py</span><br><span class="line"></span><br><span class="line">	9)	cs&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	10)	cs&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	11)	cs&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	12)	cs&#x2F;shellcode_inject&#x2F;base64.py</span><br><span class="line">	13)	cs&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	14)	go&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	15)	go&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	16)	go&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	17)	go&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	18)	lua&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	19)	perl&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	20)	powershell&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	21)	powershell&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	22)	powershell&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	23)	powershell&#x2F;shellcode_inject&#x2F;psexec_virtual.py</span><br><span class="line">	24)	powershell&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	25)	python&#x2F;meterpreter&#x2F;bind_tcp.py</span><br><span class="line">	26)	python&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	27)	python&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	28)	python&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	29)	python&#x2F;shellcode_inject&#x2F;aes_encrypt.py</span><br><span class="line">	30)	python&#x2F;shellcode_inject&#x2F;arc_encrypt.py</span><br><span class="line">	31)	python&#x2F;shellcode_inject&#x2F;base64_substitution.py</span><br><span class="line">	32)	python&#x2F;shellcode_inject&#x2F;des_encrypt.py</span><br><span class="line">	33)	python&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line">	34)	python&#x2F;shellcode_inject&#x2F;letter_substitution.py</span><br><span class="line">	35)	python&#x2F;shellcode_inject&#x2F;pidinject.py</span><br><span class="line">	36)	python&#x2F;shellcode_inject&#x2F;stallion.py</span><br><span class="line"></span><br><span class="line">	37)	ruby&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	38)	ruby&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	39)	ruby&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	40)	ruby&#x2F;shellcode_inject&#x2F;base64.py</span><br><span class="line">	41)	ruby&#x2F;shellcode_inject&#x2F;flat.py</span><br></pre></td></tr></table></figure>
+<img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/veil2.png" srcset="/img/loading.gif" alt="avatar"><br>查看payload<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[*] Available Payloads:</span><br><span class="line"></span><br><span class="line">	1)	autoit&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	2)	auxiliary&#x2F;coldwar_wrapper.py</span><br><span class="line">	3)	auxiliary&#x2F;macro_converter.py</span><br><span class="line">	4)	auxiliary&#x2F;pyinstaller_wrapper.py</span><br><span class="line"></span><br><span class="line">	5)	c&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	6)	c&#x2F;meterpreter&#x2F;rev_http_service.py</span><br><span class="line">	7)	c&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	8)	c&#x2F;meterpreter&#x2F;rev_tcp_service.py</span><br><span class="line"></span><br><span class="line">	9)	cs&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	10)	cs&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	11)	cs&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	12)	cs&#x2F;shellcode_inject&#x2F;base64.py</span><br><span class="line">	13)	cs&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	14)	go&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	15)	go&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	16)	go&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	17)	go&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	18)	lua&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	19)	perl&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line"></span><br><span class="line">	20)	powershell&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	21)	powershell&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	22)	powershell&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	23)	powershell&#x2F;shellcode_inject&#x2F;psexec_virtual.py</span><br><span class="line">	24)	powershell&#x2F;shellcode_inject&#x2F;virtual.py</span><br><span class="line"></span><br><span class="line">	25)	python&#x2F;meterpreter&#x2F;bind_tcp.py</span><br><span class="line">	26)	python&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	27)	python&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	28)	python&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	29)	python&#x2F;shellcode_inject&#x2F;aes_encrypt.py</span><br><span class="line">	30)	python&#x2F;shellcode_inject&#x2F;arc_encrypt.py</span><br><span class="line">	31)	python&#x2F;shellcode_inject&#x2F;base64_substitution.py</span><br><span class="line">	32)	python&#x2F;shellcode_inject&#x2F;des_encrypt.py</span><br><span class="line">	33)	python&#x2F;shellcode_inject&#x2F;flat.py</span><br><span class="line">	34)	python&#x2F;shellcode_inject&#x2F;letter_substitution.py</span><br><span class="line">	35)	python&#x2F;shellcode_inject&#x2F;pidinject.py</span><br><span class="line">	36)	python&#x2F;shellcode_inject&#x2F;stallion.py</span><br><span class="line"></span><br><span class="line">	37)	ruby&#x2F;meterpreter&#x2F;rev_http.py</span><br><span class="line">	38)	ruby&#x2F;meterpreter&#x2F;rev_https.py</span><br><span class="line">	39)	ruby&#x2F;meterpreter&#x2F;rev_tcp.py</span><br><span class="line">	40)	ruby&#x2F;shellcode_inject&#x2F;base64.py</span><br><span class="line">	41)	ruby&#x2F;shellcode_inject&#x2F;flat.py</span><br></pre></td></tr></table></figure>
 推荐使用以go和ruby语言encode的编码方式。像python这类的与用户有较高的交互就容易被查杀。</li>
 </ul>
 <h3 id="选择go语言stager"><a href="#选择go语言stager" class="headerlink" title="选择go语言stager"></a>选择go语言stager</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Veil/Evasion&gt;: use <span class="number">17</span></span><br></pre></td></tr></table></figure>
 <p>生成一个包含并执行CSpayload的go语言代码，和该代码编译成的可执行文件</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Required Options:</span><br><span class="line">Name            	Value   	Description</span><br><span class="line">----            	-----   	-----------</span><br><span class="line">BADMACS         	FALSE   	<span class="comment">#查看运行环境的MAC地址(反调试)</span></span><br><span class="line">CLICKTRACK      	X       	<span class="comment">#点击次数才会执行</span></span><br><span class="line">COMPILE_TO_EXE  	Y       	<span class="comment">#编译成exe文件</span></span><br><span class="line">CURSORCHECK     	FALSE   	<span class="comment">#设置硬盘容量(反沙盒)</span></span><br><span class="line">DISKSIZE        	X       	<span class="comment"># 设置只有磁盘大小满足时执行                           </span></span><br><span class="line">HOSTNAME        	X       	<span class="comment">#只有计算机名为hostname的值时才执行</span></span><br><span class="line">INJECT_METHOD   	Virtual 	<span class="comment">#Virtual or Heap</span></span><br><span class="line">MINPROCS        	X       	<span class="comment">#设置只有环境进程数满足时执行</span></span><br><span class="line">PROCCHECK       	FALSE   	<span class="comment">#只有运行环境的进程中没有虚拟机进程时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">PROCESSORS      	X       	<span class="comment">#指定核心数的机器中才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">RAMCHECK        	FALSE   	<span class="comment">#只在运行环境的内存为3G以上时才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">SLEEP           	X       	<span class="comment">#休眠10秒 以检测是否运行过程中被加速（反沙箱)</span></span><br><span class="line">USERNAME        	X       	<span class="comment">#只有在当前用户名正确的机器中才执行payload</span></span><br><span class="line">USERPROMPT      	FALSE   	<span class="comment">#受害者计算机只有加入Comp域中时，才会执行payload（指定目标环境 反沙箱的方式）</span></span><br><span class="line">UTCCHECK        	Y   	 <span class="comment">#只在运行环境的系统使用UTC时间时，才会执行payload</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[go/shellcode_inject/virtual&gt;&gt;]: generate </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-45-55%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" alt="avatar"></p>
 <p>此时需要我们选择shellcode，我用cs生成</p>
 <ul>
 <li>Attacks -&gt; Packages -&gt; Payload Generator</li>
 <li>Windows/beacon_http/reverse/http</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-52-01%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
-<p>复制cs的payload到veil中<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2007-52-01%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" alt="avatar"></p>
+<p>复制cs的payload到veil中<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-07-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" alt="avatar"></p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">&gt;</span>] <span class="function">Please enter the <span class="keyword">base</span> name <span class="keyword">for</span> output <span class="title">files</span> (<span class="params"><span class="keyword">default</span> <span class="keyword">is</span> payload</span>): test</span></span><br><span class="line"><span class="function">生成木马</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="avatar"><br>test.exe即为注入内存的免杀木马。</p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png" alt="avatar"><br>卑微，只能过360，腾讯哈勃没过得去。正常用没问题<br>大家尽量不要用virustotal去做测试，这个会总合杀毒软件并将样本提交给杀毒软件。也就是说只能用一次。</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/2019-10-08%2008-10-20%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" alt="avatar"><br>test.exe即为注入内存的免杀木马。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/D1%5BX7%7E4%5B%258E%256L%7D%5DEQO%40SLX.png" srcset="/img/loading.gif" alt="avatar"><br>卑微，只能过360，腾讯哈勃没过得去。正常用没问题<br>大家尽量不要用virustotal去做测试，这个会总合杀毒软件并将样本提交给杀毒软件。也就是说只能用一次。</p>
 
-  </div>
-</article>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%85%8D%E6%9D%80%EF%BC%8Cpayload/">免杀，payload</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/07/CobaltStrike%E5%AE%89%E8%A3%85/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CobaltStrike安装</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/29/XML%E5%92%8CXXE%E5%9F%BA%E7%A1%80/">
+                        <span class="hidden-mobile">XML和XXE基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-
-
+            
+          </article>
+        </div>
+      </div>
     </div>
     
-      <div id="footer-post-container">
-  <div id="footer-post">
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kali%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">kali安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8veil"><span class="toc-number">3.1.</span> <span class="toc-text">启动veil</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9go%E8%AF%AD%E8%A8%80stager"><span class="toc-number">3.2.</span> <span class="toc-text">选择go语言stager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90payload"><span class="toc-number">3.3.</span> <span class="toc-text">生成payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&text=veil制作免杀payload"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&is_video=false&description=veil制作免杀payload"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=veil制作免杀payload&body=Check out this article: https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&title=veil制作免杀payload"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://alpha302.github.io/2019/10/05/%E5%85%8D%E6%9D%80veil%E4%BD%BF%E7%94%A8/&name=veil制作免杀payload&description=&lt;p&gt;简介:&lt;br&gt;Veil3.0可以将任意脚本或一段shellcode转换成Windows可执行文件，从而逃避了常见防病毒产品的检测，来自python3的Veil一直在更新。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
+      </div>
+    
   </div>
 </div>
 
+<!-- Custom -->
+
+
     
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2020 wang
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives">Writing</a></li>
-         
-          <li><a href="/music">Music</a></li>
-         
-          <li><a href="/about">关于</a></li>
-        
-      </ul>
-    </nav>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- styles -->
-
-<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-
-
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-
-<!-- jquery -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-
