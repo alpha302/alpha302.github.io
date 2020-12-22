@@ -17,25 +17,9 @@
   <meta name="description" content="够努力才会越幸运">
   <meta name="author" content="wang">
   <meta name="keywords" content="Linux,CTF,漏洞复现,环境搭建,工具使用">
-  <title>bash脚本入门————变量 - Alpha的小站</title>
+  <title>归档 - Alpha的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -63,7 +47,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -162,54 +146,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="bash脚本入门————变量">
+            <span class="h2" id="subtitle" title="归档">
               
             </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2019-12-17 10:06" pubdate>
-        2019年12月17日 上午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      242 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      2
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
 
             
           </div>
@@ -222,117 +161,40 @@
 
   <main>
     
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 26 篇文章</p>
+  <hr>
+  
+  
+    
       
+      <p class="h5">2020</p>
+    
+    <a href="/2020/11/21/Solr%E6%9C%AA%E6%8E%88%E6%9D%83%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Solr未授权文件上传</span>
+      <time style="float: right;">11-21</time>
+    </a>
+  
+</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">bash脚本入门————变量</h1>
-            
-            <div class="markdown-body">
-              <p>这是一个简易的bash入门<br>适合小白白学习</p>
-<a id="more"></a>
 
-<hr>
-<h2 id="bash模式"><a href="#bash模式" class="headerlink" title="bash模式"></a>bash模式</h2><p>bash是shell解释器程序</p>
-<blockquote>
-<p>bash shell 有交互和非交互两种模式</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs py">形如下面的东西，说明shell处于交互模式下：<br><br>user@host:~$                             <span class="hljs-comment">#shell直接与用户交互</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs py">在非交互模式下，shell从文件或者管道中读取命令并执行。<br><br>sh /path/to/script.sh<br>bash /path/to/script.sh<br>source /path/to/script.sh<br></code></pre></td></tr></table></figure>
-<h2 id="常见bash命令"><a href="#常见bash命令" class="headerlink" title="常见bash命令"></a>常见bash命令</h2><h3 id="1-变量赋值"><a href="#1-变量赋值" class="headerlink" title="1. 变量赋值"></a>1. 变量赋值</h3><ul>
-<li>单引号 ‘’</li>
-<li>双引号 “”</li>
-<li>花括号 {}</li>
-<li>圆括号 ()</li>
-<li>反引号 ``</li>
-</ul>
-<p>简单的变量赋值：</p>
-<p>bash和C类似，同样用赋值符号”=”来表示赋值，比如</p>
-<p>$var=world<br>复杂的变量赋值：<br>单引号赋值：单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的</p>
-<p>子shell和当前shell<br>子shell 生成一个新的shell<br>当前shell shell在当前执行。 source/ .  </p>
-<hr>
-<p>//查看脚本语法是否有错误：</p>
-<p>//bash -n modify_suffix.sh</p>
-<p>//跟踪执行</p>
-<p>//sh -x modify_suffix.sh aaa</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/bash/">bash</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/bash/">bash</a>
-                    
-                  </div>
-                
+
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2020/01/09/Xss%E5%B0%8F%E6%B8%B8%E6%88%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">xss挑战 1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2019/12/13/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%93%E5%8D%A1%E7%AD%BE%E5%88%B0/">
-                        <span class="hidden-mobile">树莓派打卡签到</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -439,15 +301,9 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 

